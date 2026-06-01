@@ -2,7 +2,7 @@
 
 A localhost-only **React** replica of the Adyen marketing homepage. Everyone in the
 workshop starts from this exact version, then practices improving it with the three
-Cognition tools: **Devin CLI**, **Devin Cloud**, and **Windsurf**.
+Cognition tools: **Devin CLI**, **Devin Cloud**, and **Devin Desktop**.
 
 > This is an original, Adyen-styled demo built for an internal workshop. Copy and
 > assets are placeholders inspired by Adyen's layout — not the real site content.
@@ -70,4 +70,4 @@ adyen_clone/
 
 Open **[IMPROVEMENTS.md](./IMPROVEMENTS.md)** for the 6 curated improvements, split
 across Devin CLI (quick fixes), Devin Cloud (framework upgrade + test coverage), and
-Windsurf (creative frontend work).
+Devin Desktop (creative frontend work).

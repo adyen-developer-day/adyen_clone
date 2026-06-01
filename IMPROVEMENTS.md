@@ -1,4 +1,4 @@
-# Workshop Improvements — 6 Tasks Across Devin CLI, Devin Cloud & Windsurf
+# Workshop Improvements — 6 Tasks Across Devin CLI, Devin Cloud & Devin Desktop
 
 Everyone starts from the same version of this Adyen clone. Below are **6 curated
 improvements**, intentionally seeded into the codebase, split by which Cognition tool
@@ -11,8 +11,8 @@ prompt* you can paste into the tool.
 | 2 | Devin CLI    | Fix typo + dead `#` links              | Quick fix (content/links)     |
 | 3 | Devin Cloud  | Upgrade React 18 → 19 (+ Vite)         | Framework version upgrade     |
 | 4 | Devin Cloud  | Add component test coverage            | Repetitive test authoring     |
-| 5 | Windsurf     | Dark mode toggle                       | Creative frontend             |
-| 6 | Windsurf     | Animate / redesign the hero            | Creative frontend             |
+| 5 | Devin Desktop     | Dark mode toggle                       | Creative frontend             |
+| 6 | Devin Desktop     | Animate / redesign the hero            | Creative frontend             |
 
 ---
 
@@ -86,7 +86,7 @@ the full test suite/build as the success signal.
 
 ---
 
-## Windsurf — creative, visual, in-IDE work
+## Devin Desktop — creative, visual, in-IDE work
 
 These need design judgment and live visual feedback — best done in the IDE where you can
 see the page update as you tweak.
@@ -98,7 +98,7 @@ see the page update as you tweak.
 - **Task:** Add a light/dark theme switch. Introduce a `[data-theme="dark"]` variable
   set, persist the choice (e.g. `localStorage`), and respect
   `prefers-color-scheme`.
-- **Why Windsurf:** Iterative visual design — pick colors, check contrast, tune the
+- **Why Devin Desktop:** Iterative visual design — pick colors, check contrast, tune the
   toggle — with the page live in front of you.
 
 ### 6. Animate / redesign the hero into an interactive demo
@@ -107,7 +107,7 @@ see the page update as you tweak.
 - **Task:** Make the hero feel alive — scroll/entrance animations, a more dynamic
   "payment card" visual, maybe an interactive mini checkout or animated counter. Keep it
   on-brand (green `#0abf53`).
-- **Why Windsurf:** Open-ended, creative, and highly visual — the IDE's live preview and
+- **Why Devin Desktop:** Open-ended, creative, and highly visual — the IDE's live preview and
   fast feedback loop are ideal for design iteration.
 
 ---

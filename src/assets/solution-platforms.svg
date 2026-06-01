@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
-  <rect width="400" height="240" fill="#eef0ff"/>
-  <circle cx="200" cy="140" r="50" fill="#4a5cff" opacity="0.25"/>
-  <rect x="120" y="90" width="60" height="60" rx="10" fill="#4a5cff"/>
-  <rect x="220" y="120" width="60" height="60" rx="10" fill="#0b3d2e"/>
-  <text x="200" y="40" font-family="Arial" font-size="20" font-weight="700" fill="#0b3d2e" text-anchor="middle">Platforms</text>
-</svg>

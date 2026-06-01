@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
-  <rect width="400" height="240" fill="#e7f8ee"/>
-  <rect x="60" y="80" width="280" height="120" rx="10" fill="#0abf53" opacity="0.18"/>
-  <rect x="90" y="110" width="100" height="60" rx="8" fill="#0abf53"/>
-  <circle cx="300" cy="140" r="34" fill="#0b3d2e"/>
-  <text x="200" y="40" font-family="Arial" font-size="20" font-weight="700" fill="#0b3d2e" text-anchor="middle">Retail</text>
-</svg>

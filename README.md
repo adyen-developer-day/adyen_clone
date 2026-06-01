@@ -4,8 +4,9 @@ A localhost-only **React** replica of the Adyen marketing homepage. Everyone in 
 workshop starts from this exact version, then practices improving it with the three
 Cognition tools: **Devin CLI**, **Devin Cloud**, and **Devin Desktop**.
 
-> This is an original, Adyen-styled demo built for an internal workshop. Copy and
-> assets are placeholders inspired by Adyen's layout — not the real site content.
+> This is a localhost-only demo built for an internal workshop. It mirrors the layout
+> and copy of the live adyen.com homepage and uses Adyen's font/wordmark purely for
+> visual fidelity — it is not affiliated with or endorsed by Adyen.
 
 ## Stack
 
@@ -14,7 +15,7 @@ Cognition tools: **Devin CLI**, **Devin Cloud**, and **Devin Desktop**.
 | Framework      | React 18 (`^18.2.0`)            | Intentionally pinned (upgrade target)   |
 | Build / dev    | Vite 4 (`^4.5.0`)               | Intentionally pinned (upgrade target)   |
 | Tests          | Vitest + React Testing Library  | Only 1 starter test on purpose          |
-| Styling        | Plain CSS (`src/index.css`)     | Brand green `#0abf53`, no dark mode yet  |
+| Styling        | Plain CSS (`src/index.css`)     | Brand green `#00d16a`, no dark mode yet  |
 
 ## Prerequisites
 
@@ -50,17 +51,21 @@ adyen_clone/
 │   ├── main.jsx
 │   ├── App.jsx
 │   ├── index.css
-│   ├── data/content.js          # nav, features, stats, solutions, footer copy
-│   ├── assets/                  # logo + solution SVGs
+│   ├── data/content.js          # nav, value props, stats, industries, footer copy
+│   ├── assets/                  # Adyen variable fonts + industry SVGs
 │   ├── test/setup.js
 │   └── components/
+│       ├── AdyenLogo.jsx
+│       ├── TopBanner.jsx
 │       ├── Navbar.jsx
 │       ├── Hero.jsx
-│       ├── LogoCloud.jsx
-│       ├── Features.jsx
+│       ├── SectionStatement.jsx
+│       ├── ValueProps.jsx
+│       ├── MoneyMovement.jsx
+│       ├── Industries.jsx
 │       ├── Stats.jsx
-│       ├── Solutions.jsx
-│       ├── CTA.jsx
+│       ├── CaseStudies.jsx
+│       ├── FinalCTA.jsx
 │       ├── Footer.jsx
 │       └── Navbar.test.jsx       # the only test (by design)
 └── IMPROVEMENTS.md               # the 6 workshop tasks

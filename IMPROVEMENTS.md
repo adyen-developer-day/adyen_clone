@@ -21,30 +21,31 @@ prompt* you can paste into the tool.
 These are small, unambiguous, single-pass edits. Ideal for the terminal: describe it,
 let it patch, verify with `npm test` / a glance in the browser.
 
-### 1. Add missing `alt` text to the solution images (accessibility)
+### 1. Add missing `alt` text to the industry images (accessibility)
 
-- **Where:** `src/components/Solutions.jsx`
-- **Problem:** The solution cards render `<img ... />` with **no `alt` attribute**, so
-  screen readers announce nothing. The logo in `Navbar.jsx` has `alt="Adyen"` — these
-  should match that standard.
+- **Where:** `src/components/Industries.jsx`
+- **Problem:** The industry cards render `<img ... />` with **no `alt` attribute**, so
+  screen readers announce nothing. The wordmark in `AdyenLogo.jsx` has an
+  `aria-label="Adyen"` — these should match that standard.
 - **Why CLI:** Tiny, deterministic, easy to verify. Perfect "give it one instruction"
   task.
 - **Starter prompt:**
-  > In `src/components/Solutions.jsx`, add a descriptive `alt` attribute to each
-  > solution card image using the item's title (e.g. "Retail solution illustration").
+  > In `src/components/Industries.jsx`, add a descriptive `alt` attribute to each
+  > industry card image using the item's title (e.g. "Retail industry illustration").
 
 ### 2. Fix the typo and the dead-end links
 
-- **Where:** `src/components/Solutions.jsx` (typo), `src/components/CTA.jsx` &
-  `src/components/Footer.jsx` (links), `src/data/content.js` (nav anchors).
+- **Where:** `src/components/Industries.jsx` (typo), `src/components/Footer.jsx`
+  (links), `src/data/content.js` (nav anchors).
 - **Problems:**
-  - Typo: `"...how you do buisness..."` should be `"business"`.
-  - Several links point to `href="#"` (CTA "See pricing", footer links) — they jump to
-    the top instead of a real section.
-  - Nav links `#banking` and `#capital` have **no matching section id** on the page.
+  - Typo: `"...the way you do buisness."` should be `"business"`.
+  - Several links point to `href="#"` (footer links) — they jump to the top instead of
+    a real section.
+  - The navbar `Pricing` link points to `#pricing`, which has **no matching section id**
+    on the page.
 - **Why CLI:** Mechanical search-and-fix across a few files; quick to review in a diff.
 - **Starter prompt:**
-  > Fix the typo "buisness" → "business" in `Solutions.jsx`. Replace placeholder
+  > Fix the typo "buisness" → "business" in `Industries.jsx`. Replace placeholder
   > `href="#"` links with sensible in-page anchors, and make sure every navbar link in
   > `src/data/content.js` points to a section id that actually exists.
 
@@ -73,9 +74,10 @@ the full test suite/build as the success signal.
 ### 4. Add real test coverage across the components
 
 - **Where:** `src/components/*` (only `Navbar.test.jsx` exists today).
-- **Task:** Add focused tests for `Hero`, `Features`, `Stats`, `Solutions`, `CTA`, and
-  `Footer` — render checks, content from `src/data/content.js`, and an accessibility
-  assertion (e.g. every image has `alt`, which also validates task #1).
+- **Task:** Add focused tests for `Hero`, `ValueProps`, `MoneyMovement`, `Industries`,
+  `Stats`, `CaseStudies`, `FinalCTA`, and `Footer` — render checks, content from
+  `src/data/content.js`, and an accessibility assertion (e.g. every image has `alt`,
+  which also validates task #1).
 - **Why Cloud:** Repetitive, pattern-following work across many files — exactly the kind
   of broad, mechanical task to delegate and let run to completion with a coverage gate.
 - **Starter prompt:**
@@ -106,7 +108,7 @@ see the page update as you tweak.
 - **Where:** `src/components/Hero.jsx`, `src/index.css` (`.hero*` rules).
 - **Task:** Make the hero feel alive — scroll/entrance animations, a more dynamic
   "payment card" visual, maybe an interactive mini checkout or animated counter. Keep it
-  on-brand (green `#0abf53`).
+  on-brand (green `#00d16a`).
 - **Why Devin Desktop:** Open-ended, creative, and highly visual — the IDE's live preview and
   fast feedback loop are ideal for design iteration.
 

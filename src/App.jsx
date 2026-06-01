@@ -1,23 +1,27 @@
+import TopBanner from "./components/TopBanner.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
-import LogoCloud from "./components/LogoCloud.jsx";
-import Features from "./components/Features.jsx";
+import ValueProps from "./components/ValueProps.jsx";
+import MoneyMovement from "./components/MoneyMovement.jsx";
+import Industries from "./components/Industries.jsx";
 import Stats from "./components/Stats.jsx";
-import Solutions from "./components/Solutions.jsx";
-import CTA from "./components/CTA.jsx";
+import CaseStudies from "./components/CaseStudies.jsx";
+import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
     <div className="page">
+      <TopBanner />
       <Navbar />
       <main>
         <Hero />
-        <LogoCloud />
-        <Features />
+        <ValueProps />
+        <MoneyMovement />
+        <Industries />
         <Stats />
-        <Solutions />
-        <CTA />
+        <CaseStudies />
+        <FinalCTA />
       </main>
       <Footer />
     </div>

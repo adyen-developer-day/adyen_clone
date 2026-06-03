@@ -37,6 +37,45 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic theme tokens (overridden in [data-theme="dark"]) */
+  --page-bg: #fff;
+  --surface: #fff;
+  --surface-2: var(--sand);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-faint: rgba(0, 18, 34, 0.42);
+  --border: var(--line);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --btn-primary-bg: var(--ink);
+  --btn-primary-bg-hover: #0a2237;
+  --btn-primary-fg: #fff;
+  --card-shadow: rgba(0, 18, 34, 0.08);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --sand: #0d1e2e;
+  --sand-300: #1b2b3a;
+  --green-strong: #2fe28c;
+  --muted: #9aa6b1;
+
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+
+  --page-bg: #00080f;
+  --surface: #0a1826;
+  --surface-2: #0d1e2e;
+  --text: #eef2f5;
+  --text-muted: #9aa6b1;
+  --text-faint: rgba(238, 242, 245, 0.45);
+  --border: rgba(255, 255, 255, 0.12);
+  --navbar-bg: rgba(4, 14, 24, 0.82);
+  --btn-primary-bg: #15364f;
+  --btn-primary-bg-hover: #1d4567;
+  --btn-primary-fg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
 }
 
 * {
@@ -50,15 +89,15 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--page-bg);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
 }
 
 a {
@@ -104,12 +143,12 @@ svg {
 }
 .btn--primary,
 .btn--dark {
-  background: var(--ink);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
 }
 .btn--primary:hover,
 .btn--dark:hover {
-  background: #0a2237;
+  background: var(--btn-primary-bg-hover);
 }
 .btn--ghost-light {
   background: transparent;
@@ -172,9 +211,9 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +226,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,8 +239,34 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
+}
+
+/* ------------------------------------------------------------- Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.16s ease, background 0.16s ease,
+    border-color 0.16s ease, color 0.16s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--green);
+  color: var(--green-strong);
+}
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
 }
 .navbar__links a:hover {
   opacity: 1;
@@ -248,10 +313,10 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--surface);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-2);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +329,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--text-faint);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,15 +345,15 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .valueprop__index {
   font-family: var(--mono);
@@ -305,7 +370,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +444,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,8 +458,8 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
@@ -403,7 +468,7 @@ svg {
 }
 .industry:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .industry__title {
   margin: 0 0 12px;
@@ -413,7 +478,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +489,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -689,5 +754,29 @@ a:focus-visible,
   * {
     transition: none !important;
     scroll-behavior: auto;
+  }
+}
+
+/* ----------------------------------------- Theme switch circular reveal */
+/* The new theme is revealed via a clip-path circle expanding from the
+   toggle button (animated in ThemeToggle.jsx). Disable the default
+   cross-fade so only the circular wipe is visible. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 0;
+}
+::view-transition-new(root) {
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
   }
 }

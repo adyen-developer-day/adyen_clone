@@ -16,10 +16,20 @@ export const navLinks = [
 ];
 
 export const hero = {
+  eyebrow: "One platform. Every payment.",
   title: "Fintech you can bank on",
   subtitle:
     "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
   cta: "Talk to our team",
+  secondaryCta: "Explore the platform",
+  // Drives the animated checkout visual in the hero.
+  payments: [
+    { method: "Card", amount: "€128.00" },
+    { method: "Apple Pay", amount: "€64.50" },
+    { method: "iDEAL", amount: "€212.00" },
+    { method: "PayPal", amount: "€99.99" },
+    { method: "Klarna", amount: "€340.00" },
+  ],
 };
 
 export const valueProps = {

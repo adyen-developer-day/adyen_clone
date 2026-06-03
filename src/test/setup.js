@@ -15,6 +15,24 @@ if (!window.matchMedia) {
   }));
 }
 
+// jsdom does not implement IntersectionObserver; stub one that immediately
+// reports the observed element as intersecting.
+if (!global.IntersectionObserver) {
+  global.IntersectionObserver = class {
+    constructor(callback) {
+      this.callback = callback;
+    }
+    observe(element) {
+      this.callback([{ isIntersecting: true, target: element }]);
+    }
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return [];
+    }
+  };
+}
+
 // Keep theme state from leaking between tests.
 afterEach(() => {
   localStorage.clear();

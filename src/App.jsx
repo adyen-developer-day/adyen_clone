@@ -8,22 +8,25 @@ import Stats from "./components/Stats.jsx";
 import CaseStudies from "./components/CaseStudies.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
 
 export default function App() {
   return (
-    <div className="page">
-      <TopBanner />
-      <Navbar />
-      <main>
-        <Hero />
-        <ValueProps />
-        <MoneyMovement />
-        <Industries />
-        <Stats />
-        <CaseStudies />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="page">
+        <TopBanner />
+        <Navbar />
+        <main>
+          <Hero />
+          <ValueProps />
+          <MoneyMovement />
+          <Industries />
+          <Stats />
+          <CaseStudies />
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }

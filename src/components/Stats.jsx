@@ -1,6 +1,7 @@
-import { stats } from "../data/content.js";
+import { useContent } from "../hooks/useContent.js";
 
 export default function Stats() {
+  const { stats } = useContent();
   return (
     <section className="section stats" id="about">
       <div className="container">

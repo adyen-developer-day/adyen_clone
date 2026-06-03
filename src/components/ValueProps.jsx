@@ -1,7 +1,8 @@
-import { valueProps } from "../data/content.js";
 import SectionStatement from "./SectionStatement.jsx";
+import { useContent } from "../hooks/useContent.js";
 
 export default function ValueProps() {
+  const { valueProps } = useContent();
   return (
     <section className="section section--sand valueprops" id="products">
       <div className="container">

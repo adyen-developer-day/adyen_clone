@@ -1,7 +1,11 @@
-import { navLinks } from "../data/content.js";
+import { useContext } from "react";
 import AdyenLogo from "./AdyenLogo.jsx";
+import { ThemeContext } from "../context/ThemeContext.jsx";
+import { useContent } from "../hooks/useContent.js";
 
 export default function Navbar() {
+  const { navLinks } = useContent();
+  const { starWarsMode, toggleStarWars } = useContext(ThemeContext);
   return (
     <header className="navbar">
       <div className="navbar__inner">
@@ -32,6 +36,16 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
+          <button
+            type="button"
+            className="starwars-toggle"
+            onClick={toggleStarWars}
+            aria-pressed={starWarsMode}
+            aria-label="Toggle Star Wars mode"
+            title="Toggle Star Wars mode"
+          >
+            SW
+          </button>
           <a className="btn btn--primary" href="#contact">
             Contact sales
           </a>

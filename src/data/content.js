@@ -162,33 +162,33 @@ export const finalCta = {
 
 export const footerColumns = [
   {
-    heading: "About",
+    heading: "The Lore",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      "Press & media tea",
+      "Join the squad",
+      "Investor vibes",
+      "Collab with us",
+      "Slide into our DMs",
     ],
   },
   {
-    heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    heading: "The Goods",
+    links: ["Payments that slap", "Risk gatekeeping", "Auth no cap", "Card issuing fr", "Pricing (lowkey fair)"],
   },
   {
-    heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    heading: "Brain Fuel",
+    links: ["Docs (bussin)", "Academy arc", "Knowledge drops", "Newsletter vibes"],
   },
   {
-    heading: "Platform",
+    heading: "The Stack",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      "Infra that eats",
+      "Licenses (we legit)",
+      "Legal stuff",
+      "T&Cs (read em fr)",
+      "Status check bestie",
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = ["Privacy vibes", "Cookies (not the snack)", "Disclaimer fr"];

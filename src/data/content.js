@@ -192,3 +192,24 @@ export const footerColumns = [
 ];
 
 export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+
+export const lootCrates = {
+  title: "LOOT CRATES",
+  subtitle: "Try your luck. Every crate contains a discount code for Adyen products.",
+  crates: [
+    { name: "Standard Crate", rarity: "common", price: "FREE", color: "#6c7782" },
+    { name: "Premium Crate", rarity: "rare", price: "$2.49", color: "#4b69ff" },
+    { name: "Elite Crate", rarity: "legendary", price: "$4.99", color: "#de9b35" },
+  ],
+  rewards: [
+    { code: "ADYEN-SAVE-5", discount: "5% off", rarity: "common", description: "Payment Processing", color: "#6c7782" },
+    { code: "ADYEN-SAVE-10", discount: "10% off", rarity: "common", description: "Platform Fees", color: "#6c7782" },
+    { code: "ADYEN-SAVE-15", discount: "15% off", rarity: "uncommon", description: "Terminal Hardware", color: "#4b69ff" },
+    { code: "ADYEN-SAVE-20", discount: "20% off", rarity: "rare", description: "Enterprise Plan", color: "#8847ff" },
+    { code: "ADYEN-SAVE-25", discount: "25% off", rarity: "rare", description: "Payment Processing", color: "#8847ff" },
+    { code: "ADYEN-SAVE-30", discount: "30% off", rarity: "epic", description: "All Products", color: "#d32ce6" },
+    { code: "ADYEN-SAVE-40", discount: "40% off", rarity: "epic", description: "Enterprise Plan", color: "#d32ce6" },
+    { code: "ADYEN-SAVE-50", discount: "50% off", rarity: "legendary", description: "Everything for 1 Year", color: "#de9b35" },
+    { code: "ADYEN-FREE-MONTH", discount: "1 Month Free", rarity: "legendary", description: "Any Product", color: "#de9b35" },
+  ],
+};

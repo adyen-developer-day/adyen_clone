@@ -1,6 +1,7 @@
 import TopBanner from "./components/TopBanner.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
+import LootCrates from "./components/LootCrates.jsx";
 import ValueProps from "./components/ValueProps.jsx";
 import MoneyMovement from "./components/MoneyMovement.jsx";
 import Industries from "./components/Industries.jsx";
@@ -16,6 +17,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <LootCrates />
         <ValueProps />
         <MoneyMovement />
         <Industries />

@@ -655,10 +655,295 @@ a:focus-visible,
   outline-color: #fff;
 }
 
+/* ------------------------------------------------------------ CardJourney */
+/* Apple-style scroll-driven scene: a tall section keeps an inner stage
+   pinned (sticky) while scroll progress animates a card into a terminal. */
+.cardjourney {
+  position: relative;
+  height: 320vh;
+  background: var(--green);
+  color: var(--ink);
+}
+.cardjourney__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.cardjourney__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+}
+.cardjourney__eyebrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-green-muted);
+}
+.cardjourney__title {
+  margin: 14px 0 36px;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  font-weight: 600;
+  max-width: 18ch;
+}
+.cardjourney__lead {
+  color: var(--ink);
+}
+.cardjourney__trail {
+  color: var(--on-green-muted);
+}
+.cardjourney__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 38ch;
+}
+.cardjourney__step {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  opacity: 0.4;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.cardjourney__step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cardjourney__step-index {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.cardjourney__step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cardjourney__step-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.cardjourney__step-body {
+  font-size: 0.95rem;
+  color: var(--on-green-muted);
+}
+
+.cardjourney__stage {
+  position: relative;
+  height: min(70vh, 560px);
+  perspective: 1100px;
+}
+.cardjourney__scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardjourney__card {
+  position: absolute;
+  z-index: 3;
+  width: clamp(220px, 26vw, 300px);
+  aspect-ratio: 1.585;
+  border-radius: 18px;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0d1e2e 0%, #001222 60%, #002a44 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform;
+}
+.cardjourney__card-chip {
+  width: 42px;
+  height: 32px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #f6d365, #d4af37);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.cardjourney__card-wave {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 0 6px transparent, -8px 0 0 -2px rgba(255, 255, 255, 0.35);
+}
+.cardjourney__card-number {
+  font-family: var(--mono);
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  letter-spacing: 0.12em;
+}
+.cardjourney__card-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--green);
+}
+
+.cardjourney__terminal {
+  position: absolute;
+  bottom: 4%;
+  z-index: 1;
+  width: clamp(190px, 22vw, 250px);
+  border-radius: 26px;
+  padding: 16px 16px 22px;
+  background: linear-gradient(180deg, #0d1e2e, #001222);
+  border: 1px solid rgba(0, 18, 34, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 18, 34, 0.35);
+}
+.cardjourney__terminal-screen {
+  position: relative;
+  border-radius: 12px;
+  background: #f6f5f4;
+  color: var(--ink);
+  padding: 18px 16px;
+  min-height: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.cardjourney__terminal-amount {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.45rem;
+}
+.cardjourney__terminal-status {
+  font-size: 0.85rem;
+  color: var(--muted);
+  position: absolute;
+  bottom: 14px;
+}
+.cardjourney__terminal-approved {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--green-strong);
+  position: absolute;
+  bottom: 12px;
+}
+.cardjourney__terminal-keys {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.cardjourney__terminal-key {
+  height: 18px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.cardjourney__terminal-pulse {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 209, 106, 0.45) 0%,
+    rgba(0, 209, 106, 0) 70%
+  );
+  pointer-events: none;
+}
+.cardjourney__shadow {
+  position: absolute;
+  bottom: 2%;
+  z-index: 0;
+  width: 220px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 18, 34, 0.5) 0%,
+    rgba(0, 18, 34, 0) 70%
+  );
+}
+.cardjourney__scrollhint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-green-muted);
+  transition: opacity 0.3s ease;
+}
+.cardjourney__scrollhint span {
+  position: relative;
+}
+.cardjourney__scrollhint span::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 22px;
+  margin: 8px auto 0;
+  background: var(--on-green-muted);
+  animation: cardjourney-hint 1.6s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes cardjourney-hint {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
 /* ----------------------------------------------------------- Responsive */
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
+  }
+  .cardjourney {
+    height: 280vh;
+  }
+  .cardjourney__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .cardjourney__copy {
+    order: 1;
+  }
+  .cardjourney__stage {
+    order: 2;
+    height: min(48vh, 420px);
+  }
+  .cardjourney__title {
+    margin-bottom: 24px;
   }
   .footer__top {
     grid-template-columns: 1fr;

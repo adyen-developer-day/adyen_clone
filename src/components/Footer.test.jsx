@@ -9,7 +9,7 @@ describe("Footer", () => {
     footerColumns.forEach((col) => {
       expect(screen.getByText(col.heading)).toBeInTheDocument();
       col.links.forEach((link) => {
-        expect(screen.getByText(link)).toBeInTheDocument();
+        expect(screen.getByText(link.label)).toBeInTheDocument();
       });
     });
   });
@@ -17,7 +17,7 @@ describe("Footer", () => {
   it("renders every legal link", () => {
     render(<Footer />);
     footerLegal.forEach((item) => {
-      expect(screen.getByText(item)).toBeInTheDocument();
+      expect(screen.getByText(item.label)).toBeInTheDocument();
     });
   });
 

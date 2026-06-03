@@ -39,6 +39,123 @@
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* ----------------------------------------------- Star Wars theme overrides */
+[data-theme="starwars"] {
+  --green: #FFE81F;          /* Star Wars yellow */
+  --green-strong: #FFC107;
+  --ink: #0a0a0a;            /* deep space black */
+  --ink-2: #1a1a2e;          /* dark space blue */
+  --sand: #1a1a2e;
+  --sand-300: #16213e;
+  --grey: #0f0f23;
+  --muted: #7f8fa6;
+  --muted-2: #a4b0be;
+  --line: rgba(255, 232, 31, 0.15);
+  --line-strong: rgba(255, 232, 31, 0.25);
+  --on-dark-muted: rgba(255, 255, 255, 0.62);
+  --on-green-muted: rgba(0, 0, 0, 0.66);
+}
+
+[data-theme="starwars"] body {
+  color: #fff;
+}
+
+/* Space-black surfaces + starfield */
+[data-theme="starwars"] .page {
+  background: #0a0a0a;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 200px 200px, 150px 150px;
+  background-position: 0 0, 75px 75px;
+  cursor: crosshair;
+}
+[data-theme="starwars"] .section {
+  background: #0a0a0a;
+}
+[data-theme="starwars"] .navbar {
+  background: rgba(10, 10, 10, 0.86);
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="starwars"] .navbar__brand,
+[data-theme="starwars"] .navbar__links a {
+  color: #fff;
+}
+
+/* Hero: deep space gradient with a distant star glow */
+[data-theme="starwars"] .hero {
+  background:
+    radial-gradient(circle at 70% 25%, rgba(255, 232, 31, 0.12), transparent 45%),
+    linear-gradient(160deg, #050816 0%, #0a0a0a 55%, #1a1a2e 100%);
+  color: #fff;
+}
+[data-theme="starwars"] .hero__title {
+  color: #FFE81F;
+}
+[data-theme="starwars"] .hero__subtitle {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Two-tone statement headings */
+[data-theme="starwars"] .statement__lead,
+[data-theme="starwars"] .cases__title,
+[data-theme="starwars"] .valueprop__title,
+[data-theme="starwars"] .industry__title {
+  color: #fff;
+}
+[data-theme="starwars"] .statement__trail {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Dark cards */
+[data-theme="starwars"] .valueprop,
+[data-theme="starwars"] .industry {
+  background: #1a1a2e;
+  border-color: var(--line);
+}
+[data-theme="starwars"] .valueprop:hover,
+[data-theme="starwars"] .industry:hover {
+  box-shadow: 0 20px 50px rgba(255, 232, 31, 0.12);
+}
+[data-theme="starwars"] .storycard {
+  background: #16213e;
+}
+
+/* Buttons: dark variants keep contrast against yellow accents */
+[data-theme="starwars"] .btn--primary,
+[data-theme="starwars"] .btn--dark {
+  background: #FFE81F;
+  color: #0a0a0a;
+}
+[data-theme="starwars"] .btn--primary:hover,
+[data-theme="starwars"] .btn--dark:hover {
+  background: #FFC107;
+}
+
+/* Star Wars mode toggle */
+.starwars-toggle {
+  background: transparent;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: inherit;
+}
+.starwars-toggle:hover {
+  border-color: #FFE81F;
+  color: #FFE81F;
+}
+[data-theme="starwars"] .starwars-toggle {
+  background: #FFE81F;
+  color: #0a0a0a;
+  border-color: #FFE81F;
+  box-shadow: 0 0 12px rgba(255, 232, 31, 0.6);
+}
+
 * {
   box-sizing: border-box;
 }

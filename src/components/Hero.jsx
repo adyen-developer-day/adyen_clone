@@ -1,6 +1,7 @@
-import { hero } from "../data/content.js";
+import { useContent } from "../hooks/useContent.js";
 
 export default function Hero() {
+  const { hero } = useContent();
   return (
     <section className="hero" id="top">
       <div className="hero__inner">

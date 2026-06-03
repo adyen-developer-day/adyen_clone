@@ -1,6 +1,7 @@
-import { announcement } from "../data/content.js";
+import { useContent } from "../hooks/useContent.js";
 
 export default function TopBanner() {
+  const { announcement } = useContent();
   return (
     <a className="topbanner" href={announcement.href}>
       <span className="topbanner__tag">{announcement.tag}</span>

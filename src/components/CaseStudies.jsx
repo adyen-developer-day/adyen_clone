@@ -1,6 +1,7 @@
-import { caseStudies } from "../data/content.js";
+import { useContent } from "../hooks/useContent.js";
 
 export default function CaseStudies() {
+  const { caseStudies } = useContent();
   return (
     <section className="section section--sand cases" id="resources">
       <div className="container">

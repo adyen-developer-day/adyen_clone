@@ -1,7 +1,8 @@
-import { footerColumns, footerLegal } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
+import { useContent } from "../hooks/useContent.js";
 
 export default function Footer() {
+  const { footerColumns, footerLegal } = useContent();
   return (
     <footer className="footer">
       <div className="container">

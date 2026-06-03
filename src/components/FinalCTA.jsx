@@ -1,6 +1,7 @@
-import { finalCta } from "../data/content.js";
+import { useContent } from "../hooks/useContent.js";
 
 export default function FinalCTA() {
+  const { finalCta } = useContent();
   return (
     <section className="finalcta" id="contact">
       <div className="container finalcta__inner">

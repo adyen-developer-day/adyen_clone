@@ -1,5 +1,5 @@
-import { industries } from "../data/content.js";
 import SectionStatement from "./SectionStatement.jsx";
+import { useContent } from "../hooks/useContent.js";
 
 // Industry illustrations are bundled as static assets and resolved by key.
 const icons = import.meta.glob("../assets/industries/*.svg", {
@@ -11,6 +11,7 @@ const icons = import.meta.glob("../assets/industries/*.svg", {
 const iconFor = (key) => icons[`../assets/industries/${key}.svg`];
 
 export default function Industries() {
+  const { industries } = useContent();
   return (
     <section className="section section--sand industries" id="industries">
       <div className="container">

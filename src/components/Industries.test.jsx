@@ -25,7 +25,7 @@ describe("Industries", () => {
   it("renders the note text", () => {
     render(<Industries />);
     expect(
-      screen.getByText(/Built for the way you do buisness/i),
+      screen.getByText(/Built for the way you do business/i),
     ).toBeInTheDocument();
   });
 

@@ -1,31 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { hero } from "../data/content.js";
 
-function useReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduced(mq.matches);
-    const handler = (e) => setReduced(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-  return reduced;
-}
-
-function useAnimatedCounter(target, duration = 2200) {
+function useAnimatedProgress(target, duration = 2400) {
   const [value, setValue] = useState(0);
   const ref = useRef(null);
   const started = useRef(false);
-  const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (reduced) {
+    const el = ref.current;
+    if (!el) return;
+
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) {
       setValue(target);
       return;
     }
-    const el = ref.current;
-    if (!el) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -33,10 +22,10 @@ function useAnimatedCounter(target, duration = 2200) {
           started.current = true;
           const start = performance.now();
           const step = (now) => {
-            const t = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - t, 3);
-            setValue(+(eased * target).toFixed(1));
-            if (t < 1) requestAnimationFrame(step);
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setValue(Math.round(eased * target));
+            if (progress < 1) requestAnimationFrame(step);
           };
           requestAnimationFrame(step);
         }
@@ -45,66 +34,127 @@ function useAnimatedCounter(target, duration = 2200) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [target, duration, reduced]);
+  }, [target, duration]);
 
   return { value, ref };
 }
 
+function Win95TitleBar({ title, onClose }) {
+  return (
+    <div className="win95-titlebar">
+      <span className="win95-titlebar__text">{title}</span>
+      <div className="win95-titlebar__controls">
+        <button className="win95-titlebar__btn" aria-label="Minimize" tabIndex={-1}>_</button>
+        <button className="win95-titlebar__btn" aria-label="Maximize" tabIndex={-1}>□</button>
+        <button className="win95-titlebar__btn win95-titlebar__btn--close" onClick={onClose} aria-label="Close" tabIndex={-1}>×</button>
+      </div>
+    </div>
+  );
+}
+
+function PaymentDialog({ progress, progressRef }) {
+  return (
+    <div className="win95-dialog hero__pop-in hero__pop-in--delay-2" aria-hidden="true">
+      <Win95TitleBar title="💰 Payment Processing" />
+      <div className="win95-dialog__body">
+        <p className="win95-dialog__text">
+          Processing €1.4T in transactions...
+        </p>
+        <div className="win95-progress" ref={progressRef}>
+          <div
+            className="win95-progress__fill"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="win95-dialog__status">
+          {progress < 100 ? `${progress}% complete` : "✓ Transaction approved!"}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Hero() {
-  const counter = useAnimatedCounter(1.4, 2400);
-  const reduced = useReducedMotion();
+  const progress = useAnimatedProgress(100, 2800);
+  const [dialogDismissed, setDialogDismissed] = useState(false);
 
   return (
-    <section className="hero" id="top">
-      <div className="hero__inner hero__layout">
-        <div className="hero__copy">
-          <h1 className={`hero__title ${reduced ? "" : "hero__fade-up"}`}>
-            {hero.title}
-          </h1>
-          <p
-            className={`hero__subtitle ${reduced ? "" : "hero__fade-up hero__fade-up--d1"}`}
-          >
-            {hero.subtitle}
-          </p>
-          <div
-            className={`hero__cta ${reduced ? "" : "hero__fade-up hero__fade-up--d2"}`}
-          >
-            <a className="btn btn--dark btn--lg" href="#contact">
-              {hero.cta}
-            </a>
+    <section className="hero hero--win95" id="top">
+      <div className="hero__desktop-icons" aria-hidden="true">
+        <div className="hero__icon">
+          <div className="hero__icon-img">💳</div>
+          <span className="hero__icon-label">Payments.exe</span>
+        </div>
+        <div className="hero__icon">
+          <div className="hero__icon-img">📊</div>
+          <span className="hero__icon-label">Analytics</span>
+        </div>
+        <div className="hero__icon">
+          <div className="hero__icon-img">🌐</div>
+          <span className="hero__icon-label">Internet</span>
+        </div>
+      </div>
+
+      <div className="hero__inner">
+        <div className="win95-window hero__pop-in">
+          <Win95TitleBar title="Adyen.exe — The Financial Technology Platform" />
+          <div className="win95-window__menu">
+            <span className="win95-window__menu-item"><u>F</u>ile</span>
+            <span className="win95-window__menu-item"><u>E</u>dit</span>
+            <span className="win95-window__menu-item"><u>V</u>iew</span>
+            <span className="win95-window__menu-item"><u>H</u>elp</span>
+          </div>
+          <div className="win95-window__body">
+            <h1 className="hero__title">{hero.title}</h1>
+            <p className="hero__subtitle">{hero.subtitle}</p>
+            <div className="hero__cta">
+              <a className="win95-btn win95-btn--primary" href="#contact">
+                {hero.cta}
+              </a>
+              <span className="hero__cta-hint">
+                Press Enter or click OK to continue
+              </span>
+            </div>
           </div>
         </div>
 
-        <div
-          className={`hero__visual ${reduced ? "" : "hero__fade-up hero__fade-up--d3"}`}
-          aria-hidden="true"
-        >
-          <div className="hero__card">
-            <div className="hero__card-chip" />
-            <div className="hero__card-logo">adyen</div>
-            <div className="hero__card-number">
-              •••• •••• •••• 4242
-            </div>
-            <div className="hero__card-footer">
-              <span>VALID THRU 12/30</span>
-              <span>ENTERPRISE</span>
-            </div>
-          </div>
+        {!dialogDismissed && (
+          <PaymentDialog
+            progress={progress.value}
+            progressRef={progress.ref}
+          />
+        )}
 
-          <div className="hero__stats" ref={counter.ref}>
-            <div className="hero__stat">
-              <span className="hero__stat-value">€{counter.value}T</span>
-              <span className="hero__stat-label">Processed annually</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-value">99.999%</span>
-              <span className="hero__stat-label">Platform uptime</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-value">150+</span>
-              <span className="hero__stat-label">Currencies</span>
-            </div>
+        <div className="win95-alert hero__pop-in hero__pop-in--delay-3" aria-hidden="true">
+          <Win95TitleBar title="Adyen" />
+          <div className="win95-alert__body">
+            <span className="win95-alert__icon">ℹ️</span>
+            <p className="win95-alert__text">
+              99.999% uptime since 1995*<br />
+              <small>*OK, since 2006. But we&apos;re that reliable.</small>
+            </p>
           </div>
+          <div className="win95-alert__actions">
+            <button className="win95-btn" tabIndex={-1}>OK</button>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero__taskbar" aria-hidden="true">
+        <button className="hero__start-btn" tabIndex={-1}>
+          <span className="hero__start-logo">⊞</span> Start
+        </button>
+        <div className="hero__taskbar-items">
+          <div className="hero__taskbar-item hero__taskbar-item--active">
+            Adyen.exe
+          </div>
+          <div className="hero__taskbar-item">Payment Processing</div>
+        </div>
+        <div className="hero__taskbar-clock">
+          {new Date().toLocaleTimeString([], {
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
         </div>
       </div>
     </section>

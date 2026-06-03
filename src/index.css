@@ -219,8 +219,33 @@ svg {
 .hero {
   background: var(--green);
   color: var(--ink);
-  padding: clamp(72px, 12vw, 120px) 0 clamp(60px, 10vw, 100px);
+  padding: clamp(72px, 12vw, 150px) 0 clamp(80px, 13vw, 170px);
   overflow: hidden;
+}
+.hero--win95 {
+  background: #008080;
+  color: #000;
+  padding: 0;
+  padding-top: 24px;
+  padding-bottom: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.hero--win95 .hero__inner {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 20px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 .hero__inner {
   width: 100%;
@@ -228,15 +253,314 @@ svg {
   margin: 0 auto;
   padding: 0 28px;
 }
-.hero__layout {
+
+/* --- Win95 shared primitives --- */
+.win95-titlebar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: clamp(40px, 6vw, 80px);
+  justify-content: space-between;
+  padding: 3px 4px 3px 6px;
+  font-size: 13px;
+  font-weight: 700;
+  user-select: none;
 }
-.hero__copy {
-  flex: 1 1 55%;
+.win95-titlebar__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.win95-titlebar__controls {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.win95-titlebar__btn {
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  cursor: pointer;
+  font-family: inherit;
+  color: #000;
+}
+.win95-titlebar__btn:active {
+  border-style: inset;
+}
+
+/* --- Win95 buttons --- */
+.win95-btn {
+  display: inline-block;
+  padding: 6px 24px;
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #c0c0c0;
+  color: #000;
+  border: 2px outset #fff;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  min-width: 80px;
+}
+.win95-btn:hover {
+  background: #d4d0c8;
+}
+.win95-btn:active {
+  border-style: inset;
+}
+.win95-btn--primary {
+  background: #c0c0c0;
+  position: relative;
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+  font-weight: 700;
+}
+
+/* --- Win95 window --- */
+.win95-window {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  flex: 1 1 420px;
+  max-width: 620px;
+}
+.win95-window__menu {
+  display: flex;
+  gap: 16px;
+  padding: 2px 6px;
+  font-size: 13px;
+  border-bottom: 1px solid #808080;
+  background: #c0c0c0;
+}
+.win95-window__menu-item {
+  cursor: default;
+}
+.win95-window__body {
+  padding: 20px 24px;
+  background: #fff;
+  margin: 0 3px 3px;
+  border: 2px inset #808080;
+}
+.hero--win95 .hero__title {
+  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #000080;
+  max-width: none;
+}
+.hero--win95 .hero__subtitle {
+  margin: 0 0 24px;
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: 1.5;
+  color: #000;
+  max-width: none;
+  font-weight: 400;
+}
+.hero--win95 .hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero__cta-hint {
+  font-size: 12px;
+  color: #808080;
+  font-style: italic;
+}
+
+/* --- Payment dialog --- */
+.win95-dialog {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  width: 320px;
+  flex-shrink: 0;
+}
+.win95-dialog__body {
+  padding: 16px 20px;
+}
+.win95-dialog__text {
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+.win95-dialog__status {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #000080;
+  font-weight: 600;
+}
+
+/* --- Win95 progress bar --- */
+.win95-progress {
+  height: 20px;
+  background: #fff;
+  border: 2px inset #808080;
+  padding: 2px;
+}
+.win95-progress__fill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    #000080 0px,
+    #000080 8px,
+    transparent 8px,
+    transparent 10px
+  );
+  transition: width 0.1s linear;
+}
+
+/* --- Win95 alert box --- */
+.win95-alert {
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  width: 300px;
+  position: absolute;
+  bottom: 80px;
+  right: 40px;
+}
+.win95-alert__body {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px 10px;
+  align-items: flex-start;
+}
+.win95-alert__icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.win95-alert__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.win95-alert__text small {
+  color: #808080;
+}
+.win95-alert__actions {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 14px;
+}
+
+/* --- Desktop icons --- */
+.hero__desktop-icons {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 0;
+}
+.hero__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+}
+.hero__icon-img {
+  font-size: 32px;
+  filter: drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.4));
+}
+.hero__icon-label {
+  font-size: 11px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  text-align: center;
+}
+
+/* --- Taskbar --- */
+.hero__taskbar {
+  background: #c0c0c0;
+  border-top: 2px outset #fff;
+  display: flex;
+  align-items: center;
+  padding: 3px 4px;
+  gap: 4px;
+  font-size: 13px;
+  z-index: 2;
+  width: 100%;
+}
+.hero__start-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: inherit;
+  color: #000;
+}
+.hero__start-btn:active {
+  border-style: inset;
+}
+.hero__start-logo {
+  font-size: 16px;
+}
+.hero__taskbar-items {
+  display: flex;
+  gap: 2px;
+  flex: 1;
   min-width: 0;
 }
+.hero__taskbar-item {
+  padding: 3px 12px;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 160px;
+}
+.hero__taskbar-item--active {
+  border-style: inset;
+  background: #fff;
+  font-weight: 700;
+}
+.hero__taskbar-clock {
+  padding: 3px 10px;
+  border: 2px inset #808080;
+  font-size: 12px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Pop-in animation (windows opening) --- */
+@keyframes win95PopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero__pop-in {
+  animation: win95PopIn 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.hero__pop-in--delay-1 { animation-delay: 0.15s; }
+.hero__pop-in--delay-2 { animation-delay: 0.5s; }
+.hero__pop-in--delay-3 { animation-delay: 0.9s; }
+
 .hero__title {
   margin: 0 0 28px;
   font-size: clamp(3rem, 9vw, 7rem);
@@ -252,120 +576,6 @@ svg {
   color: var(--on-green-muted);
   max-width: 36ch;
   font-weight: 500;
-}
-
-/* --- Hero visual (card + stats) --- */
-.hero__visual {
-  flex: 1 1 40%;
-  min-width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.hero__card {
-  background: var(--ink);
-  color: #fff;
-  border-radius: 16px;
-  padding: 28px 24px 22px;
-  aspect-ratio: 1.6;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 20px 40px rgba(0, 18, 34, 0.18);
-  position: relative;
-  overflow: hidden;
-}
-.hero__card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 70% 20%,
-    rgba(0, 209, 106, 0.15) 0%,
-    transparent 60%
-  );
-  pointer-events: none;
-}
-.hero__card-chip {
-  width: 40px;
-  height: 28px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #e6c461 0%, #d4a844 100%);
-}
-.hero__card-logo {
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 22px;
-  letter-spacing: 0.06em;
-  color: var(--green);
-}
-.hero__card-number {
-  font-family: var(--mono);
-  font-size: 18px;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.7);
-}
-.hero__card-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
-}
-
-/* --- Stats row --- */
-.hero__stats {
-  display: flex;
-  gap: 12px;
-}
-.hero__stat {
-  flex: 1;
-  background: rgba(0, 18, 34, 0.08);
-  border-radius: 12px;
-  padding: 14px 12px;
-  text-align: center;
-}
-.hero__stat-value {
-  display: block;
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-  color: var(--ink);
-  letter-spacing: -0.02em;
-}
-.hero__stat-label {
-  display: block;
-  font-size: 11px;
-  color: var(--on-green-muted);
-  margin-top: 2px;
-  letter-spacing: 0.01em;
-}
-
-/* --- Fade-up entrance animation --- */
-@keyframes heroFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.hero__fade-up {
-  animation: heroFadeUp 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-.hero__fade-up--d1 { animation-delay: 0.12s; }
-.hero__fade-up--d2 { animation-delay: 0.24s; }
-.hero__fade-up--d3 { animation-delay: 0.38s; }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__fade-up {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
 }
 
 /* ---------------------------------------------------------------- Sections */
@@ -780,14 +990,6 @@ a:focus-visible,
 
 /* ----------------------------------------------------------- Responsive */
 @media (max-width: 900px) {
-  .hero__layout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .hero__visual {
-    width: 100%;
-    max-width: 420px;
-  }
   .navbar__links {
     display: none;
   }
@@ -797,6 +999,22 @@ a:focus-visible,
   }
   .footer__cols {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .hero--win95 .hero__inner {
+    flex-direction: column;
+  }
+  .win95-window {
+    max-width: 100%;
+  }
+  .win95-dialog {
+    width: 100%;
+  }
+  .win95-alert {
+    position: static;
+    width: 100%;
+  }
+  .hero__desktop-icons {
+    display: none;
   }
 }
 
@@ -818,7 +1036,12 @@ a:focus-visible,
 
 @media (prefers-reduced-motion: reduce) {
   * {
+    animation: none !important;
     transition: none !important;
     scroll-behavior: auto;
+  }
+  .hero__pop-in {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

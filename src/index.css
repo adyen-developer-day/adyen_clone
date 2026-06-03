@@ -219,7 +219,7 @@ svg {
 .hero {
   background: var(--green);
   color: var(--ink);
-  padding: clamp(72px, 12vw, 150px) 0 clamp(80px, 13vw, 170px);
+  padding: clamp(72px, 12vw, 120px) 0 clamp(80px, 13vw, 140px);
   overflow: hidden;
 }
 .hero__inner {
@@ -228,9 +228,16 @@ svg {
   margin: 0 auto;
   padding: 0 28px;
 }
+.hero__inner--split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+.hero__text { min-width: 0; }
 .hero__title {
   margin: 0 0 28px;
-  font-size: clamp(3rem, 9vw, 7rem);
+  font-size: clamp(3rem, 9vw, 5.5rem);
   line-height: 0.98;
   letter-spacing: -0.035em;
   font-weight: 700;
@@ -243,6 +250,151 @@ svg {
   color: var(--on-green-muted);
   max-width: 36ch;
   font-weight: 500;
+}
+
+/* ----- Hero visual (right column) ----- */
+.hero__visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* --- Animated payment card --- */
+.hero-card {
+  position: relative;
+  width: 340px;
+  height: 210px;
+  background: var(--ink);
+  border-radius: 18px;
+  color: #fff;
+  padding: 28px 26px;
+  font-family: var(--mono);
+  box-shadow: 0 30px 60px rgba(0, 18, 34, 0.25);
+  animation: heroCardFloat 4s ease-in-out infinite;
+  overflow: hidden;
+}
+.hero-card__chip {
+  width: 40px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #d4af37 0%, #f5d76e 50%, #d4af37 100%);
+  margin-bottom: 24px;
+}
+.hero-card__number {
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  margin-bottom: 22px;
+  opacity: 0.85;
+}
+.hero-card__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.65;
+}
+.hero-card__contactless {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  opacity: 0.5;
+}
+.hero-card__pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0;
+  animation: heroPulse 3s ease-out infinite 1.5s;
+}
+
+/* --- Counter --- */
+.hero-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.hero-counter__value {
+  font-family: var(--mono);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+.hero-counter__label {
+  font-size: 14px;
+  color: var(--on-green-muted);
+  font-weight: 500;
+}
+
+/* ----- Entrance animations ----- */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroCardFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes heroPulse {
+  0%   { transform: scale(0.6); opacity: 0.35; }
+  100% { transform: scale(3);   opacity: 0; }
+}
+
+.hero__anim {
+  opacity: 0;
+  animation: heroFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.hero__anim--1 { animation-delay: 0.1s; }
+.hero__anim--2 { animation-delay: 0.25s; }
+.hero__anim--3 { animation-delay: 0.4s; }
+.hero__anim--4 { animation-delay: 0.55s; }
+
+/* ----- Reduced motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__anim {
+    opacity: 1;
+    animation: none;
+  }
+  .hero-card {
+    animation: none;
+  }
+  .hero-card__pulse {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ----- Responsive: stack on narrow screens ----- */
+@media (max-width: 768px) {
+  .hero__inner--split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero__visual {
+    order: -1;
+  }
+  .hero-card {
+    width: 280px;
+    height: 174px;
+    padding: 22px 20px;
+  }
+  .hero-card__chip {
+    width: 34px;
+    height: 24px;
+    margin-bottom: 18px;
+  }
+  .hero-card__number {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
 }
 
 /* ---------------------------------------------------------------- Sections */

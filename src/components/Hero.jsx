@@ -4,7 +4,9 @@ function renderTitle(title, highlight) {
   if (!highlight || !title.includes(highlight)) {
     return title;
   }
-  const [before, after] = title.split(highlight);
+  const idx = title.indexOf(highlight);
+  const before = title.slice(0, idx);
+  const after = title.slice(idx + highlight.length);
   return (
     <>
       {before}

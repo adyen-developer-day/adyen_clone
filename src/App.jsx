@@ -1,29 +1,22 @@
-import TopBanner from "./components/TopBanner.jsx";
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import ValueProps from "./components/ValueProps.jsx";
-import MoneyMovement from "./components/MoneyMovement.jsx";
-import Industries from "./components/Industries.jsx";
-import Stats from "./components/Stats.jsx";
-import CaseStudies from "./components/CaseStudies.jsx";
-import FinalCTA from "./components/FinalCTA.jsx";
-import Footer from "./components/Footer.jsx";
+import { Routes, Route } from "react-router-dom";
+import BottomNav from "./components/BottomNav";
+import MyFlights from "./pages/MyFlights";
+import FlightDetail from "./pages/FlightDetail";
+import Stats from "./pages/Stats";
+import Airport from "./pages/Airport";
+import Settings from "./pages/Settings";
 
 export default function App() {
   return (
-    <div className="page">
-      <TopBanner />
-      <Navbar />
-      <main>
-        <Hero />
-        <ValueProps />
-        <MoneyMovement />
-        <Industries />
-        <Stats />
-        <CaseStudies />
-        <FinalCTA />
-      </main>
-      <Footer />
+    <div className="app-shell">
+      <Routes>
+        <Route path="/" element={<MyFlights />} />
+        <Route path="/flight/:id" element={<FlightDetail />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/airport" element={<Airport />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+      <BottomNav />
     </div>
   );
 }

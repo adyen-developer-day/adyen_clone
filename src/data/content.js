@@ -8,11 +8,11 @@ export const announcement = {
 };
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#contact" },
+  { label: "The Goods", href: "#products" },
+  { label: "Our Fam", href: "#industries" },
+  { label: "The Lore", href: "#about" },
+  { label: "The Tea", href: "#resources" },
+  { label: "The Bag", href: "#contact" },
 ];
 
 export const hero = {

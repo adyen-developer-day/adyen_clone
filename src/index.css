@@ -37,6 +37,44 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic theme tokens (light defaults) */
+  --surface: #fff;
+  --surface-2: var(--sand);
+  --surface-card: #fff;
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-trail: rgba(0, 18, 34, 0.42);
+  --border: var(--line);
+  --card-shadow: rgba(0, 18, 34, 0.08);
+}
+
+/* Dark theme tokens — applied on explicit choice, or by system
+   preference when the user hasn't chosen one. */
+:root[data-theme="dark"] {
+  --surface: #0a1622;
+  --surface-2: #0e1c2b;
+  --surface-card: #11212f;
+  --navbar-bg: rgba(10, 22, 34, 0.86);
+  --text: #eaf0f5;
+  --text-muted: #9aa7b2;
+  --text-trail: rgba(234, 240, 245, 0.45);
+  --border: rgba(255, 255, 255, 0.12);
+  --card-shadow: rgba(0, 0, 0, 0.5);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --surface: #0a1622;
+    --surface-2: #0e1c2b;
+    --surface-card: #11212f;
+    --navbar-bg: rgba(10, 22, 34, 0.86);
+    --text: #eaf0f5;
+    --text-muted: #9aa7b2;
+    --text-trail: rgba(234, 240, 245, 0.45);
+    --border: rgba(255, 255, 255, 0.12);
+    --card-shadow: rgba(0, 0, 0, 0.5);
+  }
 }
 
 * {
@@ -50,15 +88,16 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--surface);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .page {
-  background: #fff;
+  background: var(--surface);
 }
 
 a {
@@ -172,9 +211,10 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +227,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +240,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +253,29 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.navbar__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.16s ease,
+    background 0.16s ease;
+}
+.navbar__theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--text);
+}
+.navbar__theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -227,6 +290,13 @@ svg {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 80px);
+}
+.hero__copy {
+  min-width: 0;
 }
 .hero__title {
   margin: 0 0 28px;
@@ -245,13 +315,166 @@ svg {
   font-weight: 500;
 }
 
+/* Entrance: staggered fade + rise of the hero elements on load. */
+.hero__title,
+.hero__subtitle,
+.hero__cta {
+  animation: heroRise 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.hero__title {
+  animation-delay: 0.05s;
+}
+.hero__subtitle {
+  animation-delay: 0.16s;
+}
+.hero__cta {
+  animation-delay: 0.27s;
+}
+/* The visual fades in only (no transform) so the scroll-parallax transform on
+   .hero__visual isn't overridden by the animation's fill state. */
+.hero__visual {
+  animation: heroFade 0.7s ease both;
+  animation-delay: 0.2s;
+}
+@keyframes heroRise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heroFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------- Hero payment visual */
+.hero__visual {
+  position: relative;
+  min-height: 340px;
+  transform: translateY(var(--hero-parallax, 0));
+  will-change: transform;
+}
+.pay-card {
+  position: absolute;
+  background: var(--surface-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 50px -22px var(--card-shadow),
+    0 6px 14px -8px var(--card-shadow);
+  padding: 18px 20px;
+  animation: cardFloat 7s ease-in-out infinite;
+}
+.pay-card__label {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.pay-card--receipt {
+  top: 8%;
+  left: 0;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 3;
+  animation-delay: -1.5s;
+}
+.pay-card__check {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.pay-card__amount {
+  margin: 2px 0 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.pay-card--credit {
+  top: 34%;
+  right: 0;
+  width: 290px;
+  z-index: 2;
+  background: var(--ink);
+  color: #fff;
+  border-color: transparent;
+}
+.pay-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pay-card__brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.pay-card__chip {
+  width: 34px;
+  height: 24px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, var(--green), var(--green-strong));
+}
+.pay-card__number {
+  margin: 22px 0 14px;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+}
+.pay-card__row--meta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-dark-muted);
+}
+.pay-card--stat {
+  bottom: 4%;
+  left: 12%;
+  width: 200px;
+  z-index: 3;
+  animation-delay: -3.5s;
+}
+.pay-card__stat-value {
+  margin: 0 0 2px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--green-strong);
+}
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--surface);
+  transition: background-color 0.2s ease;
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-2);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +487,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--text-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,15 +503,16 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface-card);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.2s ease, border-color 0.2s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .valueprop__index {
   font-family: var(--mono);
@@ -305,7 +529,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +603,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,17 +617,18 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface-card);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.2s ease, border-color 0.2s ease;
 }
 .industry:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .industry__title {
   margin: 0 0 12px;
@@ -413,7 +638,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +649,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -660,6 +885,13 @@ a:focus-visible,
   .navbar__links {
     display: none;
   }
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+  .hero__visual {
+    min-height: 300px;
+    margin-top: 8px;
+  }
   .footer__top {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -683,11 +915,30 @@ a:focus-visible,
     flex-direction: column;
     align-items: flex-start;
   }
+  .pay-card--receipt {
+    width: 210px;
+  }
+  .pay-card--credit {
+    width: 240px;
+  }
+  .pay-card--stat {
+    left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
     scroll-behavior: auto;
+  }
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta,
+  .hero__visual,
+  .pay-card {
+    animation: none !important;
+  }
+  .hero__visual {
+    transform: none !important;
   }
 }

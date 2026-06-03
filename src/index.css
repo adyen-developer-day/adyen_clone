@@ -40,94 +40,74 @@
   --heading: "Oswald", "Impact", "Arial Narrow", sans-serif;
 }
 
-/* ---------- Dark-mode overrides (set via data-theme on <html>) ---------- */
-[data-theme="dark"] {
-  --ink: #e8eaed;
-  --ink-2: #d0d4d9;
-  --sand: #1a1f26;
-  --sand-300: #252b33;
-  --grey: #181d24;
-  --muted: #9aa4ae;
-  --muted-2: #79838d;
+/* ---------- Theme variants ----------------------------------------------
+   The :root palette above IS the default dark DOOM theme, so data-theme="dark"
+   needs no overrides. data-theme="light" is a warm "lights-on" variant.
+   The hero, top banner, stats, final CTA, footer and navbar intentionally
+   stay dark as accent bands for a high-contrast, editorial look. */
+[data-theme="light"] {
+  --ink: #efe7da;
+  --ink-2: #e6dccb;
+  --sand: #e9e0d2;
+  --sand-300: #ded2c0;
+  --grey: #f3ede2;
+  --muted: #6b5d52;
+  --muted-2: #8a7c6e;
 
-  --line: rgba(255, 255, 255, 0.1);
-  --line-strong: rgba(255, 255, 255, 0.16);
-  --on-dark-muted: rgba(255, 255, 255, 0.62);
-  --on-green-muted: rgba(0, 18, 34, 0.66);
+  --line: rgba(60, 40, 30, 0.14);
+  --line-strong: rgba(60, 40, 30, 0.22);
+  --on-dark-muted: rgba(40, 28, 22, 0.7);
+  --on-green-muted: rgba(255, 235, 215, 0.9);
 
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Dark-mode element overrides for hardcoded colors */
-[data-theme="dark"] body {
-  background: #10141a;
+[data-theme="light"] body {
+  color: #1c1512;
 }
-[data-theme="dark"] .page {
-  background: #10141a;
+[data-theme="light"] .page {
+  background: #efe7da;
 }
-[data-theme="dark"] .navbar {
-  background: rgba(16, 20, 26, 0.86);
-  border-bottom-color: var(--line);
+[data-theme="light"] .section {
+  background: #efe7da;
 }
-[data-theme="dark"] .navbar__brand {
-  color: #fff;
+[data-theme="light"] .statement__lead {
+  color: #1c1512;
 }
-[data-theme="dark"] .navbar__links a {
-  color: #cfd5dc;
+[data-theme="light"] .statement__trail {
+  color: rgba(60, 40, 30, 0.5);
 }
-[data-theme="dark"] .btn--primary,
-[data-theme="dark"] .btn--dark {
-  background: #fff;
-  color: #10141a;
-}
-[data-theme="dark"] .btn--primary:hover,
-[data-theme="dark"] .btn--dark:hover {
-  background: #e0e0e0;
-}
-[data-theme="dark"] .section {
-  background: #10141a;
-}
-[data-theme="dark"] .section--sand {
-  background: var(--sand);
-}
-[data-theme="dark"] .statement__lead {
-  color: #e8eaed;
-}
-[data-theme="dark"] .statement__trail {
-  color: rgba(232, 234, 237, 0.42);
-}
-[data-theme="dark"] .valueprop {
-  background: #181d24;
+[data-theme="light"] .valueprop {
+  background: #fbf7ef;
   border-color: var(--line);
 }
-[data-theme="dark"] .valueprop:hover {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+[data-theme="light"] .valueprop__title {
+  color: #1c1512;
 }
-[data-theme="dark"] .industry {
-  background: #181d24;
+[data-theme="light"] .bigcard {
   border-color: var(--line);
 }
-[data-theme="dark"] .industry:hover {
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+[data-theme="light"] .bigcard--dark {
+  background: #fbf7ef;
+  color: #1c1512;
 }
-[data-theme="dark"] .industry__link {
-  color: #e8eaed;
+[data-theme="light"] .industry {
+  background: #fbf7ef;
+  border-color: var(--line);
 }
-[data-theme="dark"] .stats {
-  background: #0a0e14;
+[data-theme="light"] .industry__title,
+[data-theme="light"] .industry__link {
+  color: #1c1512;
 }
-[data-theme="dark"] .storycard {
-  background: #0a0e14;
+[data-theme="light"] .cases__title {
+  color: #1c1512;
 }
-[data-theme="dark"] .cases__rail::-webkit-scrollbar-thumb {
-  background: #333a44;
+[data-theme="light"] .storycard {
+  background: #fbf7ef;
+  color: #1c1512;
 }
-[data-theme="dark"] .footer {
-  background: #0a0e14;
-}
-[data-theme="dark"] a:focus-visible,
-[data-theme="dark"] .btn:focus-visible {
-  outline-color: #fff;
+[data-theme="light"] .cases__rail::-webkit-scrollbar-thumb {
+  background: rgba(60, 40, 30, 0.3);
 }
 
 /* ---------- Theme toggle button ---------- */
@@ -142,15 +122,13 @@
   border-radius: 50%;
   background: transparent;
   cursor: pointer;
-  color: var(--ink);
-  transition: border-color 0.16s ease, background 0.16s ease;
-}
-[data-theme="dark"] .theme-toggle {
-  color: #e8eaed;
+  color: #ddd0c0;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
 }
 .theme-toggle:hover {
   border-color: var(--green);
-  background: rgba(0, 209, 106, 0.08);
+  background: rgba(196, 16, 16, 0.12);
+  color: #fff;
 }
 .theme-toggle svg {
   width: 18px;

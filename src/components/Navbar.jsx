@@ -32,6 +32,9 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
+          <a className="navbar__dashlink" href="#dashboard">
+            Device dashboard
+          </a>
           <a className="btn btn--primary" href="#contact">
             Contact sales
           </a>

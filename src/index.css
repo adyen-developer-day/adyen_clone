@@ -219,7 +219,7 @@ svg {
 .hero {
   background: var(--green);
   color: var(--ink);
-  padding: clamp(72px, 12vw, 150px) 0 clamp(80px, 13vw, 170px);
+  padding: clamp(72px, 12vw, 130px) 0 clamp(80px, 13vw, 140px);
   overflow: hidden;
 }
 .hero__inner {
@@ -227,14 +227,29 @@ svg {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+.hero__content {
+  flex: 1 1 55%;
+  min-width: 0;
 }
 .hero__title {
   margin: 0 0 28px;
-  font-size: clamp(3rem, 9vw, 7rem);
+  font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 0.98;
   letter-spacing: -0.035em;
   font-weight: 700;
   max-width: 14ch;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero--visible .hero__title {
+  opacity: 1;
+  transform: translateY(0);
 }
 .hero__subtitle {
   margin: 0 0 38px;
@@ -243,6 +258,232 @@ svg {
   color: var(--on-green-muted);
   max-width: 36ch;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+.hero--visible .hero__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero__cta {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.24s;
+}
+.hero--visible .hero__cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- Hero visual (payment card) ---- */
+.hero__visual {
+  flex: 0 1 380px;
+  position: relative;
+  min-height: 320px;
+  opacity: 0;
+  transform: translateY(40px) rotate(2deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+.hero--visible .hero__visual {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+/* Payment card */
+.hero-card {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 18px;
+  padding: 28px 26px 24px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 30px 60px rgba(0, 18, 34, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  animation: hero-float 4s ease-in-out infinite;
+  position: relative;
+  z-index: 2;
+}
+.hero-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+.hero-card__chip {
+  width: 36px;
+  height: 26px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #d4af37, #f5d060, #d4af37);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.hero-card__contactless {
+  opacity: 0.5;
+}
+.hero-card__number {
+  display: flex;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.hero-card__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.hero-card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+.hero-card__value {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Floating badges */
+.hero-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 18, 34, 0.12);
+  white-space: nowrap;
+  z-index: 3;
+}
+.hero-badge--approved {
+  background: #fff;
+  color: var(--ink);
+  bottom: 60px;
+  right: -16px;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+}
+.hero-badge--approved svg {
+  color: var(--green-strong);
+}
+.hero--visible .hero-badge--approved {
+  opacity: 1;
+  transform: translateX(0);
+}
+.hero-badge--amount {
+  background: var(--ink);
+  color: var(--green);
+  font-family: var(--mono);
+  top: 24px;
+  right: -10px;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s;
+}
+.hero--visible .hero-badge--amount {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-badge--settled {
+  background: var(--green-strong);
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  top: 68px;
+  right: 20px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.5s ease 1s, transform 0.5s ease 1s;
+}
+.hero--visible .hero-badge--settled {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Float keyframe for the card */
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---- Responsive: stack on small screens ---- */
+@media (max-width: 768px) {
+  .hero__inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__content {
+    flex-basis: auto;
+  }
+  .hero__title {
+    max-width: none;
+  }
+  .hero__subtitle {
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero__visual {
+    flex-basis: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+  }
+  .hero-card {
+    max-width: 320px;
+  }
+  .hero-badge--approved {
+    right: auto;
+    left: 50%;
+    bottom: -20px;
+    transform: translateX(-50%) translateY(4px);
+  }
+  .hero--visible .hero-badge--approved {
+    transform: translateX(-50%) translateY(0);
+  }
+  .hero-badge--amount {
+    right: auto;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+  }
+  .hero--visible .hero-badge--amount {
+    transform: translateX(-50%) translateY(0);
+  }
+  .hero-badge--settled {
+    display: none;
+  }
+}
+
+/* ---- prefers-reduced-motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__subtitle,
+  .hero__cta,
+  .hero__visual,
+  .hero-badge--approved,
+  .hero-badge--amount,
+  .hero-badge--settled {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-card {
+    animation: none;
+  }
 }
 
 /* ---------------------------------------------------------------- Sections */

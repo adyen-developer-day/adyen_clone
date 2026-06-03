@@ -155,6 +155,7 @@ body {
 
 .page {
   background: #0d0b09;
+  padding-bottom: 96px; /* clearance for the fixed DOOM status bar */
 }
 
 a {
@@ -511,11 +512,57 @@ svg {
 
 /* ---------------------------------------------------------------- Sections */
 .section {
+  position: relative;
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #0d0b09;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 0px,
+      rgba(255, 255, 255, 0.018) 2px,
+      transparent 2px,
+      transparent 86px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.28) 0px,
+      rgba(0, 0, 0, 0.28) 2px,
+      transparent 2px,
+      transparent 120px
+    ),
+    #0d0b09;
 }
 .section--sand {
-  background: var(--sand);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 2px,
+      transparent 2px,
+      transparent 86px
+    ),
+    var(--sand);
+}
+[data-theme="light"] .section,
+[data-theme="light"] .section--sand {
+  background: #efe7da;
+}
+
+/* Yellow/black hazard-stripe divider at the top of each section */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    45deg,
+    #f2b300 0px,
+    #f2b300 14px,
+    #161210 14px,
+    #161210 28px
+  );
+  opacity: 0.85;
 }
 
 /* Two-tone statement headline */
@@ -988,4 +1035,163 @@ a:focus-visible,
     transition: none !important;
     scroll-behavior: auto;
   }
+}
+
+/* ==========================================================================
+   DOOM-ification: status-bar HUD, lurking monsters, ammo pickups.
+   ========================================================================== */
+
+/* ----- Floating monster + ammo decor (hero) ----- */
+.doom-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.doom-decor > * {
+  position: absolute;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.6));
+}
+.doom-decor__caco {
+  top: 12%;
+  right: 6%;
+  filter: drop-shadow(0 0 18px rgba(196, 16, 16, 0.55));
+}
+.doom-decor__imp {
+  bottom: 10%;
+  left: 3%;
+}
+.doom-decor__pinky {
+  top: 18%;
+  left: 8%;
+  opacity: 0.92;
+}
+.doom-decor__shell {
+  bottom: 16%;
+  right: 22%;
+}
+.doom-decor__shell2 {
+  top: 34%;
+  right: 38%;
+  opacity: 0.85;
+}
+.hero__inner { position: relative; z-index: 2; }
+
+@keyframes doomFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-16px) rotate(1deg); }
+}
+@keyframes doomSpin {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-8px) rotate(8deg); }
+}
+.doom-float { animation: doomFloat 5s ease-in-out infinite; }
+.doom-float--slow { animation-duration: 7s; }
+.doom-float--fast { animation-duration: 3.6s; }
+.doom-spin { animation: doomSpin 2.6s ease-in-out infinite; }
+
+/* ----- Status-bar HUD ----- */
+.doom-hud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  font-family: var(--mono);
+  background: linear-gradient(180deg, #2b2622 0%, #161210 100%);
+  border-top: 2px solid #000;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.55);
+  user-select: none;
+}
+.doom-hud__stripe {
+  height: 5px;
+  background: repeating-linear-gradient(
+    45deg,
+    #f2b300 0px,
+    #f2b300 12px,
+    #161210 12px,
+    #161210 24px
+  );
+}
+.doom-hud__panels {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px 12px;
+}
+.doom-hud__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background: #0e0b09;
+  border: 2px solid #000;
+  border-top-color: #4a423a;
+  border-left-color: #4a423a;
+  border-radius: 3px;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.7);
+}
+.doom-hud__big {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: #ff2b2b;
+  text-shadow: 0 0 10px rgba(255, 43, 43, 0.6);
+}
+.doom-hud__cap {
+  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #f2b300;
+}
+.doom-hud__arms .doom-hud__cap { margin: 0 0 4px; }
+.doom-hud__armsgrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 3px 8px;
+}
+.doom-hud__arm {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #cdbfae;
+}
+.doom-hud__face {
+  padding: 4px;
+  background: #1a1512;
+  border-color: #000;
+}
+.doom-hud__faceart {
+  filter: drop-shadow(0 0 8px rgba(196, 16, 16, 0.5));
+}
+.doom-hud__ammostats {
+  align-items: stretch;
+  gap: 2px;
+  padding: 6px 10px;
+}
+.doom-hud__ammorow {
+  display: grid;
+  grid-template-columns: 3.2em 2.4em 2.4em;
+  gap: 6px;
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+.doom-hud__ammolabel { color: #f2b300; letter-spacing: 0.08em; }
+.doom-hud__ammonum { color: #ff2b2b; text-align: right; font-weight: 700; }
+.doom-hud__ammomax { color: #8a7c6e; text-align: right; }
+
+@media (max-width: 760px) {
+  .doom-hud__arms,
+  .doom-hud__ammostats { display: none; }
+  .doom-hud__panels { gap: 4px; padding: 6px; }
+  .doom-decor__pinky,
+  .doom-decor__shell2 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doom-float,
+  .doom-spin { animation: none !important; }
 }

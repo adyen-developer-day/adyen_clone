@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { hero } from "../data/content.js";
+import { Cacodemon, Imp, Pinky, Shell } from "./DoomSprites.jsx";
 
 function useCountUp(target, duration = 2000) {
   const [value, setValue] = useState(0);
@@ -83,6 +84,13 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top">
+      <div className="doom-decor" aria-hidden="true">
+        <Cacodemon className="doom-decor__caco doom-float" pixel={7} />
+        <Imp className="doom-decor__imp doom-float doom-float--slow" pixel={6} />
+        <Pinky className="doom-decor__pinky doom-float doom-float--fast" pixel={5} />
+        <Shell className="doom-decor__shell doom-spin" pixel={6} />
+        <Shell className="doom-decor__shell2 doom-spin" pixel={5} />
+      </div>
       <div className="hero__inner hero__inner--split">
         <div className="hero__text">
           <h1 className="hero__title hero__anim hero__anim--1">

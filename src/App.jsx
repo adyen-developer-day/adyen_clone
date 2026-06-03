@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import ValueProps from "./components/ValueProps.jsx";
 import MoneyMovement from "./components/MoneyMovement.jsx";
+import CardJourney from "./components/CardJourney.jsx";
 import Industries from "./components/Industries.jsx";
 import Stats from "./components/Stats.jsx";
 import CaseStudies from "./components/CaseStudies.jsx";
@@ -18,6 +19,7 @@ export default function App() {
         <Hero />
         <ValueProps />
         <MoneyMovement />
+        <CardJourney />
         <Industries />
         <Stats />
         <CaseStudies />

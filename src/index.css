@@ -34,9 +34,31 @@
   --on-dark-muted: rgba(255, 255, 255, 0.62);
   --on-green-muted: rgba(0, 18, 34, 0.66);
 
+  /* Theme-aware tokens (flipped in [data-theme="dark"]). Brand greens are
+     intentionally NOT theme-aware — green surfaces keep dark ink text. */
+  --page-bg: #fff;
+  --surface: #fff;
+  --surface-sand: var(--sand);
+  --text-strong: var(--ink);
+  --text-muted: var(--muted);
+  --card-border: var(--line);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --statement-trail: rgba(0, 18, 34, 0.42);
+
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+[data-theme="dark"] {
+  --page-bg: #06121e;
+  --surface: #0f2233;
+  --surface-sand: #0a1a28;
+  --text-strong: #eef3f6;
+  --text-muted: #9bacba;
+  --card-border: rgba(255, 255, 255, 0.12);
+  --navbar-bg: rgba(8, 18, 30, 0.88);
+  --statement-trail: rgba(238, 243, 246, 0.45);
 }
 
 * {
@@ -58,7 +80,8 @@ body {
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
+  transition: background-color 0.2s ease;
 }
 
 a {
@@ -172,9 +195,9 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--card-border);
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +210,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text-strong);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +223,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text-strong);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -248,10 +271,11 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--page-bg);
+  color: var(--text-strong);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-sand);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +288,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text-strong);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--statement-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,8 +304,8 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--card-border);
   border-radius: 18px;
   padding: 26px 24px 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -305,7 +329,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +403,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,8 +417,8 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
@@ -413,7 +437,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +448,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text-strong);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -655,10 +679,326 @@ a:focus-visible,
   outline-color: #fff;
 }
 
+/* ------------------------------------------------------------ CardJourney */
+/* Apple-style scroll-driven scene: a tall section keeps an inner stage
+   pinned (sticky) while scroll progress animates a card into a terminal. */
+.cardjourney {
+  position: relative;
+  height: 320vh;
+  background: var(--green);
+  color: var(--ink);
+}
+.cardjourney__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.cardjourney__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+}
+.cardjourney__eyebrow {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-green-muted);
+}
+.cardjourney__title {
+  margin: 14px 0 36px;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.028em;
+  font-weight: 600;
+  max-width: 18ch;
+}
+.cardjourney__lead {
+  color: var(--ink);
+}
+.cardjourney__trail {
+  color: var(--on-green-muted);
+}
+.cardjourney__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 38ch;
+}
+.cardjourney__step {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  opacity: 0.4;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.cardjourney__step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cardjourney__step-index {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.cardjourney__step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cardjourney__step-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.cardjourney__step-body {
+  font-size: 0.95rem;
+  color: var(--on-green-muted);
+}
+
+.cardjourney__stage {
+  position: relative;
+  height: min(70vh, 560px);
+  perspective: 1100px;
+}
+.cardjourney__scene {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardjourney__card {
+  position: absolute;
+  z-index: 3;
+  width: clamp(220px, 26vw, 300px);
+  aspect-ratio: 1.585;
+  border-radius: 18px;
+  padding: 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0d1e2e 0%, #001222 60%, #002a44 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  will-change: transform;
+}
+.cardjourney__card-chip {
+  width: 42px;
+  height: 32px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #f6d365, #d4af37);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.cardjourney__card-wave {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 0 0 6px transparent, -8px 0 0 -2px rgba(255, 255, 255, 0.35);
+}
+.cardjourney__card-number {
+  font-family: var(--mono);
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  letter-spacing: 0.12em;
+}
+.cardjourney__card-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  color: var(--green);
+}
+
+.cardjourney__terminal {
+  position: absolute;
+  bottom: 4%;
+  z-index: 1;
+  /* Sit further back in the preserve-3d scene so the card always taps on top. */
+  transform: translateZ(-40px);
+  width: clamp(190px, 22vw, 250px);
+  border-radius: 26px;
+  padding: 16px 16px 22px;
+  background: linear-gradient(180deg, #0d1e2e, #001222);
+  border: 1px solid rgba(0, 18, 34, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 18, 34, 0.35);
+}
+.cardjourney__terminal-screen {
+  position: relative;
+  border-radius: 12px;
+  background: #f6f5f4;
+  color: var(--ink);
+  padding: 14px 14px 34px;
+  min-height: 124px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+}
+.cardjourney__terminal-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+}
+.cardjourney__terminal-fan {
+  color: var(--green-strong);
+  flex: 0 0 auto;
+}
+.cardjourney__terminal-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.cardjourney__terminal-item-name {
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.cardjourney__terminal-item-plan {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+.cardjourney__terminal-amount {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.cardjourney__terminal-status {
+  font-size: 0.82rem;
+  color: var(--muted);
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+}
+.cardjourney__terminal-declined {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e02424;
+  position: absolute;
+  bottom: 11px;
+  left: 14px;
+}
+.cardjourney__terminal-keys {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.cardjourney__terminal-key {
+  height: 18px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.cardjourney__terminal-pulse {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 209, 106, 0.45) 0%,
+    rgba(0, 209, 106, 0) 70%
+  );
+  pointer-events: none;
+}
+.cardjourney__shadow {
+  position: absolute;
+  bottom: 2%;
+  z-index: 0;
+  width: 220px;
+  height: 36px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 18, 34, 0.5) 0%,
+    rgba(0, 18, 34, 0) 70%
+  );
+}
+.cardjourney__scrollhint {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-green-muted);
+  transition: opacity 0.3s ease;
+}
+.cardjourney__scrollhint span {
+  position: relative;
+}
+.cardjourney__scrollhint span::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 22px;
+  margin: 8px auto 0;
+  background: var(--on-green-muted);
+  animation: cardjourney-hint 1.6s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes cardjourney-hint {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
 /* ----------------------------------------------------------- Responsive */
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
+  }
+  .cardjourney {
+    height: 280vh;
+  }
+  .cardjourney__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .cardjourney__copy {
+    order: 1;
+  }
+  .cardjourney__stage {
+    order: 2;
+    height: min(48vh, 420px);
+  }
+  .cardjourney__title {
+    margin-bottom: 24px;
   }
   .footer__top {
     grid-template-columns: 1fr;
@@ -683,6 +1023,51 @@ a:focus-visible,
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* ------------------------------------------------------- Theme toggle button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1.5px solid var(--card-border);
+  background: transparent;
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.16s ease,
+    background 0.16s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--green);
+}
+.theme-toggle svg {
+  width: 19px;
+  height: 19px;
+}
+
+/* --------------------------------------------------- Pixelated theme transition */
+.pixel-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  pointer-events: none;
+}
+.pixel-transition__cell {
+  background: var(--pixel-color);
+  opacity: 0;
+  transition: opacity 0.18s linear;
+  transition-delay: var(--d, 0ms);
+}
+.pixel-transition.is-cover .pixel-transition__cell {
+  opacity: 1;
+}
+.pixel-transition.is-reveal .pixel-transition__cell {
+  opacity: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

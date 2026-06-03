@@ -76,6 +76,11 @@ export const cardJourney = {
   eyebrow: "In-person payments",
   lead: "From card to terminal.",
   trail: "One tap. Every way your customers want to pay, accepted in an instant.",
+  purchase: {
+    item: "Only Fans\u2122 Subscription",
+    plan: "Ceiling Edition \u00b7 monthly",
+    amount: "\u20ac 42.00",
+  },
   steps: [
     { title: "Tap to pay", body: "Contactless, chip, and swipe on a single device." },
     { title: "Authorized in milliseconds", body: "Smart routing finds the path with the highest approval rate." },

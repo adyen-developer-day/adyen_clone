@@ -6,6 +6,29 @@ import { cardJourney } from "../data/content.js";
 // payment terminal. A sticky stage keeps the scene pinned while the inner
 // scroll position (0 -> 1) drives every transform.
 
+// Top-view ceiling fan — a wink at the "Only Fans" line item.
+function CeilingFan({ className }) {
+  const blade = "M24 24 C19 13 19 6 24 4 C29 6 29 13 24 24 Z";
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 48 48"
+      width="22"
+      height="22"
+      aria-hidden="true"
+    >
+      <g fill="currentColor">
+        <path d={blade} />
+        <path d={blade} transform="rotate(90 24 24)" />
+        <path d={blade} transform="rotate(180 24 24)" />
+        <path d={blade} transform="rotate(270 24 24)" />
+      </g>
+      <circle cx="24" cy="24" r="4.4" fill="currentColor" />
+      <circle cx="24" cy="24" r="1.8" fill="#f6f5f4" />
+    </svg>
+  );
+}
+
 const clamp = (n, min = 0, max = 1) => Math.min(max, Math.max(min, n));
 const lerp = (a, b, t) => a + (b - a) * t;
 // Eased sub-range: maps progress within [from, to] to a smooth 0..1.
@@ -132,7 +155,20 @@ export default function CardJourney() {
                   className="cardjourney__terminal-screen"
                   style={{ "--approved": approved }}
                 >
-                  <span className="cardjourney__terminal-amount">€ 42.00</span>
+                  <span className="cardjourney__terminal-item">
+                    <CeilingFan className="cardjourney__terminal-fan" />
+                    <span className="cardjourney__terminal-item-text">
+                      <span className="cardjourney__terminal-item-name">
+                        {cardJourney.purchase.item}
+                      </span>
+                      <span className="cardjourney__terminal-item-plan">
+                        {cardJourney.purchase.plan}
+                      </span>
+                    </span>
+                  </span>
+                  <span className="cardjourney__terminal-amount">
+                    {cardJourney.purchase.amount}
+                  </span>
                   <span
                     className="cardjourney__terminal-status"
                     style={{ opacity: 1 - approved }}

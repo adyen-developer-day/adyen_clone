@@ -818,26 +818,54 @@ a:focus-visible,
   border-radius: 12px;
   background: #f6f5f4;
   color: var(--ink);
-  padding: 18px 16px;
-  min-height: 96px;
+  padding: 14px 14px 34px;
+  min-height: 124px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
   overflow: hidden;
+}
+.cardjourney__terminal-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--line);
+}
+.cardjourney__terminal-fan {
+  color: var(--green-strong);
+  flex: 0 0 auto;
+}
+.cardjourney__terminal-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.cardjourney__terminal-item-name {
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.cardjourney__terminal-item-plan {
+  font-size: 0.68rem;
+  color: var(--muted);
 }
 .cardjourney__terminal-amount {
   font-family: var(--mono);
   font-weight: 700;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
 }
 .cardjourney__terminal-status {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--muted);
   position: absolute;
-  bottom: 14px;
+  bottom: 12px;
+  left: 14px;
 }
 .cardjourney__terminal-approved {
   display: inline-flex;
@@ -847,7 +875,8 @@ a:focus-visible,
   font-size: 0.95rem;
   color: var(--green-strong);
   position: absolute;
-  bottom: 12px;
+  bottom: 11px;
+  left: 14px;
 }
 .cardjourney__terminal-keys {
   margin-top: 16px;

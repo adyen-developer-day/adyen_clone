@@ -15,11 +15,15 @@ export default function Industries() {
     <section className="section section--sand industries" id="industries">
       <div className="container">
         <SectionStatement lead={industries.lead} trail={industries.trail} />
-        <p className="industries__note">Built for the way you do buisness.</p>
+        <p className="industries__note">Built for the way you do business.</p>
         <div className="industries__grid">
           {industries.items.map((item) => (
             <article key={item.title} className="industry">
-              <img className="industry__icon" src={iconFor(item.image)} />
+              <img
+                className="industry__icon"
+                src={iconFor(item.image)}
+                alt={`${item.title} industry icon`}
+              />
               <h3 className="industry__title">{item.title}</h3>
               <p className="industry__body">{item.body}</p>
               <a className="industry__link" href="#industries">

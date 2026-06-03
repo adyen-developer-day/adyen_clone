@@ -80,31 +80,37 @@ export const industries = {
       title: "Retail",
       body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
       image: "retail",
+      alt: "Illustration representing retail and in-store payments",
     },
     {
       title: "Travel and hospitality",
       body: "Turn every trip into a seamless, secure, and personal payment experience.",
       image: "travel",
+      alt: "Illustration representing travel and hospitality payments",
     },
     {
       title: "Digital media and content",
       body: "Boost subscriptions and reduce churn with optimized recurring payments.",
       image: "digital",
+      alt: "Illustration representing digital media and content subscriptions",
     },
     {
       title: "SaaS platforms and marketplaces",
       body: "Embed payments and financial products into the products your users love.",
       image: "saas",
+      alt: "Illustration representing SaaS platforms and marketplaces",
     },
     {
       title: "Food and beverage",
       body: "Connect online ordering and in-store payments on a single platform.",
       image: "food",
+      alt: "Illustration representing food and beverage ordering and payments",
     },
     {
       title: "Financial services",
       body: "Scale globally with the reliability and compliance regulated businesses need.",
       image: "financial",
+      alt: "Illustration representing financial services and compliance",
     },
   ],
 };

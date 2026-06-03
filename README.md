@@ -1,78 +1,57 @@
-# Adyen Clone — Cognition Platform Workshop
+# Flighty Web Mockup
 
-A localhost-only **React** replica of the Adyen marketing homepage. Everyone in the
-workshop starts from this exact version, then practices improving it with the three
-Cognition tools: **Devin CLI**, **Devin Cloud**, and **Devin Desktop**.
+A web-based mockup of the [Flighty](https://flighty.app) iOS flight tracking app, built with React + Vite.
 
-> This is a localhost-only demo built for an internal workshop. It mirrors the layout
-> and copy of the live adyen.com homepage and uses Adyen's font/wordmark purely for
-> visual fidelity — it is not affiliated with or endorsed by Adyen.
+> **Note:** This is a static mockup with fake data — no real flight tracking or API integration.
 
-## Stack
+## Screenshots
 
-| Concern        | Choice                          | Notes                                   |
-| -------------- | ------------------------------- | --------------------------------------- |
-| Framework      | React 18 (`^18.2.0`)            | Intentionally pinned (upgrade target)   |
-| Build / dev    | Vite 4 (`^4.5.0`)               | Intentionally pinned (upgrade target)   |
-| Tests          | Vitest + React Testing Library  | Only 1 starter test on purpose          |
-| Styling        | Plain CSS (`src/index.css`)     | Brand green `#00d16a`, no dark mode yet  |
+Built to mimic the Flighty iOS app experience in a mobile-width web layout (430px max).
 
-## Prerequisites
+## Features
 
-- **Node.js 18+** (this repo was scaffolded with Node 20).
-  - No system Node? Install via [nvm](https://github.com/nvm-sh/nvm):
-    ```bash
-    nvm install 20 && nvm use 20
-    ```
+- **My Flights** — Flight card list with upcoming/past tabs and status badges
+- **Flight Detail** — SVG flight arc map, progress bar, departure/arrival info panels
+- **Stats** — Travel statistics dashboard with charts and records
+- **Airport** — Airport info with weather, delays, and terminal list
+- **Settings** — Profile, preferences, and toggles
 
-## Getting started
+## Tech Stack
+
+- React 18 + Vite 4
+- React Router DOM
+- Pure CSS (no utility framework)
+- SVG for flight visualizations
+
+## Getting Started
 
 ```bash
-npm install      # install dependencies
-npm run dev      # start dev server -> http://localhost:5173
+npm install
+npm run dev    # → http://localhost:5173
+npm run build  # Production build
 ```
 
-Other scripts:
-
-```bash
-npm test         # run the test suite once
-npm run test:watch
-npm run build    # production build into dist/
-npm run preview  # serve the production build locally
-```
-
-## Project structure
+## Project Structure
 
 ```
-adyen_clone/
-├── index.html
-├── vite.config.js
-├── src/
-│   ├── main.jsx
-│   ├── App.jsx
-│   ├── index.css
-│   ├── data/content.js          # nav, value props, stats, industries, footer copy
-│   ├── assets/                  # Adyen variable fonts + industry SVGs
-│   ├── test/setup.js
-│   └── components/
-│       ├── AdyenLogo.jsx
-│       ├── TopBanner.jsx
-│       ├── Navbar.jsx
-│       ├── Hero.jsx
-│       ├── SectionStatement.jsx
-│       ├── ValueProps.jsx
-│       ├── MoneyMovement.jsx
-│       ├── Industries.jsx
-│       ├── Stats.jsx
-│       ├── CaseStudies.jsx
-│       ├── FinalCTA.jsx
-│       ├── Footer.jsx
-│       └── Navbar.test.jsx       # the only test (by design)
-└── IMPROVEMENTS.md               # the 6 workshop tasks
+src/
+├── components/    # Shared UI components
+│   ├── BottomNav.jsx
+│   ├── FlightCard.jsx
+│   ├── FlightMap.jsx
+│   ├── FlightProgress.jsx
+│   ├── InfoCard.jsx
+│   ├── StatCard.jsx
+│   └── StatusBadge.jsx
+├── data/
+│   └── flights.js # Mock flight data, airlines, airports, stats
+├── pages/
+│   ├── MyFlights.jsx
+│   ├── FlightDetail.jsx
+│   ├── Stats.jsx
+│   ├── Airport.jsx
+│   └── Settings.jsx
+├── App.jsx        # Router + app shell
+├── main.jsx       # Entry point
+└── index.css      # Global dark theme styles
 ```
-
-## The workshop
-
-Open **[IMPROVEMENTS.md](./IMPROVEMENTS.md)** for the 6 curated improvements, split
-across Devin CLI (quick fixes), Devin Cloud (framework upgrade + test coverage), and
-Devin Desktop (creative frontend work).

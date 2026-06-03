@@ -1,0 +1,91 @@
+.flight-detail-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 0 16px;
+  cursor: pointer;
+}
+
+.flight-detail-back svg {
+  width: 18px;
+  height: 18px;
+}
+
+.flight-detail-header {
+  margin-bottom: 16px;
+}
+
+.flight-detail-header h2 {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.flight-detail-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.flight-detail-header .aircraft {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+.flight-detail-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+}
+
+.info-row:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.info-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-value.large {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.info-value.orange {
+  color: var(--accent-orange);
+}
+
+.not-found {
+  text-align: center;
+  padding: 80px 16px;
+}
+
+.not-found h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.not-found a {
+  color: var(--accent);
+  font-size: 14px;
+}

@@ -1,7 +1,6 @@
 /* ==========================================================================
-   Adyen homepage replica — styling rebuilt from the live design system.
-   Tokens, fonts, and the geometric wordmark are sourced from adyen.com.
-   Localhost workshop demo only.
+   BeaverDirect — Fresh Canadian beavers delivered by drone.
+   Earth-toned design system inspired by the Canadian wilderness.
    ========================================================================== */
 
 @font-face {
@@ -18,21 +17,21 @@
 }
 
 :root {
-  /* Brand palette (from Adyen's design tokens) */
-  --green: #00d16a;
-  --green-strong: #00b85c;
-  --ink: #001222;
-  --ink-2: #0d1e2e;
-  --sand: #f6f5f4;
-  --sand-300: #e6e4e2;
-  --grey: #f4f5f6;
-  --muted: #6c7782;
-  --muted-2: #8c959d;
+  /* Brand palette — warm beaver browns & forest tones */
+  --green: #c47a2a;
+  --green-strong: #a86420;
+  --ink: #2c1810;
+  --ink-2: #3d261a;
+  --sand: #faf5ef;
+  --sand-300: #ede4d8;
+  --grey: #f8f4f0;
+  --muted: #7a6b5e;
+  --muted-2: #998a7d;
 
-  --line: rgba(0, 18, 34, 0.1);
-  --line-strong: rgba(0, 18, 34, 0.16);
+  --line: rgba(44, 24, 16, 0.1);
+  --line-strong: rgba(44, 24, 16, 0.16);
   --on-dark-muted: rgba(255, 255, 255, 0.62);
-  --on-green-muted: rgba(0, 18, 34, 0.66);
+  --on-green-muted: rgba(44, 24, 16, 0.72);
 
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
@@ -109,7 +108,7 @@ svg {
 }
 .btn--primary:hover,
 .btn--dark:hover {
-  background: #0a2237;
+  background: #3d261a;
 }
 .btn--ghost-light {
   background: transparent;
@@ -219,7 +218,7 @@ svg {
 .hero {
   background: var(--green);
   color: var(--ink);
-  padding: clamp(72px, 12vw, 150px) 0 clamp(80px, 13vw, 170px);
+  padding: clamp(72px, 12vw, 120px) 0 clamp(60px, 10vw, 100px);
   overflow: hidden;
 }
 .hero__inner {
@@ -228,9 +227,21 @@ svg {
   margin: 0 auto;
   padding: 0 28px;
 }
+.hero__content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.hero__text {
+  flex: 1;
+  min-width: 0;
+}
+.hero__mascot {
+  flex-shrink: 0;
+}
 .hero__title {
   margin: 0 0 28px;
-  font-size: clamp(3rem, 9vw, 7rem);
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
   line-height: 0.98;
   letter-spacing: -0.035em;
   font-weight: 700;
@@ -243,6 +254,21 @@ svg {
   color: var(--on-green-muted);
   max-width: 36ch;
   font-weight: 500;
+}
+.hero__maple-accents {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  opacity: 0.4;
+}
+.hero__leaf {
+  animation: float 4s ease-in-out infinite;
+}
+.hero__leaf--2 { animation-delay: -1.3s; }
+.hero__leaf--3 { animation-delay: -2.7s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(10deg); }
 }
 
 /* ---------------------------------------------------------------- Sections */
@@ -375,6 +401,11 @@ svg {
 .bigcard__cta:hover span {
   transform: translateX(4px);
 }
+.bigcard__illustration {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
 /* -------------------------------------------------------------- Industries */
 .industries__note {
@@ -439,8 +470,17 @@ svg {
   background: var(--ink);
   color: #fff;
 }
+.stats__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+.stats__mascot {
+  flex-shrink: 0;
+}
 .stats__statement {
-  margin: 0 0 clamp(40px, 6vw, 72px);
+  margin: 0;
   font-size: clamp(1.7rem, 3.6vw, 3rem);
   line-height: 1.08;
   letter-spacing: -0.025em;
@@ -559,8 +599,18 @@ svg {
   flex-direction: column;
   align-items: center;
 }
+.finalcta__maple-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+  opacity: 0.35;
+}
+.finalcta__mascot {
+  margin: 24px 0;
+}
 .finalcta__title {
-  margin: 0 0 36px;
+  margin: 0 0 20px;
   font-size: clamp(2.2rem, 5.5vw, 4.4rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
@@ -659,6 +709,17 @@ a:focus-visible,
 @media (max-width: 900px) {
   .navbar__links {
     display: none;
+  }
+  .hero__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero__maple-accents {
+    justify-content: center;
+  }
+  .stats__header {
+    flex-direction: column;
+    align-items: center;
   }
   .footer__top {
     grid-template-columns: 1fr;

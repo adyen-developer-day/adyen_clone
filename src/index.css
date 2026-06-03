@@ -37,6 +37,29 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic surfaces (flip in dark mode) */
+  --page-bg: #ffffff;
+  --surface: #ffffff;
+  --section-bg: #ffffff;
+  --text: var(--ink);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --statement-trail: rgba(0, 18, 34, 0.42);
+}
+
+:root[data-theme="dark"] {
+  --page-bg: #00101e;
+  --surface: #0d1e2e;
+  --section-bg: #00101e;
+  --sand: #0a1a29;
+  --sand-300: rgba(255, 255, 255, 0.18);
+  --text: #f4f5f6;
+  --muted: rgba(255, 255, 255, 0.66);
+  --muted-2: rgba(255, 255, 255, 0.5);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --navbar-bg: rgba(0, 12, 20, 0.86);
+  --statement-trail: rgba(255, 255, 255, 0.45);
 }
 
 * {
@@ -50,7 +73,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--text);
   background: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -58,7 +81,8 @@ body {
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -172,7 +196,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -187,7 +211,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +224,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -248,7 +272,7 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--section-bg);
 }
 .section--sand {
   background: var(--sand);
@@ -264,10 +288,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--statement-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,7 +304,7 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 26px 24px 30px;
@@ -393,7 +417,7 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 32px 30px;
@@ -424,7 +448,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -689,5 +713,66 @@ a:focus-visible,
   * {
     transition: none !important;
     scroll-behavior: auto;
+  }
+}
+
+/* ------------------------------------------------------- Theme toggle */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 16px;
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--navbar-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 18, 34, 0.18);
+  transition: transform 0.14s ease, background 0.16s ease, color 0.16s ease,
+    border-color 0.16s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--green);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+.theme-toggle__icon {
+  display: block;
+}
+
+/* -------------------------------------------------------------- Toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 300;
+  background: var(--ink);
+  color: #fff;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 12px 32px rgba(0, 18, 34, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  animation: toast-in 0.25s ease;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

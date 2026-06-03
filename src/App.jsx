@@ -8,22 +8,28 @@ import Stats from "./components/Stats.jsx";
 import CaseStudies from "./components/CaseStudies.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
+import Inventory from "./components/Inventory.jsx";
+import PixelDecorations from "./components/PixelDecorations.jsx";
 
 export default function App() {
   return (
     <div className="page">
-      <TopBanner />
-      <Navbar />
-      <main>
-        <Hero />
-        <ValueProps />
-        <MoneyMovement />
-        <Industries />
-        <Stats />
-        <CaseStudies />
-        <FinalCTA />
-      </main>
-      <Footer />
+      <div className="page__main pixel-world">
+        <TopBanner />
+        <Navbar />
+        <main>
+          <Hero />
+          <PixelDecorations />
+          <ValueProps />
+          <MoneyMovement />
+          <Industries />
+          <Stats />
+          <CaseStudies />
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+      <Inventory />
     </div>
   );
 }

@@ -110,14 +110,14 @@ export const industries = {
 };
 
 export const stats = {
-  lead: "Global scale. Local expertise.",
-  trail: "Powered by trillions of euros in transaction data.",
+  lead: "It's giving worldwide main character energy.",
+  trail: "No cap — powered by trillions in transaction data, fr fr.",
   items: [
-    { value: "€1.4T", label: "Processed annually" },
-    { value: "99.999%", label: "Uptime" },
-    { value: "150+", label: "Currencies" },
-    { value: "200+", label: "Local payment methods" },
-    { value: "29", label: "Global offices" },
+    { value: "€1.4T", label: "Processed yearly (bussin)" },
+    { value: "99.999%", label: "Uptime — this slaps" },
+    { value: "150+", label: "Currencies we vibing with" },
+    { value: "200+", label: "Local pay methods (lowkey fire)" },
+    { value: "29", label: "Offices — global rizz" },
   ],
 };
 

@@ -1,5 +1,6 @@
 import { navLinks } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
+import ThemeToggle from "./ThemeToggle.jsx";
 
 export default function Navbar() {
   return (
@@ -32,6 +33,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
+          <ThemeToggle />
           <a className="btn btn--primary" href="#contact">
             Contact sales
           </a>

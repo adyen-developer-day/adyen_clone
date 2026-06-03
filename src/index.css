@@ -34,9 +34,47 @@
   --on-dark-muted: rgba(255, 255, 255, 0.62);
   --on-green-muted: rgba(0, 18, 34, 0.66);
 
+  /* Themeable surfaces & text (Light Mode defaults; overridden for dark). */
+  --page: #fff;
+  --surface: #fff;
+  --text: var(--ink);
+  --statement-trail: rgba(0, 18, 34, 0.42);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ----------------------------------------------------------- Dark Mode ----
+   Only the variables that differ from the light palette are redefined here;
+   already-dark surfaces (footer, stats, story cards) keep using --ink. */
+[data-theme="dark"] {
+  --page: #0a151f;
+  --surface: #10202d;
+  --text: #eef2f5;
+  --sand: #0e1c28;
+  --sand-300: #2a3a47;
+  --grey: #0e1c28;
+  --muted: #9aa6b2;
+  --muted-2: #7d8893;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --statement-trail: rgba(255, 255, 255, 0.45);
+  --navbar-bg: rgba(10, 21, 31, 0.85);
+}
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: var(--green);
+  color: var(--ink);
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: var(--green-strong);
+}
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] .btn:focus-visible {
+  outline-color: var(--text);
 }
 
 * {
@@ -50,15 +88,17 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--text);
   background: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page {
-  background: #fff;
+  background: var(--page);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -120,6 +160,24 @@ svg {
   border-color: #fff;
 }
 
+/* Circular icon button used for the theme toggle */
+.btn--icon {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+}
+.btn--icon:hover {
+  border-color: var(--text);
+}
+.btn--icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* arrow links */
 .arrowlink {
   display: inline-flex;
@@ -172,9 +230,10 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +246,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +259,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -248,7 +307,8 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--surface);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .section--sand {
   background: var(--sand);
@@ -264,10 +324,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--statement-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,11 +340,12 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 26px 24px 30px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
@@ -393,13 +454,14 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
 }
 .industry:hover {
   transform: translateY(-4px);
@@ -424,7 +486,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;

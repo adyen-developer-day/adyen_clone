@@ -1,6 +1,14 @@
 import { footerColumns, footerLegal } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
+// Map each footer column to the in-page section it relates to.
+const sectionForColumn = {
+  About: "#about",
+  Products: "#products",
+  Resources: "#resources",
+  Platform: "#top",
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -11,7 +19,7 @@ export default function Footer() {
             <p className="footer__tagline">
               One platform for payments, data, and financial products.
             </p>
-            <a className="btn btn--ghost-light" href="#newsletter">
+            <a className="btn btn--ghost-light" href="#resources">
               Subscribe to our newsletter
             </a>
           </div>
@@ -22,7 +30,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#">{link}</a>
+                      <a href={sectionForColumn[col.heading] || "#top"}>{link}</a>
                     </li>
                   ))}
                 </ul>
@@ -34,7 +42,7 @@ export default function Footer() {
           <span className="footer__copy">© 2026 Adyen</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
-              <a key={item} href="#">
+              <a key={item} href="#top">
                 {item}
               </a>
             ))}

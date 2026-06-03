@@ -1,10 +1,16 @@
 import { caseStudies } from "../data/content.js";
+import casestudiesHeader from "../assets/images/casestudies-header.jpg";
 
 export default function CaseStudies() {
   return (
     <section className="section section--sand cases" id="resources">
       <div className="container">
         <h2 className="cases__title">{caseStudies.lead}</h2>
+        <img
+          className="cases__header-img"
+          src={casestudiesHeader}
+          alt="Business team collaborating in a meeting"
+        />
       </div>
       <div className="cases__rail" role="list">
         {caseStudies.stories.map((story) => (

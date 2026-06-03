@@ -1,12 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Navbar from "./Navbar.jsx";
+import PongGame from "./PongGame.jsx";
 
-// Workshop note: this is the ONLY test in the project on purpose.
-// The "add test coverage" task (Devin Cloud) is meant to expand from here.
-describe("Navbar", () => {
-  it("renders the contact sales call to action", () => {
-    render(<Navbar />);
-    expect(screen.getByText(/contact sales/i)).toBeInTheDocument();
+describe("PongGame", () => {
+  it("renders a canvas element", () => {
+    const { container } = render(<PongGame />);
+    expect(container.querySelector("canvas")).toBeInTheDocument();
   });
 });

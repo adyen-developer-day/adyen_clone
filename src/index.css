@@ -691,3 +691,111 @@ a:focus-visible,
     scroll-behavior: auto;
   }
 }
+
+/* ==========================================================================
+   Dark theme
+   ========================================================================== */
+[data-theme="dark"] {
+  --sand: #1a2332;
+  --sand-300: #2a3545;
+  --grey: #1e2a3a;
+  --muted: #9aa5b0;
+  --muted-2: #8a949d;
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.16);
+}
+
+[data-theme="dark"] body {
+  color: #e8eaed;
+}
+
+[data-theme="dark"] .page {
+  background: #0f1923;
+}
+
+/* ---- Navbar ---- */
+[data-theme="dark"] .navbar {
+  background: rgba(15, 25, 35, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .navbar__brand { color: #fff; }
+[data-theme="dark"] .navbar__links a { color: #e8eaed; }
+
+/* ---- Sections ---- */
+[data-theme="dark"] .section { background: #0f1923; }
+[data-theme="dark"] .section--sand { background: var(--sand); }
+
+/* ---- Statement headings ---- */
+[data-theme="dark"] .statement__lead { color: #e8eaed; }
+[data-theme="dark"] .statement__trail { color: rgba(232, 234, 237, 0.42); }
+
+/* ---- ValueProp cards ---- */
+[data-theme="dark"] .valueprop {
+  background: #1a2535;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .valueprop:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- Industry cards ---- */
+[data-theme="dark"] .industry {
+  background: #1a2535;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+[data-theme="dark"] .industry:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .industry__link { color: #e8eaed; }
+
+/* ---- Industries note ---- */
+[data-theme="dark"] .industries__note { color: var(--muted); }
+
+/* ---- Case studies ---- */
+[data-theme="dark"] .cases__title { color: #e8eaed; }
+[data-theme="dark"] .cases__rail::-webkit-scrollbar-thumb { background: #2a3545; }
+
+/* ---- Buttons (on light surfaces) ---- */
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: var(--green);
+  color: #001222;
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: #00e075;
+}
+
+/* ---- Focus states ---- */
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] .btn:focus-visible {
+  outline-color: var(--green);
+}
+
+/* ---- Theme toggle button ---- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+[data-theme="dark"] .theme-toggle {
+  color: #e8eaed;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+[data-theme="dark"] .theme-toggle:hover {
+  border-color: var(--green);
+  color: var(--green);
+}

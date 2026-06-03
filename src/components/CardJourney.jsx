@@ -185,7 +185,7 @@ export default function CardJourney() {
                     Tap your card
                   </span>
                   <span
-                    className="cardjourney__terminal-approved"
+                    className="cardjourney__terminal-declined"
                     style={{
                       opacity: approved,
                       transform: `scale(${lerp(0.6, 1, approved)})`,
@@ -193,14 +193,14 @@ export default function CardJourney() {
                   >
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
                       <path
-                        d="M4 12.5l5 5L20 6"
+                        d="M6 6l12 12M18 6L6 18"
                         stroke="currentColor"
                         strokeWidth="2.6"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    Approved
+                    Declined
                   </span>
                 </div>
                 <div className="cardjourney__terminal-keys">

@@ -867,13 +867,13 @@ a:focus-visible,
   bottom: 12px;
   left: 14px;
 }
-.cardjourney__terminal-approved {
+.cardjourney__terminal-declined {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--green-strong);
+  color: #e02424;
   position: absolute;
   bottom: 11px;
   left: 14px;

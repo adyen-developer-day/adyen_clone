@@ -715,6 +715,270 @@ svg {
   font-size: 0.8rem;
 }
 
+/* -------------------------------------------------------------- LootCrates */
+.loot {
+  background: #0d1117;
+  color: #fff;
+  padding: clamp(64px, 9vw, 120px) 0;
+}
+.loot__title {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.loot__subtitle {
+  margin: 0 0 clamp(36px, 5vw, 56px);
+  text-align: center;
+  color: var(--on-dark-muted);
+  font-size: 1.1rem;
+}
+.loot__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.loot__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid;
+  border-radius: 18px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.loot__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+.loot__icon {
+  width: 80px;
+  height: 80px;
+  border: 2px solid;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.loot__lock {
+  font-size: 32px;
+}
+.loot__card-name {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.loot__card-rarity {
+  margin: 0 0 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.loot__card-price {
+  margin: 0 0 20px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+.loot__open-btn {
+  width: 100%;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  background: #fff;
+  color: #0d1117;
+}
+.loot__open-btn:hover {
+  background: var(--green);
+  color: var(--ink);
+}
+.loot__open-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Overlay */
+.loot__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loot__modal {
+  width: 640px;
+  max-width: 95vw;
+}
+
+/* Reel */
+.loot__reel-container {
+  position: relative;
+}
+.loot__reel-pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid var(--green);
+  z-index: 2;
+}
+.loot__reel-viewport {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  height: 120px;
+  position: relative;
+}
+.loot__reel-viewport::before,
+.loot__reel-viewport::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+.loot__reel-viewport::before {
+  left: 0;
+  background: linear-gradient(to right, #0d1117, transparent);
+}
+.loot__reel-viewport::after {
+  right: 0;
+  background: linear-gradient(to left, #0d1117, transparent);
+}
+.loot__reel-strip {
+  display: flex;
+  gap: 0;
+  will-change: transform;
+}
+.loot__reel-strip--spinning {
+  animation: loot-spin 3.5s cubic-bezier(0.1, 0.7, 0.3, 1) forwards;
+}
+@keyframes loot-spin {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(var(--stop-x));
+  }
+}
+.loot__reel-item {
+  flex: 0 0 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid;
+  border-top: none;
+  border-bottom: none;
+}
+.loot__reel-discount {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+}
+.loot__reel-rarity {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Reward reveal */
+.loot__reward {
+  text-align: center;
+  padding: 48px 32px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid var(--reward-color);
+  border-radius: 20px;
+  box-shadow: 0 0 60px color-mix(in srgb, var(--reward-color) 40%, transparent),
+    0 0 120px color-mix(in srgb, var(--reward-color) 20%, transparent);
+  animation: loot-reveal 0.4s ease-out;
+}
+@keyframes loot-reveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.loot__reward-rarity {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.loot__reward-discount {
+  margin: 16px 0 4px;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.loot__reward-desc {
+  margin: 0 0 28px;
+  color: var(--on-dark-muted);
+  font-size: 1.1rem;
+}
+.loot__reward-code {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+  color: #fff;
+}
+.loot__copy-btn {
+  display: block;
+  margin: 0 auto 14px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  border: none;
+}
+.loot__close-btn {
+  background: none;
+  border: none;
+  color: var(--on-dark-muted);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  padding: 8px 16px;
+}
+.loot__close-btn:hover {
+  color: #fff;
+}
+
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {

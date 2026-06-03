@@ -9,6 +9,18 @@
       content="One platform for payments, data, and financial products. Built to scale with the world's leading businesses."
     />
     <title>Adyen: Fintech platform for enterprises</title>
+    <script>
+      // Apply a previously chosen theme before paint to avoid a flash.
+      // With no stored choice, prefers-color-scheme handles it via CSS.
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "light" || t === "dark") {
+            document.documentElement.dataset.theme = t;
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

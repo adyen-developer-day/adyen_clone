@@ -4,7 +4,7 @@
 export const announcement = {
   tag: "Out now",
   text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  href: "#products",
 };
 
 export const navLinks = [

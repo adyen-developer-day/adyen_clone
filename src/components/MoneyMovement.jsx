@@ -3,7 +3,7 @@ import SectionStatement from "./SectionStatement.jsx";
 
 export default function MoneyMovement() {
   return (
-    <section className="section moneymove">
+    <section className="section moneymove" id="pricing">
       <div className="container">
         <SectionStatement lead={moneyMovement.lead} trail={moneyMovement.trail} />
         <div className="moneymove__grid">

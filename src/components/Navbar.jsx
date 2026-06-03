@@ -1,7 +1,32 @@
+import { useState, useEffect } from "react";
 import { navLinks } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
+function getInitialA11y() {
+  return localStorage.getItem("a11y-colorblind") === "true";
+}
+
+const EyeIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
+    <circle cx="12" cy="12" r="3" />
+  </svg>
+);
+
 export default function Navbar() {
+  const [colorblind, setColorblind] = useState(getInitialA11y);
+
+  useEffect(() => {
+    if (colorblind) {
+      document.documentElement.setAttribute("data-a11y", "colorblind");
+    } else {
+      document.documentElement.removeAttribute("data-a11y");
+    }
+    localStorage.setItem("a11y-colorblind", String(colorblind));
+  }, [colorblind]);
+
+  const toggle = () => setColorblind((prev) => !prev);
+
   return (
     <header className="navbar">
       <div className="navbar__inner">
@@ -32,6 +57,14 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
+          <button
+            className="a11y-toggle"
+            onClick={toggle}
+            aria-label="Toggle color-blind friendly palette"
+            aria-pressed={colorblind}
+          >
+            <EyeIcon />
+          </button>
           <a className="btn btn--primary" href="#contact">
             Contact sales
           </a>

@@ -26,10 +26,19 @@ function writeThemeCookie(theme) {
   document.cookie = `${THEME_COOKIE}=${theme}; path=/; max-age=${THEME_MAX_AGE}; SameSite=Lax`;
 }
 
+function getSystemTheme() {
+  if (typeof window !== "undefined" && typeof window.matchMedia === "function") {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+  return "light";
+}
+
 function getInitialTheme() {
   const saved = readThemeCookie();
   if (saved === "light" || saved === "dark") return saved;
-  return "light";
+  return getSystemTheme();
 }
 
 export default function App() {
@@ -38,12 +47,25 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    writeThemeCookie(theme);
   }, [theme]);
+
+  // Follow the OS theme until the user picks one explicitly (no cookie set).
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+      return undefined;
+    }
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = (event) => {
+      if (!readThemeCookie()) setTheme(event.matches ? "dark" : "light");
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const toggleTheme = () => {
     setTheme((prev) => {
       const next = prev === "light" ? "dark" : "light";
+      writeThemeCookie(next);
       setToast({ id: Date.now(), text: `Switched to ${next} mode` });
       return next;
     });

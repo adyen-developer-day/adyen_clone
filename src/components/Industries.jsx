@@ -22,7 +22,7 @@ export default function Industries() {
               <img
                 className="industry__icon"
                 src={iconFor(item.image)}
-                alt={item.title}
+                alt={`Illustration representing the ${item.title} industry`}
               />
               <h3 className="industry__title">{item.title}</h3>
               <p className="industry__body">{item.body}</p>

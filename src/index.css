@@ -203,24 +203,35 @@ svg {
   overflow: hidden;
   background: var(--ink);
 }
+.hero__carousel {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: var(--ink);
+}
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.hero__slide.is-active {
+  opacity: 1;
+}
 .hero__bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(120% 90% at 50% -10%, rgba(0, 209, 106, 0.18), transparent 55%),
-    radial-gradient(70% 60% at 84% 112%, rgba(0, 209, 106, 0.12), transparent 60%),
-    linear-gradient(180deg, #02161f 0%, #04222e 46%, #00101a 100%);
-}
-.hero__bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 22px 22px;
-  -webkit-mask-image: radial-gradient(72% 62% at 50% 42%, #000 0%, transparent 78%);
-  mask-image: radial-gradient(72% 62% at 50% 42%, #000 0%, transparent 78%);
-  opacity: 0.7;
+    radial-gradient(120% 90% at 50% -10%, rgba(0, 209, 106, 0.22), transparent 58%),
+    linear-gradient(
+      180deg,
+      rgba(1, 16, 22, 0.84) 0%,
+      rgba(2, 22, 30, 0.72) 42%,
+      rgba(0, 12, 20, 0.92) 100%
+    );
 }
 .hero__inner {
   position: relative;

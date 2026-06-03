@@ -1,194 +1,194 @@
-// Central content for the homepage replica.
-// Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
+// Central content for the MGNUM Holdings Inc. homepage.
+// The only stock backed by real chocolate, real cream, and real delusion.
 
 export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
+  tag: "BREAKING",
+  text: "MGNUM up 42,069% — analysts call it 'the chocolate dip you want to buy'",
   href: "#fraud-report",
 };
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Investor Relations", href: "#products" },
+  { label: "Chocolate Futures", href: "#industries" },
+  { label: "Due Diligence", href: "#about" },
+  { label: "Taste Test Reports", href: "#resources" },
+  { label: "Buy the Dip", href: "#pricing" },
 ];
 
 export const hero = {
-  title: "Fintech you can bank on",
+  title: "This is not financial advice*",
   subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
+    "One ice cream bar to rule them all. MGNUM: the only stock backed by real chocolate, real cream, and real delusion. Join 7 billion potential shareholders.",
+  cta: "INVEST NOW (please)",
 };
 
 export const valueProps = {
-  lead: "Run your business with confidence.",
+  lead: "Why MGNUM? Because you deserve chocolate-backed securities.",
   trail:
-    "Adyen delivers the control, reliability, and expertise global enterprises depend on.",
+    "Wall Street doesn't want you to know about this one weird ice cream trick.",
   items: [
     {
-      title: "Compliance you can trust",
-      body: "Backed by US, UK, and EU banking licenses.",
+      title: "Chocolate-backed security",
+      body: "Unlike crypto, you can actually eat your investment if it crashes.",
     },
     {
-      title: "Enterprise-grade reliability",
-      body: "99.999% historical platform uptime.",
+      title: "Recession-proof",
+      body: "People eat ice cream when sad. Economy bad = more ice cream = MGNUM moon.",
     },
     {
-      title: "One platform",
-      body: "Payments, data insights, and financial products in one place.",
+      title: "Global freezer penetration",
+      body: "Freezers exist in 99.7% of households. That's a bigger TAM than the internet.",
     },
     {
-      title: "Built-in optimizations",
-      body: "Improve conversion, reduce fraud, and lower payment costs.",
+      title: "Patented crunch technology",
+      body: "Our proprietary chocolate shell has 47 patents. Try shorting THAT.",
     },
     {
-      title: "Easy to integrate",
-      body: "One API that supports multiple use cases and channels.",
+      title: "Celebrity endorsements pending",
+      body: "We emailed Warren Buffett. He hasn't said no yet. Basically confirmed.",
     },
   ],
 };
 
 export const moneyMovement = {
-  lead: "Control every aspect of your money.",
+  lead: "Control every aspect of your chocolate.",
   trail:
-    "Offer financial products to your customers. All from the same, centralized stack.",
+    "Liquid assets have never been this delicious.",
   cards: [
     {
-      eyebrow: "Intelligent Money Movement",
-      title: "Move money across your entire business",
-      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform.",
-      cta: "Explore payments",
+      eyebrow: "Liquid Chocolate Assets",
+      title: "Move chocolate across your entire portfolio",
+      body: "Diversify into dark, milk, and white chocolate derivatives. Our proprietary Choco-Chain™ technology ensures zero-latency flavor delivery.",
+      cta: "Explore flavors",
       theme: "dark",
     },
     {
-      eyebrow: "Adyen for Platforms",
-      title: "Launch payments and financial products under your brand",
-      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration.",
-      cta: "Explore platforms",
+      eyebrow: "Waffle Cone Derivatives",
+      title: "Launch financial products under your ice cream brand",
+      body: "Embed ice cream futures, frozen yogurt bonds, and gelato options into your existing dessert infrastructure.",
+      cta: "Explore cones",
       theme: "green",
     },
   ],
 };
 
 export const industries = {
-  lead: "Different industries. One standard.",
-  trail: "Businesses across sectors trust Adyen to keep money moving.",
+  lead: "Different flavors. One standard.",
+  trail: "Taste buds across all sectors trust MGNUM to keep things cold.",
   items: [
     {
-      title: "Retail",
-      body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
+      title: "Classic Vanilla",
+      body: "The blue-chip of ice cream. Steady returns, zero surprises, maximum reliability.",
       image: "retail",
     },
     {
-      title: "Travel and hospitality",
-      body: "Turn every trip into a seamless, secure, and personal payment experience.",
+      title: "Almond Crunch",
+      body: "For the aggressive investor who likes a little nutty volatility in their portfolio.",
       image: "travel",
     },
     {
-      title: "Digital media and content",
-      body: "Boost subscriptions and reduce churn with optimized recurring payments.",
+      title: "Double Chocolate",
+      body: "Leveraged chocolate exposure. 2x the cacao, 2x the gains, 2x the calories.",
       image: "digital",
     },
     {
-      title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products into the products your users love.",
+      title: "White Chocolate",
+      body: "The contrarian play. Everyone says it's not real chocolate. We say it's undervalued.",
       image: "saas",
     },
     {
-      title: "Food and beverage",
-      body: "Connect online ordering and in-store payments on a single platform.",
+      title: "Ruby Cocoa",
+      body: "The disruptive newcomer. Pink chocolate didn't exist 10 years ago. Neither did Bitcoin. Coincidence?",
       image: "food",
     },
     {
-      title: "Financial services",
-      body: "Scale globally with the reliability and compliance regulated businesses need.",
+      title: "Salted Caramel",
+      body: "The perfect hedge. Salty enough for bears, sweet enough for bulls.",
       image: "financial",
     },
   ],
 };
 
 export const stats = {
-  lead: "Global scale. Local expertise.",
-  trail: "Powered by trillions of euros in transaction data.",
+  lead: "Global scale. Maximum indulgence.",
+  trail: "Powered by billions of ice cream bars consumed annually.",
   items: [
-    { value: "€1.4T", label: "Processed annually" },
-    { value: "99.999%", label: "Uptime" },
-    { value: "150+", label: "Currencies" },
-    { value: "200+", label: "Local payment methods" },
-    { value: "29", label: "Global offices" },
+    { value: "€420.69B", label: "Projected market cap" },
+    { value: "∞%", label: "Projected growth" },
+    { value: "7B", label: "Potential customers" },
+    { value: "−40°C", label: "Optimal storage temp" },
+    { value: "1", label: "Ice cream to rule them all" },
   ],
 };
 
 export const caseStudies = {
-  lead: "When certainty matters, Adyen's the platform of choice",
+  lead: "When certainty matters, MGNUM is the only choice",
   stories: [
     {
-      brand: "Adobe",
-      body: "Adobe maximized subscription revenue with global payments.",
+      brand: "Warren Ice-Buffett",
+      body: "I've never invested in anything I can't eat. MGNUM changed my life and my cholesterol.",
     },
     {
-      brand: "Prada Group",
-      body: "Prada Group brings luxury style with a human touch through payments innovation.",
+      brand: "Elon Sundae",
+      body: "We're putting Magnums on Mars. The future of interplanetary snacking starts here.",
     },
     {
-      brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty and wellness businesses.",
+      brand: "Cathie Woodberry",
+      body: "MGNUM is the most disruptive innovation since sliced bread. I'm all in. Again.",
     },
     {
-      brand: "Nord Security",
-      body: "Nord Security optimized payments and increased conversion by 10%.",
+      brand: "Your Mom",
+      body: "She always said to invest in what you know. She knows Magnums. Trust your mom.",
     },
     {
-      brand: "L'Occitane",
-      body: "L'Occitane consolidated 40 systems into one. Reconciliation dropped 20%.",
+      brand: "A Penguin",
+      body: "As someone who lives in a freezer, I can confirm: MGNUM maintains structural integrity at -40°C. Bullish.",
     },
     {
-      brand: "Meta",
-      body: "Meta delivers secure payments at global scale.",
+      brand: "Jeff Froezos",
+      body: "At Amazon we tried to compete. We couldn't. MGNUM's supply chain is simply superior.",
     },
     {
-      brand: "Rectangle Health",
-      body: "Rectangle Health automates insurance reimbursements with embedded payments.",
+      brand: "My Dentist",
+      body: "Please stop eating so many Magnums. — This is financial advice, apparently.",
     },
   ],
 };
 
 export const finalCta = {
-  title: "If you're building for scale, there's no alternative",
-  cta: "Contact us",
+  title: "If you're not investing in MGNUM, are you even living?",
+  cta: "THROW MONEY AT US",
 };
 
 export const footerColumns = [
   {
-    heading: "About",
+    heading: "Investor Relations",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      "Annual Chocolate Report",
+      "Board of Flavors",
+      "Stock Ticker (MGNUM)",
+      "Shareholder Perks (Free Magnums)",
+      "Contact Our Lawyers",
     ],
   },
   {
     heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    links: ["Classic Bar", "Mini Magnums", "Ice Cream Tub", "Limited Editions", "NFT Magnums (jk... unless?)"],
   },
   {
-    heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    heading: "Research",
+    links: ["Chocolate Futures Index", "Taste Test Lab Results", "Freezer Penetration Study", "Competitor Meltdown Analysis"],
   },
   {
-    heading: "Platform",
+    heading: "Legal",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      "This Is Not Financial Advice",
+      "Seriously Though",
+      "Please Don't Sue Us",
+      "Cookie Policy (Cookies & Cream)",
+      "Terms of Indulgence",
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = ["Not Financial Advice", "Cookies (the edible kind)", "We're Joking"];

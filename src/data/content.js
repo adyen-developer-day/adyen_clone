@@ -163,6 +163,7 @@ export const finalCta = {
 export const footerColumns = [
   {
     heading: "About",
+    href: "#about",
     links: [
       "Press & media",
       "Careers",
@@ -173,14 +174,17 @@ export const footerColumns = [
   },
   {
     heading: "Products",
+    href: "#products",
     links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
   },
   {
     heading: "Resources",
+    href: "#resources",
     links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
   },
   {
     heading: "Platform",
+    href: "#top",
     links: [
       "Infrastructure",
       "Licenses",

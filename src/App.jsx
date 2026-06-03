@@ -12,11 +12,23 @@ import Footer from "./components/Footer.jsx";
 import ThemeToggle from "./components/ThemeToggle.jsx";
 import Toast from "./components/Toast.jsx";
 
+const THEME_COOKIE = "theme";
+const THEME_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+
+function readThemeCookie() {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(/(?:^|;\s*)theme=(light|dark)\b/);
+  return match ? match[1] : null;
+}
+
+function writeThemeCookie(theme) {
+  if (typeof document === "undefined") return;
+  document.cookie = `${THEME_COOKIE}=${theme}; path=/; max-age=${THEME_MAX_AGE}; SameSite=Lax`;
+}
+
 function getInitialTheme() {
-  if (typeof localStorage !== "undefined") {
-    const saved = localStorage.getItem("theme");
-    if (saved === "light" || saved === "dark") return saved;
-  }
+  const saved = readThemeCookie();
+  if (saved === "light" || saved === "dark") return saved;
   return "light";
 }
 
@@ -26,9 +38,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("theme", theme);
-    }
+    writeThemeCookie(theme);
   }, [theme]);
 
   const toggleTheme = () => {

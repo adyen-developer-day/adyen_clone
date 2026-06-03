@@ -1,8 +1,15 @@
 import { stats } from "../data/content.js";
+import statsBg from "../assets/images/stats-bg.jpg";
 
 export default function Stats() {
   return (
     <section className="section stats" id="about">
+      <img
+        className="stats__bg"
+        src={statsBg}
+        alt=""
+        aria-hidden="true"
+      />
       <div className="container">
         <h2 className="stats__statement">
           <span className="stats__lead">{stats.lead}</span>{" "}

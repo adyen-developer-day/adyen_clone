@@ -1,4 +1,3 @@
-import TopBanner from "./components/TopBanner.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import ValueProps from "./components/ValueProps.jsx";
@@ -12,7 +11,6 @@ import Footer from "./components/Footer.jsx";
 export default function App() {
   return (
     <div className="page">
-      <TopBanner />
       <Navbar />
       <main>
         <Hero />

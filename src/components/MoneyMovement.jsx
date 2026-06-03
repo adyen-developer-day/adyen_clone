@@ -1,9 +1,11 @@
 import { moneyMovement } from "../data/content.js";
 import SectionStatement from "./SectionStatement.jsx";
+import useScrollReveal from "../hooks/useScrollReveal.js";
 
 export default function MoneyMovement() {
+  const ref = useScrollReveal();
   return (
-    <section className="section moneymove">
+    <section ref={ref} className="section moneymove scroll-reveal">
       <div className="container">
         <SectionStatement lead={moneyMovement.lead} trail={moneyMovement.trail} />
         <div className="moneymove__grid">

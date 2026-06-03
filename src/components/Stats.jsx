@@ -1,8 +1,10 @@
 import { stats } from "../data/content.js";
+import useScrollReveal from "../hooks/useScrollReveal.js";
 
 export default function Stats() {
+  const ref = useScrollReveal();
   return (
-    <section className="section stats" id="about">
+    <section ref={ref} className="section stats scroll-reveal" id="about">
       <div className="container">
         <h2 className="stats__statement">
           <span className="stats__lead">{stats.lead}</span>{" "}

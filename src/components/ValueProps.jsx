@@ -1,9 +1,11 @@
 import { valueProps } from "../data/content.js";
 import SectionStatement from "./SectionStatement.jsx";
+import useScrollReveal from "../hooks/useScrollReveal.js";
 
 export default function ValueProps() {
+  const ref = useScrollReveal();
   return (
-    <section className="section section--sand valueprops" id="products">
+    <section ref={ref} className="section section--sand valueprops scroll-reveal" id="products">
       <div className="container">
         <SectionStatement lead={valueProps.lead} trail={valueProps.trail} />
         <ul className="valueprops__grid">

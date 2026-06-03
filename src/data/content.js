@@ -156,8 +156,8 @@ export const caseStudies = {
 };
 
 export const finalCta = {
-  title: "If you're building for scale, there's no alternative",
-  cta: "Contact us",
+  title: "No cap — if you're building for scale, nothing else slaps like this",
+  cta: "Slide into our DMs",
 };
 
 export const footerColumns = [

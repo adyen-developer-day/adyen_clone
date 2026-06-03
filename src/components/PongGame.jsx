@@ -124,7 +124,7 @@ export default function PongGame() {
       ) {
         s.ball.x = px + BALL_SIZE / 2;
         const relHit = (s.ball.y - (s.player.y + PADDLE_HEIGHT / 2)) / (PADDLE_HEIGHT / 2);
-        const speed = Math.sqrt(s.ball.vx ** 2 + s.ball.vy ** 2) * 1.05;
+        const speed = Math.sqrt(s.ball.vx ** 2 + s.ball.vy ** 2) * 2;
         const angle = relHit * (Math.PI / 4);
         s.ball.vx = speed * Math.cos(angle);
         s.ball.vy = speed * Math.sin(angle);
@@ -141,7 +141,7 @@ export default function PongGame() {
       ) {
         s.ball.x = ax - BALL_SIZE / 2;
         const relHit = (s.ball.y - (s.ai.y + PADDLE_HEIGHT / 2)) / (PADDLE_HEIGHT / 2);
-        const speed = Math.sqrt(s.ball.vx ** 2 + s.ball.vy ** 2) * 1.05;
+        const speed = Math.sqrt(s.ball.vx ** 2 + s.ball.vy ** 2) * 2;
         const angle = relHit * (Math.PI / 4);
         s.ball.vx = -speed * Math.cos(angle);
         s.ball.vy = speed * Math.sin(angle);

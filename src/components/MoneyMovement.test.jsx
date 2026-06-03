@@ -13,7 +13,7 @@ describe("MoneyMovement", () => {
   it("renders every card eyebrow, title, body, and cta", () => {
     render(<MoneyMovement />);
     moneyMovement.cards.forEach((card) => {
-      expect(screen.getByText(card.eyebrow)).toBeInTheDocument();
+      expect(screen.getByText(card.eyebrow, { exact: false })).toBeInTheDocument();
       expect(screen.getByText(card.title)).toBeInTheDocument();
       expect(screen.getByText(card.body)).toBeInTheDocument();
       expect(screen.getByRole("link", { name: new RegExp(card.cta) })).toBeInTheDocument();

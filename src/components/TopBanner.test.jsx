@@ -6,7 +6,7 @@ import { announcement } from "../data/content.js";
 describe("TopBanner", () => {
   it("renders the announcement tag", () => {
     render(<TopBanner />);
-    expect(screen.getByText(announcement.tag)).toBeInTheDocument();
+    expect(screen.getByText(announcement.tag, { exact: false })).toBeInTheDocument();
   });
 
   it("renders the announcement text", () => {

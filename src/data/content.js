@@ -16,10 +16,10 @@ export const navLinks = [
 ];
 
 export const hero = {
-  title: "Fintech you can bank on",
+  title: "Payments that lowkey slap",
   subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
+    "One platform for payments, data, and financial products — no cap. It's giving main character energy for the world's leading businesses, fr fr.",
+  cta: "Let's vibe",
 };
 
 export const valueProps = {

@@ -804,6 +804,8 @@ a:focus-visible,
   position: absolute;
   bottom: 4%;
   z-index: 1;
+  /* Sit further back in the preserve-3d scene so the card always taps on top. */
+  transform: translateZ(-40px);
   width: clamp(190px, 22vw, 250px);
   border-radius: 26px;
   padding: 16px 16px 22px;

@@ -54,20 +54,24 @@ export default function CardJourney() {
     };
   }, []);
 
-  // Card travels from high + tilted to docked + flat against the terminal.
-  const drop = phase(progress, 0, 0.62);
-  const tap = phase(progress, 0.6, 0.82);
-  const approved = phase(progress, 0.82, 1);
+  // Card travels from high + tilted, flattens onto the terminal, "taps",
+  // then lifts away and fades to reveal the approval on the screen.
+  const drop = phase(progress, 0, 0.5);
+  const tap = phase(progress, 0.46, 0.64);
+  const lift = phase(progress, 0.68, 0.98);
+  const approved = phase(progress, 0.72, 0.94);
 
-  const cardY = lerp(-150, 70, drop) - tap * 14;
-  const cardRotX = lerp(58, 8, drop);
+  const cardY = lerp(-150, 64, drop) - tap * 12 - lift * 210;
+  const cardRotX = lerp(58, 8, drop) + lift * 26;
   const cardRotZ = lerp(-16, 0, drop);
-  const cardScale = lerp(1.08, 0.92, drop);
-  const cardZ = lerp(120, 0, drop);
+  const cardScale = lerp(1.08, 0.92, drop) + lift * 0.06;
+  // Keep the card at a positive depth so, inside the preserve-3d scene, it
+  // always paints in front of the terminal (which sits further back).
+  const cardZ = lerp(140, 60, drop) + lift * 40;
+  const cardOpacity = 1 - lift;
   const cardGlow = 0.18 + tap * 0.5;
 
-  const activeStep =
-    approved > 0.15 ? 2 : drop >= 0.999 || tap > 0.05 ? 1 : 0;
+  const activeStep = approved > 0.2 ? 2 : tap > 0.05 ? 1 : 0;
 
   return (
     <section className="cardjourney" ref={sectionRef} aria-label="From card to terminal">
@@ -106,6 +110,7 @@ export default function CardJourney() {
                 className="cardjourney__card"
                 style={{
                   transform: `translateY(${cardY}px) translateZ(${cardZ}px) rotateX(${cardRotX}deg) rotateZ(${cardRotZ}deg) scale(${cardScale})`,
+                  opacity: cardOpacity,
                   boxShadow: `0 ${lerp(8, 30, drop)}px ${lerp(
                     24,
                     60,

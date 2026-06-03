@@ -12,17 +12,17 @@ Cognition tools: **Devin CLI**, **Devin Cloud**, and **Devin Desktop**.
 
 | Concern        | Choice                          | Notes                                   |
 | -------------- | ------------------------------- | --------------------------------------- |
-| Framework      | React 18 (`^18.2.0`)            | Intentionally pinned (upgrade target)   |
-| Build / dev    | Vite 4 (`^4.5.0`)               | Intentionally pinned (upgrade target)   |
+| Framework      | React 19 (`^19.2.7`)            | Upgraded from React 18                   |
+| Build / dev    | Vite 8 (`^8.0.16`)              | Upgraded from Vite 4                      |
 | Tests          | Vitest + React Testing Library  | Only 1 starter test on purpose          |
 | Styling        | Plain CSS (`src/index.css`)     | Brand green `#00d16a`, no dark mode yet  |
 
 ## Prerequisites
 
-- **Node.js 18+** (this repo was scaffolded with Node 20).
+- **Node.js 20.19+** (Vite 8 requires Node `^20.19 || ^22.12 || >=24`).
   - No system Node? Install via [nvm](https://github.com/nvm-sh/nvm):
     ```bash
-    nvm install 20 && nvm use 20
+    nvm install 22 && nvm use 22
     ```
 
 ## Getting started

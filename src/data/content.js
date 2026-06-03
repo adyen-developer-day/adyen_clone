@@ -122,35 +122,35 @@ export const stats = {
 };
 
 export const caseStudies = {
-  lead: "When certainty matters, Adyen's the platform of choice",
+  lead: "No cap — these brands chose Adyen and it lowkey changed the game",
   stories: [
     {
       brand: "Adobe",
-      body: "Adobe maximized subscription revenue with global payments.",
+      body: "Adobe said 'bet' on global payments and their subscription revenue went absolutely bussin.",
     },
     {
       brand: "Prada Group",
-      body: "Prada Group brings luxury style with a human touch through payments innovation.",
+      body: "Prada Group brought main character energy to luxury payments — it's giving innovation with a human touch, fr fr.",
     },
     {
       brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty and wellness businesses.",
+      body: "Vagaro unlocked instant payouts for 80,000+ beauty businesses and honestly? That rizz is unmatched.",
     },
     {
       brand: "Nord Security",
-      body: "Nord Security optimized payments and increased conversion by 10%.",
+      body: "Nord Security highkey optimized their payments flow — conversion went up 10% and we are vibing.",
     },
     {
       brand: "L'Occitane",
-      body: "L'Occitane consolidated 40 systems into one. Reconciliation dropped 20%.",
+      body: "L'Occitane said goodbye to 40 systems, consolidated into one, and reconciliation dropped 20%. This slaps.",
     },
     {
       brand: "Meta",
-      body: "Meta delivers secure payments at global scale.",
+      body: "Meta runs secure payments at global scale. No cap, the platform just hits different.",
     },
     {
       brand: "Rectangle Health",
-      body: "Rectangle Health automates insurance reimbursements with embedded payments.",
+      body: "Rectangle Health embedded payments to automate insurance reimbursements — lowkey a whole slay.",
     },
   ],
 };

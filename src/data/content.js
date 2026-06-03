@@ -4,7 +4,7 @@
 export const announcement = {
   tag: "Out now",
   text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  href: "#resources",
 };
 
 export const navLinks = [
@@ -12,7 +12,7 @@ export const navLinks = [
   { label: "Businesses we serve", href: "#industries" },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "#contact" },
 ];
 
 export const hero = {
@@ -163,6 +163,7 @@ export const finalCta = {
 export const footerColumns = [
   {
     heading: "About",
+    href: "#about",
     links: [
       "Press & media",
       "Careers",
@@ -173,14 +174,17 @@ export const footerColumns = [
   },
   {
     heading: "Products",
+    href: "#products",
     links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
   },
   {
     heading: "Resources",
+    href: "#resources",
     links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
   },
   {
     heading: "Platform",
+    href: "#about",
     links: [
       "Infrastructure",
       "Licenses",

@@ -559,6 +559,13 @@ svg {
   font-weight: 600;
   max-width: 18ch;
 }
+.cases__header-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
 .cases__rail {
   display: flex;
   gap: 18px;

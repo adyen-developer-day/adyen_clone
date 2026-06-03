@@ -691,3 +691,23 @@ a:focus-visible,
     scroll-behavior: auto;
   }
 }
+
+/* ----------------------------------------- Upside-down text & rainbow bg */
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, dt, dd,
+label, button, .btn,
+.topbanner__tag {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+@keyframes bgCycle {
+  0%   { background-color: #ffff00; }
+  25%  { background-color: #ff69b4; }
+  50%  { background-color: #ffffff; }
+  75%  { background-color: #ff0000; }
+}
+
+.page {
+  animation: bgCycle 4s step-end infinite;
+}

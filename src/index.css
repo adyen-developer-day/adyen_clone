@@ -227,6 +227,36 @@ svg {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+}
+.hero__content {
+  flex: 1 1 55%;
+  min-width: 0;
+}
+.hero__media {
+  flex: 0 1 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+@media (max-width: 768px) {
+  .hero__inner {
+    flex-direction: column;
+  }
+  .hero__media {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 .hero__title {
   margin: 0 0 28px;
@@ -271,6 +301,13 @@ svg {
 }
 
 /* -------------------------------------------------------------- ValueProps */
+.valueprops__hero {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 32px;
+}
 .valueprops__grid {
   list-style: none;
   margin: 0;
@@ -375,6 +412,13 @@ svg {
 .bigcard__cta:hover span {
   transform: translateX(4px);
 }
+.bigcard__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
 
 /* -------------------------------------------------------------- Industries */
 .industries__note {
@@ -396,10 +440,23 @@ svg {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: 32px 30px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+  overflow: hidden;
+}
+.industry__photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+.industry__content {
+  padding: 24px 30px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .industry:hover {
   transform: translateY(-4px);
@@ -438,6 +495,22 @@ svg {
 .stats {
   background: var(--ink);
   color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.stats__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.stats .container {
+  position: relative;
+  z-index: 1;
 }
 .stats__statement {
   margin: 0 0 clamp(40px, 6vw, 72px);
@@ -485,6 +558,13 @@ svg {
   letter-spacing: -0.025em;
   font-weight: 600;
   max-width: 18ch;
+}
+.cases__header-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: clamp(28px, 4vw, 48px);
 }
 .cases__rail {
   display: flex;
@@ -549,11 +629,23 @@ svg {
 
 /* ---------------------------------------------------------------- FinalCTA */
 .finalcta {
-  background: var(--green);
-  color: var(--ink);
+  position: relative;
+  background-color: var(--green);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
   padding: clamp(80px, 12vw, 150px) 0;
 }
+.finalcta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 209, 106, 0.75);
+  pointer-events: none;
+}
 .finalcta__inner {
+  position: relative;
+  z-index: 1;
   text-align: center;
   display: flex;
   flex-direction: column;

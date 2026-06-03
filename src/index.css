@@ -629,11 +629,23 @@ svg {
 
 /* ---------------------------------------------------------------- FinalCTA */
 .finalcta {
-  background: var(--green);
-  color: var(--ink);
+  position: relative;
+  background-color: var(--green);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
   padding: clamp(80px, 12vw, 150px) 0;
 }
+.finalcta__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 209, 106, 0.75);
+  pointer-events: none;
+}
 .finalcta__inner {
+  position: relative;
+  z-index: 1;
   text-align: center;
   display: flex;
   flex-direction: column;

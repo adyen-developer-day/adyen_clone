@@ -12,5 +12,16 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/test/setup.js",
+    coverage: {
+      provider: "v8",
+      all: true,
+      include: ["src/components/**/*.jsx"],
+      exclude: ["src/components/**/*.test.jsx"],
+      reporter: ["text", "html"],
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
   },
 });

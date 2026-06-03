@@ -11,6 +11,14 @@
     <title>Adyen: Fintech platform for enterprises</title>
   </head>
   <body>
+    <script>
+      // Prevent flash of wrong theme on initial load
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

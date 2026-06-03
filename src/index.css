@@ -39,6 +39,26 @@
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* ---------- Dark theme overrides ---------- */
+[data-theme="dark"] {
+  --ink: #e8eaed;
+  --ink-2: #d0d4d8;
+  --sand: #1a1f26;
+  --sand-300: #2a3038;
+  --grey: #1e242b;
+  --muted: #9aa4af;
+  --muted-2: #7a8590;
+
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --on-dark-muted: rgba(255, 255, 255, 0.62);
+  --on-green-muted: rgba(0, 18, 34, 0.66);
+
+  --dark-bg: #0f1318;
+  --dark-surface: #181d24;
+  --dark-card: #1e242b;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -213,6 +233,26 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--green);
+  background: rgba(0, 209, 106, 0.08);
+}
+[data-theme="dark"] .theme-toggle {
+  color: #e8eaed;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -690,4 +730,75 @@ a:focus-visible,
     transition: none !important;
     scroll-behavior: auto;
   }
+}
+
+/* ======================================================= Dark‑mode surface overrides
+   Elements with hard-coded colours (not using CSS vars) need explicit overrides.
+   ======================================================= */
+[data-theme="dark"] body {
+  background: var(--dark-bg);
+}
+[data-theme="dark"] .page {
+  background: var(--dark-bg);
+}
+[data-theme="dark"] .navbar {
+  background: rgba(15, 19, 24, 0.86);
+  border-bottom-color: var(--line);
+}
+[data-theme="dark"] .navbar__brand {
+  color: #fff;
+}
+[data-theme="dark"] .navbar__links a {
+  color: #e8eaed;
+}
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: var(--green);
+  color: #001222;
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: var(--green-strong);
+}
+[data-theme="dark"] .section {
+  background: var(--dark-bg);
+}
+[data-theme="dark"] .section--sand {
+  background: var(--dark-surface);
+}
+[data-theme="dark"] .valueprop {
+  background: var(--dark-card);
+  border-color: var(--line);
+}
+[data-theme="dark"] .valueprop:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .industry {
+  background: var(--dark-card);
+  border-color: var(--line);
+}
+[data-theme="dark"] .industry:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .industry__link {
+  color: #e8eaed;
+}
+[data-theme="dark"] .statement__lead {
+  color: #e8eaed;
+}
+[data-theme="dark"] .statement__trail {
+  color: rgba(232, 234, 237, 0.42);
+}
+[data-theme="dark"] .stats {
+  background: var(--dark-surface);
+}
+[data-theme="dark"] .storycard {
+  background: var(--dark-card);
+}
+[data-theme="dark"] .footer {
+  background: var(--dark-surface);
+}
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] .btn:focus-visible {
+  outline-color: #fff;
 }

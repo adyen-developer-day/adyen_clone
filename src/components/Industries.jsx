@@ -19,7 +19,7 @@ export default function Industries() {
         <div className="industries__grid">
           {industries.items.map((item) => (
             <article key={item.title} className="industry">
-              <img className="industry__icon" src={iconFor(item.image)} />
+              <img className="industry__icon" src={iconFor(item.image)} alt={item.title} />
               <h3 className="industry__title">{item.title}</h3>
               <p className="industry__body">{item.body}</p>
               <a className="industry__link" href="#industries">

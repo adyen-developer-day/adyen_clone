@@ -15,7 +15,7 @@ export default function Industries() {
     <section className="section section--sand industries" id="industries">
       <div className="container">
         <SectionStatement lead={industries.lead} trail={industries.trail} />
-        <p className="industries__note">Built for the way you do buisness.</p>
+        <p className="industries__note">Built different for your whole vibe, no cap.</p>
         <div className="industries__grid">
           {industries.items.map((item) => (
             <article key={item.title} className="industry">

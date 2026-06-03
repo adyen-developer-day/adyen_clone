@@ -164,31 +164,46 @@ export const footerColumns = [
   {
     heading: "About",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      { label: "Press & media", href: "https://www.adyen.com/press-and-media" },
+      { label: "Careers", href: "https://careers.adyen.com" },
+      { label: "Investor Relations", href: "https://investors.adyen.com" },
+      { label: "Partner with us", href: "https://www.adyen.com/partners" },
+      { label: "Contact", href: "https://www.adyen.com/contact" },
     ],
   },
   {
     heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    links: [
+      { label: "Payments", href: "https://www.adyen.com/accept-payments" },
+      { label: "Risk management", href: "https://www.adyen.com/uplift/protect" },
+      { label: "Authentication", href: "https://www.adyen.com/uplift/authenticate" },
+      { label: "Issuing", href: "https://www.adyen.com/issuing" },
+      { label: "Pricing", href: "https://www.adyen.com/pricing" },
+    ],
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    links: [
+      { label: "Documentation", href: "https://docs.adyen.com" },
+      { label: "Academy", href: "https://help.adyen.com/academy" },
+      { label: "Knowledge Hub", href: "https://www.adyen.com/knowledge-hub" },
+      { label: "Newsletter", href: "https://www.adyen.com/newsletter" },
+    ],
   },
   {
     heading: "Platform",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      { label: "Infrastructure", href: "https://www.adyen.com/infrastructure" },
+      { label: "Licenses", href: "https://www.adyen.com/licenses" },
+      { label: "Legal", href: "https://www.adyen.com/legal" },
+      { label: "Terms & Conditions", href: "https://www.adyen.com/legal/adyen-terms-and-conditions" },
+      { label: "Service Status", href: "https://status.adyen.com/" },
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = [
+  { label: "Privacy", href: "https://www.adyen.com/privacy-policy" },
+  { label: "Cookies", href: "https://www.adyen.com/policies-and-disclaimer/cookie-policy" },
+  { label: "Disclaimer", href: "https://www.adyen.com/policies-and-disclaimer/disclaimer" },
+];

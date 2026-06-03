@@ -4,7 +4,7 @@
 export const announcement = {
   tag: "Out now",
   text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  href: "#resources",
 };
 
 export const navLinks = [
@@ -12,7 +12,7 @@ export const navLinks = [
   { label: "Businesses we serve", href: "#industries" },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "#contact" },
 ];
 
 export const hero = {
@@ -164,31 +164,46 @@ export const footerColumns = [
   {
     heading: "About",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      { label: "Press & media", href: "#resources" },
+      { label: "Careers", href: "#about" },
+      { label: "Investor Relations", href: "#about" },
+      { label: "Partner with us", href: "#contact" },
+      { label: "Contact", href: "#contact" },
     ],
   },
   {
     heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    links: [
+      { label: "Payments", href: "#products" },
+      { label: "Risk management", href: "#products" },
+      { label: "Authentication", href: "#products" },
+      { label: "Issuing", href: "#products" },
+      { label: "Pricing", href: "#contact" },
+    ],
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    links: [
+      { label: "Documentation", href: "#resources" },
+      { label: "Academy", href: "#resources" },
+      { label: "Knowledge Hub", href: "#resources" },
+      { label: "Newsletter", href: "#contact" },
+    ],
   },
   {
     heading: "Platform",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      { label: "Infrastructure", href: "#products" },
+      { label: "Licenses", href: "#products" },
+      { label: "Legal", href: "#contact" },
+      { label: "Terms & Conditions", href: "#contact" },
+      { label: "Service Status", href: "#about" },
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = [
+  { label: "Privacy", href: "#contact" },
+  { label: "Cookies", href: "#contact" },
+  { label: "Disclaimer", href: "#contact" },
+];

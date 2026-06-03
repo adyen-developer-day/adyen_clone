@@ -1,194 +1,65 @@
-// Central content for the homepage replica.
-// Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
+// Theme-aware content provider.
+// Exposes the active theme ("default" | "retro"), a toggle, and the matching copy.
 
-export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+import {
+  createContext,
+  createElement,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import defaultContent from "./content.default.js";
+import retroContent from "./content.retro.js";
+
+export const THEMES = {
+  default: defaultContent,
+  retro: retroContent,
 };
 
-export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
-];
+const STORAGE_KEY = "adyen-clone-theme";
 
-export const hero = {
-  title: "Fintech you can bank on",
-  subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
-};
+function readStoredTheme() {
+  if (typeof window === "undefined") return "default";
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  return stored === "retro" ? "retro" : "default";
+}
 
-export const valueProps = {
-  lead: "Run your business with confidence.",
-  trail:
-    "Adyen delivers the control, reliability, and expertise global enterprises depend on.",
-  items: [
-    {
-      title: "Compliance you can trust",
-      body: "Backed by US, UK, and EU banking licenses.",
-    },
-    {
-      title: "Enterprise-grade reliability",
-      body: "99.999% historical platform uptime.",
-    },
-    {
-      title: "One platform",
-      body: "Payments, data insights, and financial products in one place.",
-    },
-    {
-      title: "Built-in optimizations",
-      body: "Improve conversion, reduce fraud, and lower payment costs.",
-    },
-    {
-      title: "Easy to integrate",
-      body: "One API that supports multiple use cases and channels.",
-    },
-  ],
-};
+const ThemeContext = createContext({
+  theme: "default",
+  content: defaultContent,
+  setTheme: () => {},
+  toggleTheme: () => {},
+});
 
-export const moneyMovement = {
-  lead: "Control every aspect of your money.",
-  trail:
-    "Offer financial products to your customers. All from the same, centralized stack.",
-  cards: [
-    {
-      eyebrow: "Intelligent Money Movement",
-      title: "Move money across your entire business",
-      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform.",
-      cta: "Explore payments",
-      theme: "dark",
-    },
-    {
-      eyebrow: "Adyen for Platforms",
-      title: "Launch payments and financial products under your brand",
-      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration.",
-      cta: "Explore platforms",
-      theme: "green",
-    },
-  ],
-};
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(readStoredTheme);
 
-export const industries = {
-  lead: "Different industries. One standard.",
-  trail: "Businesses across sectors trust Adyen to keep money moving.",
-  items: [
-    {
-      title: "Retail",
-      body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
-      image: "retail",
-    },
-    {
-      title: "Travel and hospitality",
-      body: "Turn every trip into a seamless, secure, and personal payment experience.",
-      image: "travel",
-    },
-    {
-      title: "Digital media and content",
-      body: "Boost subscriptions and reduce churn with optimized recurring payments.",
-      image: "digital",
-    },
-    {
-      title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products into the products your users love.",
-      image: "saas",
-    },
-    {
-      title: "Food and beverage",
-      body: "Connect online ordering and in-store payments on a single platform.",
-      image: "food",
-    },
-    {
-      title: "Financial services",
-      body: "Scale globally with the reliability and compliance regulated businesses need.",
-      image: "financial",
-    },
-  ],
-};
+  useEffect(() => {
+    window.localStorage.setItem(STORAGE_KEY, theme);
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
-export const stats = {
-  lead: "Global scale. Local expertise.",
-  trail: "Powered by trillions of euros in transaction data.",
-  items: [
-    { value: "€1.4T", label: "Processed annually" },
-    { value: "99.999%", label: "Uptime" },
-    { value: "150+", label: "Currencies" },
-    { value: "200+", label: "Local payment methods" },
-    { value: "29", label: "Global offices" },
-  ],
-};
+  const value = useMemo(
+    () => ({
+      theme,
+      content: THEMES[theme],
+      setTheme,
+      toggleTheme: () =>
+        setTheme((prev) => (prev === "retro" ? "default" : "retro")),
+    }),
+    [theme]
+  );
 
-export const caseStudies = {
-  lead: "When certainty matters, Adyen's the platform of choice",
-  stories: [
-    {
-      brand: "Adobe",
-      body: "Adobe maximized subscription revenue with global payments.",
-    },
-    {
-      brand: "Prada Group",
-      body: "Prada Group brings luxury style with a human touch through payments innovation.",
-    },
-    {
-      brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty and wellness businesses.",
-    },
-    {
-      brand: "Nord Security",
-      body: "Nord Security optimized payments and increased conversion by 10%.",
-    },
-    {
-      brand: "L'Occitane",
-      body: "L'Occitane consolidated 40 systems into one. Reconciliation dropped 20%.",
-    },
-    {
-      brand: "Meta",
-      body: "Meta delivers secure payments at global scale.",
-    },
-    {
-      brand: "Rectangle Health",
-      body: "Rectangle Health automates insurance reimbursements with embedded payments.",
-    },
-  ],
-};
+  return createElement(ThemeContext.Provider, { value }, children);
+}
 
-export const finalCta = {
-  title: "If you're building for scale, there's no alternative",
-  cta: "Contact us",
-};
+// Returns { theme, content, setTheme, toggleTheme }. Falls back to default
+// content when used outside a provider (e.g. in isolated component tests).
+export function useTheme() {
+  return useContext(ThemeContext);
+}
 
-export const footerColumns = [
-  {
-    heading: "About",
-    links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
-    ],
-  },
-  {
-    heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
-  },
-  {
-    heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
-  },
-  {
-    heading: "Platform",
-    links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
-    ],
-  },
-];
-
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export function useContent() {
+  return useTheme().content;
+}

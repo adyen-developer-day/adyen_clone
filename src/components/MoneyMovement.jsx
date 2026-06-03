@@ -1,7 +1,8 @@
-import { moneyMovement } from "../data/content.js";
+import { useContent } from "../data/content.js";
 import SectionStatement from "./SectionStatement.jsx";
 
 export default function MoneyMovement() {
+  const { moneyMovement } = useContent();
   return (
     <section className="section moneymove">
       <div className="container">

@@ -691,3 +691,293 @@ a:focus-visible,
     scroll-behavior: auto;
   }
 }
+
+/* ====================================================================== Theme toggle */
+.themetoggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #0d1e2e;
+  color: #fff;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+}
+.themetoggle__label {
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+.themetoggle__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+.themetoggle__btn:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+.themetoggle__state {
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ==========================================================================
+   RETRO 1990s WEB OVERRIDE — GeoCities / Web 1.0 makeover.
+   Active only when <html data-theme="retro">. Square corners, beveled buttons,
+   web-safe neons, Times/Courier/Comic Sans, tiled bg, blink + marquee.
+   ========================================================================== */
+:root[data-theme="retro"] {
+  --green: #00ff00;
+  --green-strong: #ff00ff;
+  --ink: #000080;
+  --ink-2: #000080;
+  --sand: #c0c0c0;
+  --sand-300: #808080;
+  --grey: #c0c0c0;
+  --muted: #000080;
+  --muted-2: #000080;
+  --line: #000000;
+  --line-strong: #000000;
+  --on-dark-muted: #00ff00;
+  --on-green-muted: #000080;
+  --font: "Times New Roman", Times, serif;
+  --mono: "Courier New", Courier, monospace;
+  --retro-display: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+}
+
+@keyframes retroBlink { 50% { opacity: 0; } }
+@keyframes retroMarquee {
+  0% { transform: translateX(40vw); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes retroRainbow {
+  0% { color: #ff0000; } 20% { color: #ff9900; } 40% { color: #00cc00; }
+  60% { color: #0099ff; } 80% { color: #cc00ff; } 100% { color: #ff0000; }
+}
+
+[data-theme="retro"] body {
+  font-family: var(--font);
+  color: #000000;
+  background-color: #008080;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 1px);
+  background-size: 16px 16px, 16px 16px;
+  background-position: 0 0, 8px 8px;
+  -webkit-font-smoothing: auto;
+}
+[data-theme="retro"] .page {
+  background: #c0c0c0;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 4px ridge #dfdfdf;
+  box-shadow: 6px 6px 0 #000;
+}
+[data-theme="retro"] a { color: #0000ee; text-decoration: underline; }
+[data-theme="retro"] a:visited { color: #551a8b; }
+
+/* Theme toggle in retro skin */
+[data-theme="retro"] .themetoggle {
+  background: #000;
+  color: #00ff00;
+  font-family: var(--mono);
+  border-bottom: 3px ridge #00ff00;
+}
+[data-theme="retro"] .themetoggle__btn {
+  border-radius: 0;
+  border: 3px outset #00ff00;
+  background: #c0c0c0;
+  color: #000080;
+}
+[data-theme="retro"] .themetoggle__btn:active { border-style: inset; }
+[data-theme="retro"] .themetoggle__state { color: #ff00ff; }
+
+/* Buttons */
+[data-theme="retro"] .btn {
+  border-radius: 0 !important;
+  border: 3px outset #dfdfdf;
+  background: #c0c0c0;
+  color: #000;
+  font-family: var(--mono);
+  font-weight: 700;
+  text-decoration: none;
+  transition: none;
+}
+[data-theme="retro"] .btn:hover { transform: none; }
+[data-theme="retro"] .btn:active { border-style: inset; }
+[data-theme="retro"] .btn--primary,
+[data-theme="retro"] .btn--dark {
+  background: #00ff00;
+  color: #000080;
+  border: 3px outset #5cff5c;
+}
+[data-theme="retro"] .btn--primary:hover,
+[data-theme="retro"] .btn--dark:hover { background: #00ff00; }
+[data-theme="retro"] .btn--ghost-light {
+  background: #c0c0c0;
+  color: #000;
+  border: 3px outset #dfdfdf;
+}
+[data-theme="retro"] .btn--ghost-light:hover { border-color: #dfdfdf; }
+[data-theme="retro"] .arrowlink {
+  font-family: var(--mono);
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+/* Top banner */
+[data-theme="retro"] .topbanner {
+  background: #000;
+  color: #00ff00;
+  border-bottom: 3px ridge #00ff00;
+  font-family: var(--mono);
+  overflow: hidden;
+  text-decoration: none;
+}
+[data-theme="retro"] .topbanner__tag {
+  background: #ff00ff;
+  color: #fff;
+  border-radius: 0;
+  border: 2px outset #ff66ff;
+  animation: retroBlink 1s steps(1) infinite;
+}
+[data-theme="retro"] .topbanner__text {
+  color: #00ff00;
+  white-space: nowrap;
+  display: inline-block;
+  animation: retroMarquee 12s linear infinite;
+}
+[data-theme="retro"] .topbanner__arrow { display: none; }
+
+/* Navbar */
+[data-theme="retro"] .navbar {
+  position: static;
+  background: #c0c0c0;
+  backdrop-filter: none;
+  border-bottom: 4px ridge #dfdfdf;
+}
+[data-theme="retro"] .navbar__brand { color: #000080; }
+[data-theme="retro"] .navbar__links { font-family: var(--mono); font-weight: 700; }
+[data-theme="retro"] .navbar__links a {
+  color: #0000ee;
+  opacity: 1;
+  text-decoration: underline;
+}
+[data-theme="retro"] .navbar__links a:hover { color: #ff00ff; }
+
+/* Hero */
+[data-theme="retro"] .hero {
+  background: #00ff00;
+  color: #000080;
+  border-bottom: 4px ridge #008000;
+}
+[data-theme="retro"] .hero__title {
+  font-family: var(--retro-display);
+  letter-spacing: 0;
+  color: #000080;
+  text-shadow: 3px 3px 0 #fff, 6px 6px 0 #ff00ff;
+}
+[data-theme="retro"] .hero__subtitle { color: #000080; font-weight: 700; }
+
+/* Section headings */
+[data-theme="retro"] .section--sand { background: #c0c0c0; }
+[data-theme="retro"] .statement,
+[data-theme="retro"] .stats__statement,
+[data-theme="retro"] .cases__title {
+  font-family: var(--retro-display);
+  letter-spacing: 0;
+}
+[data-theme="retro"] .statement__lead,
+[data-theme="retro"] .cases__title { color: #ff00ff; text-shadow: 2px 2px 0 #000; }
+[data-theme="retro"] .statement__trail { color: #0000ee; }
+
+/* Value prop cards */
+[data-theme="retro"] .valueprop {
+  background: #ffff99;
+  border: 3px ridge #000080;
+  border-radius: 0;
+}
+[data-theme="retro"] .valueprop:hover { transform: none; box-shadow: 4px 4px 0 #000080; }
+[data-theme="retro"] .valueprop__index { font-family: var(--mono); color: #ff00ff; }
+[data-theme="retro"] .valueprop__title { font-family: var(--retro-display); }
+[data-theme="retro"] .valueprop__body { color: #000; }
+
+/* Money movement big cards */
+[data-theme="retro"] .bigcard { border-radius: 0; border: 4px outset #888; }
+[data-theme="retro"] .bigcard--dark { background: #000080; color: #00ff00; }
+[data-theme="retro"] .bigcard--green { background: #00ff00; color: #000080; }
+[data-theme="retro"] .bigcard__eyebrow { font-family: var(--mono); }
+[data-theme="retro"] .bigcard__title { font-family: var(--retro-display); }
+[data-theme="retro"] .bigcard--dark .bigcard__body { color: #00ff00; }
+[data-theme="retro"] .bigcard--green .bigcard__body { color: #000080; }
+[data-theme="retro"] .bigcard__cta { font-family: var(--mono); }
+
+/* Industries */
+[data-theme="retro"] .industries__note { font-family: var(--retro-display); color: #ff00ff; }
+[data-theme="retro"] .industry {
+  background: #ffffff;
+  border: 3px ridge #ff00ff;
+  border-radius: 0;
+}
+[data-theme="retro"] .industry:hover { transform: none; box-shadow: 4px 4px 0 #ff00ff; }
+[data-theme="retro"] .industry__title { font-family: var(--retro-display); }
+[data-theme="retro"] .industry__body { color: #000; }
+[data-theme="retro"] .industry__link { color: #0000ee; text-decoration: underline; }
+[data-theme="retro"] .industry__link span { color: #ff00ff; }
+
+/* Stats */
+[data-theme="retro"] .stats { background: #000080; }
+[data-theme="retro"] .stat__value {
+  font-family: var(--mono);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: 0;
+  color: #00ff00;
+  overflow-wrap: anywhere;
+  animation: retroRainbow 6s linear infinite;
+}
+[data-theme="retro"] .stat__label { color: #ffff00; }
+
+/* Case studies */
+[data-theme="retro"] .storycard {
+  background: #000080;
+  border: 3px outset #4040c0;
+  border-radius: 0;
+}
+[data-theme="retro"] .storycard__tag { font-family: var(--mono); color: #00ff00; }
+[data-theme="retro"] .storycard__brand { font-family: var(--retro-display); }
+[data-theme="retro"] .storycard__body { color: #00ff00; }
+[data-theme="retro"] .storycard__link { color: #ffff00; text-decoration: underline; }
+[data-theme="retro"] .cases__rail::-webkit-scrollbar-thumb { background: #808080; border-radius: 0; }
+
+/* Final CTA */
+[data-theme="retro"] .finalcta {
+  background: #00ff00;
+  color: #000080;
+  border-top: 4px ridge #008000;
+}
+[data-theme="retro"] .finalcta__title {
+  font-family: var(--retro-display);
+  color: #000080;
+  text-shadow: 3px 3px 0 #fff;
+}
+
+/* Footer */
+[data-theme="retro"] .footer { background: #000080; border-top: 4px ridge #4040c0; }
+[data-theme="retro"] .footer__tagline { color: #00ff00; }
+[data-theme="retro"] .footer__heading { color: #ffff00; font-family: var(--mono); }
+[data-theme="retro"] .footer__col a { color: #00ffff; text-decoration: underline; }
+[data-theme="retro"] .footer__col a:hover { color: #ff00ff; }
+[data-theme="retro"] .footer__bottom { color: #00ff00; }
+[data-theme="retro"] .footer__legal a { color: #00ffff; }
+[data-theme="retro"] .footer__legal a:hover { color: #fff; }
+[data-theme="retro"] .footer__disclaimer { color: #8080ff; }

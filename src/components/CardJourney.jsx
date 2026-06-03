@@ -6,25 +6,34 @@ import { cardJourney } from "../data/content.js";
 // payment terminal. A sticky stage keeps the scene pinned while the inner
 // scroll position (0 -> 1) drives every transform.
 
-// Top-view ceiling fan — a wink at the "Only Fans" line item.
+// A wind/cooling fan — a wink at the "Only Fans" line item.
+// Swept pinwheel blades inside a circular guard so it reads clearly as a fan.
 function CeilingFan({ className }) {
-  const blade = "M24 24 C19 13 19 6 24 4 C29 6 29 13 24 24 Z";
+  const blade = "M24 24 C22 16 24 8 31 6 C29 13 28 19 24 24 Z";
   return (
     <svg
       className={className}
       viewBox="0 0 48 48"
-      width="22"
-      height="22"
+      width="24"
+      height="24"
       aria-hidden="true"
     >
+      <circle
+        cx="24"
+        cy="24"
+        r="21"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+      />
       <g fill="currentColor">
         <path d={blade} />
         <path d={blade} transform="rotate(90 24 24)" />
         <path d={blade} transform="rotate(180 24 24)" />
         <path d={blade} transform="rotate(270 24 24)" />
       </g>
-      <circle cx="24" cy="24" r="4.4" fill="currentColor" />
-      <circle cx="24" cy="24" r="1.8" fill="#f6f5f4" />
+      <circle cx="24" cy="24" r="3.6" fill="currentColor" />
+      <circle cx="24" cy="24" r="1.5" fill="#f6f5f4" />
     </svg>
   );
 }

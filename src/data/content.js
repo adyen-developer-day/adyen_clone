@@ -16,10 +16,19 @@ export const navLinks = [
 ];
 
 export const hero = {
+  eyebrow: "The financial technology platform",
   title: "Fintech you can bank on",
+  highlight: "bank on",
   subtitle:
     "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
   cta: "Talk to our team",
+  ctaSecondary: "See how it works",
+  ctaSecondaryHref: "#products",
+  stats: [
+    { value: "99.99%", label: "Platform uptime" },
+    { value: "+30%", label: "Auth-rate uplift" },
+    { value: "100+", label: "Payment methods" },
+  ],
 };
 
 export const valueProps = {

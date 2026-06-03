@@ -37,6 +37,35 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Light-mode page surfaces (used by dark-mode overrides) */
+  --page-bg: #fff;
+  --card-bg: #fff;
+  --section-bg: #fff;
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --focus-outline: var(--ink);
+}
+
+/* ---- Dark palette ---- */
+[data-theme="dark"] {
+  --ink: #e8ecf0;
+  --ink-2: #cdd4db;
+  --sand: #1a2332;
+  --sand-300: #243040;
+  --grey: #14202e;
+  --muted: #94a0ac;
+  --muted-2: #7b8794;
+
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --on-dark-muted: rgba(255, 255, 255, 0.62);
+  --on-green-muted: rgba(0, 18, 34, 0.66);
+
+  --page-bg: #0c1620;
+  --card-bg: #14202e;
+  --section-bg: #0c1620;
+  --navbar-bg: rgba(12, 22, 32, 0.86);
+  --focus-outline: #fff;
 }
 
 * {
@@ -51,14 +80,14 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--ink);
-  background: var(--ink);
+  background: var(--page-bg);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
 }
 
 a {
@@ -172,7 +201,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -248,7 +277,7 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--section-bg);
 }
 .section--sand {
   background: var(--sand);
@@ -280,7 +309,7 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 26px 24px 30px;
@@ -393,7 +422,7 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 32px 30px;
@@ -644,7 +673,7 @@ svg {
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--focus-outline);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -683,6 +712,83 @@ a:focus-visible,
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* --------------------------------------------------------- Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ink);
+  transition: border-color 0.16s ease, background 0.16s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--ink);
+  background: var(--sand);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus-outline);
+  outline-offset: 3px;
+}
+.theme-toggle svg {
+  display: block;
+}
+
+/* Dark-mode overrides for elements with hardcoded light colors */
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: #fff;
+  color: #0c1620;
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: #e0e4e8;
+}
+[data-theme="dark"] .topbanner {
+  background: #0a1a28;
+}
+[data-theme="dark"] .topbanner__tag {
+  color: #001222;
+}
+[data-theme="dark"] .hero {
+  color: #001222;
+}
+[data-theme="dark"] .hero__subtitle {
+  color: rgba(0, 18, 34, 0.66);
+}
+[data-theme="dark"] .statement__trail {
+  color: rgba(232, 236, 240, 0.42);
+}
+[data-theme="dark"] .valueprop:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .bigcard--dark {
+  background: #0a1a28;
+}
+[data-theme="dark"] .storycard {
+  background: #0a1a28;
+}
+[data-theme="dark"] .industry:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .stats {
+  background: #0a1a28;
+}
+[data-theme="dark"] .finalcta {
+  color: #001222;
+}
+[data-theme="dark"] .footer {
+  background: #0a1a28;
+}
+[data-theme="dark"] .cases__rail::-webkit-scrollbar-thumb {
+  background: #2a3a4a;
 }
 
 @media (prefers-reduced-motion: reduce) {

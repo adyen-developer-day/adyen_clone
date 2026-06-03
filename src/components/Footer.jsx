@@ -27,7 +27,7 @@ const linkAnchors = {
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer win95-footer">
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
@@ -35,7 +35,7 @@ export default function Footer() {
             <p className="footer__tagline">
               One platform for payments, data, and financial products.
             </p>
-            <a className="btn btn--ghost-light" href="#resources">
+            <a className="btn win95-btn" href="#resources">
               Subscribe to our newsletter
             </a>
           </div>

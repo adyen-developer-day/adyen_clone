@@ -11,7 +11,7 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <div className="page">
+    <div className="page win95-page">
       <TopBanner />
       <Navbar />
       <main>

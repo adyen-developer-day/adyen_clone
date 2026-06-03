@@ -1,7 +1,6 @@
 /* ==========================================================================
-   Adyen homepage replica — styling rebuilt from the live design system.
-   Tokens, fonts, and the geometric wordmark are sourced from adyen.com.
-   Localhost workshop demo only.
+   BeaverDirect — Fresh Canadian beavers delivered by drone.
+   Earth-toned design system inspired by the Canadian wilderness.
    ========================================================================== */
 
 @font-face {
@@ -18,21 +17,21 @@
 }
 
 :root {
-  /* Brand palette (from Adyen's design tokens) */
-  --green: #00d16a;
-  --green-strong: #00b85c;
-  --ink: #001222;
-  --ink-2: #0d1e2e;
-  --sand: #f6f5f4;
-  --sand-300: #e6e4e2;
-  --grey: #f4f5f6;
-  --muted: #6c7782;
-  --muted-2: #8c959d;
+  /* Brand palette — warm beaver browns & forest tones */
+  --green: #c47a2a;
+  --green-strong: #a86420;
+  --ink: #2c1810;
+  --ink-2: #3d261a;
+  --sand: #faf5ef;
+  --sand-300: #ede4d8;
+  --grey: #f8f4f0;
+  --muted: #7a6b5e;
+  --muted-2: #998a7d;
 
-  --line: rgba(0, 18, 34, 0.1);
-  --line-strong: rgba(0, 18, 34, 0.16);
+  --line: rgba(44, 24, 16, 0.1);
+  --line-strong: rgba(44, 24, 16, 0.16);
   --on-dark-muted: rgba(255, 255, 255, 0.62);
-  --on-green-muted: rgba(0, 18, 34, 0.66);
+  --on-green-muted: rgba(44, 24, 16, 0.72);
 
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
@@ -109,7 +108,7 @@ svg {
 }
 .btn--primary:hover,
 .btn--dark:hover {
-  background: #0a2237;
+  background: #3d261a;
 }
 .btn--ghost-light {
   background: transparent;

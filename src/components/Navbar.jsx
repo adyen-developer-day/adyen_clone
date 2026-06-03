@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar__inner">
-        <a className="navbar__brand" href="#top" aria-label="Adyen home">
+        <a className="navbar__brand" href="#top" aria-label="BeaverDirect home">
           <AdyenLogo className="navbar__logo" height={24} />
         </a>
         <nav className="navbar__links" aria-label="Primary">
@@ -33,7 +33,7 @@ export default function Navbar() {
         </nav>
         <div className="navbar__actions">
           <a className="btn btn--primary" href="#contact">
-            Contact sales
+            Order Now
           </a>
         </div>
       </div>

@@ -9,10 +9,10 @@ export default function Footer() {
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
             <p className="footer__tagline">
-              One platform for payments, data, and financial products.
+              Fresh Canadian beavers, delivered worldwide by drone.
             </p>
             <a className="btn btn--ghost-light" href="#newsletter">
-              Subscribe to our newsletter
+              Get beaver updates
             </a>
           </div>
           <div className="footer__cols">
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer__bottom">
-          <span className="footer__copy">© 2026 Adyen</span>
+          <span className="footer__copy">&copy; 2026 BeaverDirect</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
               <a key={item} href="#">
@@ -42,7 +42,7 @@ export default function Footer() {
           <span className="footer__region">Global (English)</span>
         </div>
         <p className="footer__disclaimer">
-          Workshop replica for localhost demo only. Not affiliated with Adyen.
+          No beavers were harmed in the making of this website. Probably.
         </p>
       </div>
     </footer>

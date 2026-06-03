@@ -1,191 +1,191 @@
-// Central content for the homepage replica.
-// Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
+// Central content for the homepage.
+// BeaverDirect — freshly caught Canadian beavers, delivered worldwide by drone.
 
 export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  tag: "New season",
+  text: "Spring beavers are here — order now for same-day drone delivery 🦫",
+  href: "#shop",
 };
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
+  { label: "Our Beavers", href: "#products" },
+  { label: "Delivery Zones", href: "#industries" },
+  { label: "About Us", href: "#about" },
+  { label: "Beaver Stories", href: "#resources" },
   { label: "Pricing", href: "#pricing" },
 ];
 
 export const hero = {
-  title: "Fintech you can bank on",
+  title: "Fresh beavers, delivered by drone",
   subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
+    "Ethically sourced from the Canadian wilderness. Same-day worldwide drone delivery. Order 4+ and shipping is on us.",
+  cta: "Order your beaver",
 };
 
 export const valueProps = {
-  lead: "Run your business with confidence.",
+  lead: "Why people love BeaverDirect.",
   trail:
-    "Adyen delivers the control, reliability, and expertise global enterprises depend on.",
+    "From dam to doorstep — we handle everything so you can enjoy your beaver worry-free.",
   items: [
     {
-      title: "Compliance you can trust",
-      body: "Backed by US, UK, and EU banking licenses.",
+      title: "Ethically sourced",
+      body: "Every beaver is responsibly caught under strict Canadian wildlife guidelines.",
     },
     {
-      title: "Enterprise-grade reliability",
-      body: "99.999% historical platform uptime.",
+      title: "Same-day drone delivery",
+      body: "Our fleet of cargo drones delivers anywhere in the world within 24 hours.",
     },
     {
-      title: "One platform",
-      body: "Payments, data insights, and financial products in one place.",
+      title: "Freshness guaranteed",
+      body: "Temperature-controlled drone pods keep your beaver fresh from Canada to your door.",
     },
     {
-      title: "Built-in optimizations",
-      body: "Improve conversion, reduce fraud, and lower payment costs.",
+      title: "Free shipping on 4+",
+      body: "Order more than 3 beavers and delivery is completely free. The more, the merrier.",
     },
     {
-      title: "Easy to integrate",
-      body: "One API that supports multiple use cases and channels.",
+      title: "Live tracking",
+      body: "Watch your beaver's journey in real time on our drone tracking dashboard.",
     },
   ],
 };
 
 export const moneyMovement = {
-  lead: "Control every aspect of your money.",
+  lead: "From wilderness to your doorstep.",
   trail:
-    "Offer financial products to your customers. All from the same, centralized stack.",
+    "Our end-to-end beaver logistics ensure the freshest delivery, every time.",
   cards: [
     {
-      eyebrow: "Intelligent Money Movement",
-      title: "Move money across your entire business",
-      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform.",
-      cta: "Explore payments",
+      eyebrow: "Drone Logistics",
+      title: "Worldwide same-day beaver delivery",
+      body: "Our autonomous drone fleet navigates any terrain, any weather. Your beaver arrives fresh, guaranteed — whether you're in Tokyo, Timbuktu, or Tromsø.",
+      cta: "Explore delivery",
       theme: "dark",
     },
     {
-      eyebrow: "Adyen for Platforms",
-      title: "Launch payments and financial products under your brand",
-      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration.",
-      cta: "Explore platforms",
+      eyebrow: "BeaverDirect Premium",
+      title: "The ultimate beaver experience",
+      body: "Upgrade to Premium for priority drone dispatch, hand-selected beavers, a personalized care guide, and a complimentary maple syrup bottle.",
+      cta: "Go Premium",
       theme: "green",
     },
   ],
 };
 
 export const industries = {
-  lead: "Different industries. One standard.",
-  trail: "Businesses across sectors trust Adyen to keep money moving.",
+  lead: "Beavers for every occasion.",
+  trail: "Whatever you need a beaver for, we've got you covered.",
   items: [
     {
-      title: "Retail",
-      body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
+      title: "Pets & Companions",
+      body: "Our friendliest beavers make loyal, dam-building companions for your backyard.",
       image: "retail",
     },
     {
-      title: "Travel and hospitality",
-      body: "Turn every trip into a seamless, secure, and personal payment experience.",
+      title: "Land & Water Management",
+      body: "Put nature's best engineers to work — beavers create natural dams and restore wetlands.",
       image: "travel",
     },
     {
-      title: "Digital media and content",
-      body: "Boost subscriptions and reduce churn with optimized recurring payments.",
+      title: "Education & Research",
+      body: "Universities and wildlife programs trust us for healthy, well-documented specimens.",
       image: "digital",
     },
     {
-      title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products into the products your users love.",
+      title: "Eco-Tourism",
+      body: "Start your own beaver-watching experience. We supply the beavers, you supply the visitors.",
       image: "saas",
     },
     {
-      title: "Food and beverage",
-      body: "Connect online ordering and in-store payments on a single platform.",
+      title: "Restaurants & Chefs",
+      body: "Beaver tail pastry? Smoked beaver jerky? Our culinary-grade beavers are chef-approved.",
       image: "food",
     },
     {
-      title: "Financial services",
-      body: "Scale globally with the reliability and compliance regulated businesses need.",
+      title: "Gifts & Special Events",
+      body: "Nothing says 'I love you' like a surprise beaver delivery. Weddings, birthdays, you name it.",
       image: "financial",
     },
   ],
 };
 
 export const stats = {
-  lead: "Global scale. Local expertise.",
-  trail: "Powered by trillions of euros in transaction data.",
+  lead: "Canadian scale. Worldwide reach.",
+  trail: "Powered by drones, driven by beavers.",
   items: [
-    { value: "€1.4T", label: "Processed annually" },
-    { value: "99.999%", label: "Uptime" },
-    { value: "150+", label: "Currencies" },
-    { value: "200+", label: "Local payment methods" },
-    { value: "29", label: "Global offices" },
+    { value: "47K+", label: "Beavers delivered" },
+    { value: "99.8%", label: "Alive on arrival" },
+    { value: "186", label: "Countries served" },
+    { value: "<24h", label: "Delivery time" },
+    { value: "4+", label: "= Free shipping" },
   ],
 };
 
 export const caseStudies = {
-  lead: "When certainty matters, Adyen's the platform of choice",
+  lead: "Beaver lovers share their stories",
   stories: [
     {
-      brand: "Adobe",
-      body: "Adobe maximized subscription revenue with global payments.",
+      brand: "Sarah T.",
+      body: "I ordered a beaver on Tuesday and it arrived by drone before dinner. He's already built a dam in my pond!",
     },
     {
-      brand: "Prada Group",
-      body: "Prada Group brings luxury style with a human touch through payments innovation.",
+      brand: "Chef Marco",
+      body: "The freshest beaver I've ever worked with. My smoked beaver tail won a Michelin mention.",
     },
     {
-      brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty and wellness businesses.",
+      brand: "Ontario Zoo",
+      body: "We've partnered with BeaverDirect for our breeding program. Exceptional quality and documentation.",
     },
     {
-      brand: "Nord Security",
-      body: "Nord Security optimized payments and increased conversion by 10%.",
+      brand: "Tim & Doug",
+      body: "We ordered 5 beavers for our wedding. Free shipping AND they performed a dam-building ceremony. 10/10.",
     },
     {
-      brand: "L'Occitane",
-      body: "L'Occitane consolidated 40 systems into one. Reconciliation dropped 20%.",
+      brand: "Prof. Nguyen",
+      body: "My research team receives beavers weekly. Consistent quality, always on time, tracked to the minute.",
     },
     {
-      brand: "Meta",
-      body: "Meta delivers secure payments at global scale.",
+      brand: "EcoLodge BC",
+      body: "Our guests love watching the beavers we introduced. Bookings are up 40% since we started.",
     },
     {
-      brand: "Rectangle Health",
-      body: "Rectangle Health automates insurance reimbursements with embedded payments.",
+      brand: "Dave's Backyard",
+      body: "I just wanted one beaver. Now I have six and a thriving wetland ecosystem. No regrets.",
     },
   ],
 };
 
 export const finalCta = {
-  title: "If you're building for scale, there's no alternative",
-  cta: "Contact us",
+  title: "Ready for your first beaver?",
+  cta: "Order now",
 };
 
 export const footerColumns = [
   {
-    heading: "About",
+    heading: "Company",
     links: [
-      "Press & media",
+      "Our Story",
       "Careers",
-      "Investor Relations",
-      "Partner with us",
+      "Press",
+      "Sustainability",
       "Contact",
     ],
   },
   {
-    heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    heading: "Beavers",
+    links: ["Pet Beavers", "Working Beavers", "Culinary Grade", "Premium Select", "Pricing"],
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    links: ["Beaver Care Guide", "Drone Tracking", "FAQ", "Newsletter"],
   },
   {
-    heading: "Platform",
+    heading: "Legal",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
+      "Wildlife Permits",
+      "Shipping Policy",
       "Terms & Conditions",
+      "Drone Safety",
       "Service Status",
     ],
   },

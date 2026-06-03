@@ -9,6 +9,21 @@
       content="One platform for payments, data, and financial products. Built to scale with the world's leading businesses."
     />
     <title>Adyen: Fintech platform for enterprises</title>
+    <script>
+      // Apply the saved/system theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          document.documentElement.dataset.theme =
+            stored || (prefersDark ? "dark" : "light");
+        } catch (e) {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

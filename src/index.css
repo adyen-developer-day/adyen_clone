@@ -37,6 +37,39 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic theme tokens (overridden under [data-theme="dark"]).
+     The intentionally dark/green blocks (hero, stats, footer, big cards)
+     keep --ink / --green directly and look correct in both themes. */
+  --page-bg: #fff;
+  --surface: #fff;
+  --surface-2: var(--sand);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-trail: rgba(0, 18, 34, 0.42);
+  --border: var(--line);
+  --nav-bg: rgba(255, 255, 255, 0.86);
+  --card-shadow: rgba(0, 18, 34, 0.08);
+  --focus-ring: var(--ink);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --sand-300: #243748;
+  --muted: #9aa6b2;
+  --muted-2: #7f8a96;
+
+  --page-bg: #06101a;
+  --surface: #0e2233;
+  --surface-2: #0a1b29;
+  --text: #e9eef3;
+  --text-muted: rgba(233, 238, 243, 0.64);
+  --text-trail: rgba(233, 238, 243, 0.46);
+  --border: rgba(255, 255, 255, 0.12);
+  --nav-bg: rgba(6, 16, 26, 0.86);
+  --card-shadow: rgba(0, 0, 0, 0.45);
+  --focus-ring: var(--text);
+  color-scheme: dark;
 }
 
 * {
@@ -50,15 +83,16 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--page-bg);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
 }
 
 a {
@@ -172,9 +206,10 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +222,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +235,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +248,29 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--text) 8%, transparent);
+  border-color: color-mix(in srgb, var(--text) 30%, transparent);
+}
+.theme-toggle:active {
+  transform: translateY(0);
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -248,10 +306,11 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--surface);
+  transition: background-color 0.3s ease;
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-2);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +323,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--text-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,15 +339,16 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .valueprop__index {
   font-family: var(--mono);
@@ -305,7 +365,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +439,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,17 +453,18 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background-color 0.3s ease, border-color 0.3s ease;
 }
 .industry:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .industry__title {
   margin: 0 0 12px;
@@ -413,7 +474,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +485,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -643,8 +704,9 @@ svg {
 
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
-.btn:focus-visible {
-  outline: 2px solid var(--ink);
+.btn:focus-visible,
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: 6px;
 }

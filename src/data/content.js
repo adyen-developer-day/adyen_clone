@@ -2,8 +2,8 @@
 // Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
 
 export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
+  tag: "Just dropped 🔥",
+  text: "Fraud got a glow-up — peep the 2026 report, no cap",
   href: "#fraud-report",
 };
 

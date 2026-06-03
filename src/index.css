@@ -691,3 +691,101 @@ a:focus-visible,
     scroll-behavior: auto;
   }
 }
+
+/* ============================================================ Stock Ticker */
+.stock-ticker {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 13px;
+  border-bottom: 1px solid rgba(212, 168, 75, 0.3);
+}
+
+.stock-ticker__track {
+  display: inline-flex;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.stock-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px;
+}
+
+.stock-ticker__symbol {
+  font-weight: 700;
+  color: #D4A84B;
+}
+
+.stock-ticker__price {
+  color: #ccc;
+}
+
+.stock-ticker__change--up {
+  color: #00d16a;
+}
+
+.stock-ticker__change--down {
+  color: #ff4444;
+}
+
+.stock-ticker__arrow {
+  font-size: 10px;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================ Countdown Timer */
+.countdown {
+  background: linear-gradient(135deg, #1A0A0C 0%, #3C1518 100%);
+  color: #fff;
+  padding: clamp(48px, 7vw, 80px) 0;
+  text-align: center;
+}
+
+.countdown__label {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: rgba(255, 248, 231, 0.7);
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+.countdown__time {
+  font-family: var(--mono);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: #D4A84B;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(212, 168, 75, 0.5), 0 0 40px rgba(212, 168, 75, 0.2);
+  margin: 0 0 16px;
+}
+
+.countdown__subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 248, 231, 0.4);
+  margin: 0 auto;
+  max-width: 500px;
+  font-style: italic;
+}
+
+/* ============================================================ Disclaimer */
+.disclaimer {
+  background: #0a0a0a;
+  padding: 20px 28px;
+  text-align: center;
+}
+
+.disclaimer__text {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.25);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}

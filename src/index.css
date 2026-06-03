@@ -37,6 +37,68 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic theme tokens (light defaults). Overridden for dark mode below. */
+  --bg-body: var(--ink);
+  --bg-page: #fff;
+  --bg-surface: #fff;
+  --bg-surface-alt: var(--sand);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --border-strong: var(--line-strong);
+  --card-shadow: rgba(0, 18, 34, 0.08);
+  --statement-trail: rgba(0, 18, 34, 0.42);
+  --scrollbar-thumb: var(--sand-300);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --btn-solid-bg: var(--ink);
+  --btn-solid-fg: #fff;
+  --btn-solid-bg-hover: #0a2237;
+}
+
+/* Cyberpunk dark palette — neon pink accents over near-black, with Adyen green
+   kept as the secondary neon. Applied on explicit opt-in ([data-theme="dark"])
+   and as the default when the OS prefers dark and no explicit choice was made. */
+[data-theme="dark"] {
+  --bg-body: #060410;
+  --bg-page: #0a0714;
+  --bg-surface: #150b22;
+  --bg-surface-alt: #0f0819;
+  --text: #f2ecff;
+  --text-muted: #b49ad4;
+  --border: rgba(255, 45, 149, 0.26);
+  --border-strong: rgba(255, 45, 149, 0.5);
+  --card-shadow: rgba(255, 45, 149, 0.28);
+  --statement-trail: rgba(0, 209, 106, 0.55);
+  --scrollbar-thumb: #ff2d95;
+  --navbar-bg: rgba(10, 7, 20, 0.82);
+  --neon-pink: #ff2d95;
+  --neon-green: #00d16a;
+  --btn-solid-bg: var(--neon-pink);
+  --btn-solid-fg: #0a0714;
+  --btn-solid-bg-hover: #ff5cae;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg-body: #060410;
+    --bg-page: #0a0714;
+    --bg-surface: #150b22;
+    --bg-surface-alt: #0f0819;
+    --text: #f2ecff;
+    --text-muted: #b49ad4;
+    --border: rgba(255, 45, 149, 0.26);
+    --border-strong: rgba(255, 45, 149, 0.5);
+    --card-shadow: rgba(255, 45, 149, 0.28);
+    --statement-trail: rgba(0, 209, 106, 0.55);
+    --scrollbar-thumb: #ff2d95;
+    --navbar-bg: rgba(10, 7, 20, 0.82);
+    --neon-pink: #ff2d95;
+    --neon-green: #00d16a;
+    --btn-solid-bg: var(--neon-pink);
+    --btn-solid-fg: #0a0714;
+    --btn-solid-bg-hover: #ff5cae;
+  }
 }
 
 * {
@@ -50,15 +112,16 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--bg-body);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  background: #fff;
+  background: var(--bg-page);
+  color: var(--text);
 }
 
 a {
@@ -104,12 +167,12 @@ svg {
 }
 .btn--primary,
 .btn--dark {
-  background: var(--ink);
-  color: #fff;
+  background: var(--btn-solid-bg);
+  color: var(--btn-solid-fg);
 }
 .btn--primary:hover,
 .btn--dark:hover {
-  background: #0a2237;
+  background: var(--btn-solid-bg-hover);
 }
 .btn--ghost-light {
   background: transparent;
@@ -172,9 +235,9 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +250,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +263,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +276,33 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.navbar__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.14s ease, border-color 0.16s ease,
+    background 0.16s ease;
+}
+.navbar__toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--text);
+}
+.navbar__toggle svg {
+  width: 18px;
+  height: 18px;
+}
+.navbar__toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -248,10 +338,10 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--bg-surface);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--bg-surface-alt);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +354,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--statement-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,15 +370,15 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .valueprop__index {
   font-family: var(--mono);
@@ -305,7 +395,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +469,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,8 +483,8 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
@@ -403,7 +493,7 @@ svg {
 }
 .industry:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--card-shadow);
 }
 .industry__title {
   margin: 0 0 12px;
@@ -413,7 +503,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +514,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -498,7 +588,7 @@ svg {
   height: 8px;
 }
 .cases__rail::-webkit-scrollbar-thumb {
-  background: var(--sand-300);
+  background: var(--scrollbar-thumb);
   border-radius: 999px;
 }
 .storycard {
@@ -641,12 +731,88 @@ svg {
   font-size: 0.8rem;
 }
 
+/* ----------------------------------------------- Cyberpunk dark-mode accents */
+[data-theme="dark"] .page {
+  background: radial-gradient(
+      1200px 600px at 12% -5%,
+      rgba(255, 45, 149, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(1000px 600px at 90% 18%, rgba(0, 209, 106, 0.08), transparent 55%),
+    var(--bg-page);
+}
+[data-theme="dark"] .navbar {
+  border-bottom-color: rgba(255, 45, 149, 0.38);
+  box-shadow: 0 1px 24px rgba(255, 45, 149, 0.16);
+}
+[data-theme="dark"] .navbar__toggle {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 12px rgba(255, 45, 149, 0.45);
+}
+[data-theme="dark"] .navbar__toggle:hover {
+  background: rgba(255, 45, 149, 0.12);
+  box-shadow: 0 0 18px rgba(255, 45, 149, 0.7);
+}
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  box-shadow: 0 0 18px rgba(255, 45, 149, 0.5);
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  box-shadow: 0 0 30px rgba(255, 45, 149, 0.85);
+}
+[data-theme="dark"] .statement__lead {
+  text-shadow: 0 0 22px rgba(255, 45, 149, 0.4);
+}
+[data-theme="dark"] .statement__trail {
+  text-shadow: 0 0 22px rgba(0, 209, 106, 0.4);
+}
+[data-theme="dark"] .valueprop,
+[data-theme="dark"] .industry {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+    linear-gradient(135deg, rgba(255, 45, 149, 0.55), rgba(0, 209, 106, 0.55))
+      border-box;
+}
+[data-theme="dark"] .valueprop:hover,
+[data-theme="dark"] .industry:hover {
+  box-shadow: 0 0 26px rgba(255, 45, 149, 0.4), 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+[data-theme="dark"] .valueprop__index {
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px rgba(255, 45, 149, 0.6);
+}
+[data-theme="dark"] .industry__link span {
+  text-shadow: 0 0 10px rgba(0, 209, 106, 0.7);
+}
+[data-theme="dark"] .stat__value {
+  text-shadow: 0 0 16px rgba(0, 209, 106, 0.6);
+}
+[data-theme="dark"] .storycard {
+  border: 1px solid rgba(255, 45, 149, 0.32);
+  box-shadow: 0 0 22px rgba(255, 45, 149, 0.12);
+}
+[data-theme="dark"] .storycard__tag {
+  text-shadow: 0 0 12px rgba(0, 209, 106, 0.6);
+}
+[data-theme="dark"] .footer__col a:hover,
+[data-theme="dark"] .navbar__links a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 45, 149, 0.6);
+}
+
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 6px;
+}
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] .btn:focus-visible,
+[data-theme="dark"] .navbar__toggle:focus-visible {
+  outline-color: var(--neon-pink);
 }
 .hero a:focus-visible,
 .finalcta a:focus-visible,

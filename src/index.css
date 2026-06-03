@@ -37,6 +37,31 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic, theme-aware tokens (remapped under [data-theme="dark"]).
+     Branded panels (hero, stats, footer, bigcards) intentionally keep their
+     dark/green look in both themes, so they are not tokenized here. */
+  color-scheme: light;
+  --page: #fff;
+  --surface: #fff;
+  --surface-2: var(--sand);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --border: var(--line);
+  --statement-trail: rgba(0, 18, 34, 0.42);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0a1622;
+  --surface: #0f1d2b;
+  --surface-2: #0c1825;
+  --text: #eef2f5;
+  --text-muted: #9aa6b1;
+  --border: rgba(255, 255, 255, 0.12);
+  --statement-trail: rgba(238, 242, 245, 0.45);
+  --navbar-bg: rgba(10, 22, 34, 0.86);
 }
 
 * {
@@ -50,7 +75,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
+  color: var(--text);
   background: var(--ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -58,7 +83,7 @@ body {
 }
 
 .page {
-  background: #fff;
+  background: var(--page);
 }
 
 a {
@@ -110,6 +135,16 @@ svg {
 .btn--primary:hover,
 .btn--dark:hover {
   background: #0a2237;
+}
+/* In dark mode the ink CTA blends into the page, so use the brand green. */
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: var(--green);
+  color: var(--ink);
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: var(--green-strong);
 }
 .btn--ghost-light {
   background: transparent;
@@ -172,9 +207,9 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +222,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +235,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +248,33 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.14s ease, background 0.16s ease,
+    border-color 0.16s ease;
+}
+.theme-toggle:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -248,10 +310,10 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--surface);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-2);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +326,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--statement-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,8 +342,8 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
@@ -305,7 +367,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +441,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,8 +455,8 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
@@ -413,7 +475,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +486,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -644,7 +706,7 @@ svg {
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 6px;
 }

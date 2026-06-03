@@ -73,37 +73,37 @@ export const moneyMovement = {
 };
 
 export const industries = {
-  lead: "Different industries. One standard.",
-  trail: "Businesses across sectors trust Adyen to keep money moving.",
+  lead: "Every industry. Main character energy.",
+  trail: "No cap — businesses everywhere trust Adyen to keep the bag moving.",
   items: [
     {
       title: "Retail",
-      body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
+      body: "Checkout so fast it lowkey feels illegal. Top-tier security and vibes across every channel.",
       image: "retail",
     },
     {
       title: "Travel and hospitality",
-      body: "Turn every trip into a seamless, secure, and personal payment experience.",
+      body: "Trips that hit different — seamless, secure payments with that personal touch fr fr.",
       image: "travel",
     },
     {
       title: "Digital media and content",
-      body: "Boost subscriptions and reduce churn with optimized recurring payments.",
+      body: "Subscriptions that slap and churn that dips. Recurring payments? Bussin.",
       image: "digital",
     },
     {
       title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products into the products your users love.",
+      body: "Embed payments and financial products straight into your platform — it's giving rizz.",
       image: "saas",
     },
     {
       title: "Food and beverage",
-      body: "Connect online ordering and in-store payments on a single platform.",
+      body: "Online orders and in-store payments on one platform? We vibing, bestie.",
       image: "food",
     },
     {
       title: "Financial services",
-      body: "Scale globally with the reliability and compliance regulated businesses need.",
+      body: "Scale globally with elite reliability and compliance — highkey the standard for regulated businesses.",
       image: "financial",
     },
   ],

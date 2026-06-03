@@ -974,6 +974,15 @@ svg {
   font-size: 0.8rem;
 }
 
+/* ------------------------------------------------------ Theme toggle btn */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
@@ -1279,4 +1288,254 @@ a:focus-visible,
     opacity: 1 !important;
     transform: none !important;
   }
+}
+
+/* ====================================================================
+   Windows 10 theme overrides ([data-theme="win10"])
+   The page ships in Windows 95 styling by default; toggling the navbar
+   switch sets data-theme="win10" on <html> to flatten everything into a
+   modern Windows 10 look (flat surfaces, Segoe UI, #0078d7 accent).
+   ==================================================================== */
+
+[data-theme="win10"] {
+  --w10-accent: #0078d7;
+  --w10-accent-strong: #106ebe;
+  --w10-bg: #f3f3f3;
+  --w10-surface: #ffffff;
+  --w10-border: #e1e1e1;
+  --w10-border-strong: #c8c8c8;
+  --w10-ink: #1b1b1b;
+  --w10-muted: #5a5a5a;
+  --w10-font: "Segoe UI", Frutiger, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Page + generic surfaces --- */
+[data-theme="win10"] .win95-page {
+  background: var(--w10-bg);
+  font-family: var(--w10-font);
+}
+
+/* --- Top banner --- */
+[data-theme="win10"] .win95-topbanner {
+  background: var(--w10-accent);
+  border-bottom: 1px solid var(--w10-accent-strong);
+}
+[data-theme="win10"] .win95-topbanner__tag {
+  background: #fff;
+  color: var(--w10-accent);
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+/* --- Navbar --- */
+[data-theme="win10"] .win95-navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--w10-border);
+}
+[data-theme="win10"] .win95-navbar .navbar__links a {
+  font-family: var(--w10-font);
+  text-decoration: none;
+  color: var(--w10-ink);
+}
+[data-theme="win10"] .win95-navbar .navbar__links a:hover {
+  color: var(--w10-accent);
+}
+
+/* --- Buttons (flat Windows 10) --- */
+[data-theme="win10"] .win95-btn {
+  font-family: var(--w10-font);
+  background: #e1e1e1;
+  color: var(--w10-ink);
+  border: 1px solid #adadad;
+  border-radius: 3px;
+  box-shadow: none;
+  font-weight: 600;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+[data-theme="win10"] .win95-btn:hover {
+  background: #e5f1fb;
+  border-color: var(--w10-accent);
+}
+[data-theme="win10"] .win95-btn:active {
+  background: #cce4f7;
+  border-color: var(--w10-accent-strong);
+}
+[data-theme="win10"] .win95-navbar .btn,
+[data-theme="win10"] .win95-btn--primary {
+  background: var(--w10-accent);
+  color: #fff;
+  border: 1px solid var(--w10-accent);
+  border-radius: 3px;
+}
+[data-theme="win10"] .win95-navbar .btn:hover,
+[data-theme="win10"] .win95-btn--primary:hover {
+  background: var(--w10-accent-strong);
+  border-color: var(--w10-accent-strong);
+  color: #fff;
+}
+
+/* --- Windows / dialogs / alerts (flat cards) --- */
+[data-theme="win10"] .win95-window,
+[data-theme="win10"] .win95-dialog,
+[data-theme="win10"] .win95-alert {
+  background: var(--w10-surface);
+  border: 1px solid var(--w10-border-strong);
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.16);
+  overflow: hidden;
+}
+[data-theme="win10"] .win95-window__body,
+[data-theme="win10"] .win95-inset-box {
+  background: var(--w10-surface);
+  border: none;
+  margin: 0;
+  border-radius: 0;
+}
+[data-theme="win10"] .win95-window__menu {
+  background: var(--w10-surface);
+  border-bottom: 1px solid var(--w10-border);
+  color: var(--w10-muted);
+}
+
+/* --- Title bars (flat accent, no gradient/bevel) --- */
+[data-theme="win10"] .win95-titlebar {
+  background: var(--w10-accent);
+  border-radius: 0;
+}
+[data-theme="win10"] .win95-titlebar__btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* --- Progress bar (flat blue) --- */
+[data-theme="win10"] .win95-progress {
+  background: #e6e6e6;
+  border: 1px solid var(--w10-border-strong);
+  border-radius: 3px;
+}
+[data-theme="win10"] .win95-progress__fill {
+  background: var(--w10-accent);
+}
+[data-theme="win10"] .win95-dialog__status {
+  color: var(--w10-accent);
+}
+
+/* --- Hero desktop + taskbar --- */
+[data-theme="win10"] .hero--win95 {
+  background: linear-gradient(135deg, #1f4e8f 0%, #0a2a52 100%);
+  color: #fff;
+}
+[data-theme="win10"] .hero--win95 .hero__title {
+  color: #fff;
+}
+[data-theme="win10"] .hero--win95 .hero__subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+[data-theme="win10"] .hero__taskbar {
+  background: #1f1f1f;
+  border-top: 1px solid #000;
+  color: #fff;
+}
+[data-theme="win10"] .hero__start-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+[data-theme="win10"] .hero__start-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+[data-theme="win10"] .hero__taskbar-item {
+  background: #2b2b2b;
+  border: 1px solid #3a3a3a;
+  border-radius: 2px;
+  color: #fff;
+}
+[data-theme="win10"] .hero__taskbar-item--active {
+  background: #3a3a3a;
+  border-bottom: 2px solid var(--w10-accent);
+}
+[data-theme="win10"] .hero__taskbar-clock {
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+/* --- Sections --- */
+[data-theme="win10"] .win95-section {
+  background: var(--w10-surface) !important;
+  color: var(--w10-ink);
+}
+[data-theme="win10"] .win95-section.section--sand {
+  background: var(--w10-bg) !important;
+}
+[data-theme="win10"] .win95-section .statement__lead,
+[data-theme="win10"] .win95-section .stats__lead {
+  color: var(--w10-ink);
+}
+[data-theme="win10"] .win95-section .statement__trail,
+[data-theme="win10"] .win95-section .stats__trail {
+  color: var(--w10-muted);
+}
+
+/* --- Cards: folders, stats, storycards, bigcards --- */
+[data-theme="win10"] .win95-folder,
+[data-theme="win10"] .win95-stat,
+[data-theme="win10"] .win95-storycard,
+[data-theme="win10"] .win95-section .bigcard {
+  background: var(--w10-surface);
+  border: 1px solid var(--w10-border);
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  color: var(--w10-ink);
+}
+[data-theme="win10"] .win95-section .bigcard .win95-window__body {
+  background: var(--w10-surface);
+}
+[data-theme="win10"] .win95-stat .stat__value,
+[data-theme="win10"] .win95-storycard .storycard__tag,
+[data-theme="win10"] .win95-storycard .storycard__link,
+[data-theme="win10"] .win95-section .bigcard__eyebrow {
+  color: var(--w10-accent);
+}
+[data-theme="win10"] .win95-folder .industry__body,
+[data-theme="win10"] .win95-stat .stat__label,
+[data-theme="win10"] .win95-storycard .storycard__body,
+[data-theme="win10"] .win95-section .bigcard__body {
+  color: var(--w10-muted);
+}
+[data-theme="win10"] .win95-storycard .storycard__link {
+  text-decoration: none;
+}
+
+/* --- FinalCTA --- */
+[data-theme="win10"] .win95-finalcta {
+  background: var(--w10-bg);
+  color: var(--w10-ink);
+}
+[data-theme="win10"] .win95-finalcta .finalcta__title {
+  color: var(--w10-ink);
+}
+
+/* --- Footer (modern dark) --- */
+[data-theme="win10"] .win95-footer {
+  background: #1f1f1f;
+  border-top: 1px solid #000;
+}
+[data-theme="win10"] .win95-footer .footer__heading {
+  color: #fff;
+}
+[data-theme="win10"] .win95-footer .footer__tagline,
+[data-theme="win10"] .win95-footer .footer__col a,
+[data-theme="win10"] .win95-footer .footer__bottom {
+  color: #c4c4c4;
+}
+[data-theme="win10"] .win95-footer .footer__col a {
+  text-decoration: none;
+}
+[data-theme="win10"] .win95-footer .footer__col a:hover,
+[data-theme="win10"] .win95-footer .footer__legal a:hover {
+  color: var(--w10-accent);
 }

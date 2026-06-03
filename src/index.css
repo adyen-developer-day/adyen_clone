@@ -227,6 +227,13 @@ svg {
   max-width: var(--maxw);
   margin: 0 auto;
   padding: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__text {
+  min-width: 0;
 }
 .hero__title {
   margin: 0 0 28px;
@@ -243,6 +250,182 @@ svg {
   color: var(--on-green-muted);
   max-width: 36ch;
   font-weight: 500;
+}
+
+/* --------------------------------------------------------- PaymentVisual */
+.payment-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 800px;
+}
+
+.payment-visual__card {
+  width: 340px;
+  background: linear-gradient(145deg, #0d1e2e 0%, #001222 100%);
+  border-radius: 20px;
+  padding: 28px 26px 24px;
+  color: #fff;
+  box-shadow:
+    0 30px 80px rgba(0, 18, 34, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  animation: card-float 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes card-float {
+  0%, 100% { transform: translateY(0) rotateX(2deg) rotateY(-3deg); }
+  50%      { transform: translateY(-14px) rotateX(-1deg) rotateY(2deg); }
+}
+
+.payment-visual__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.payment-visual__chip svg,
+.payment-visual__contactless svg {
+  display: block;
+}
+
+.payment-visual__number {
+  font-family: var(--mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 22px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.payment-visual__amount-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 18px;
+}
+
+.payment-visual__label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+}
+
+.payment-visual__amount {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--green);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.payment-visual__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 18px;
+}
+
+.payment-visual__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-visual__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.payment-visual__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 209, 106, 0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(0, 209, 106, 0); }
+}
+
+.payment-visual__methods {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.payment-visual__method-icon {
+  display: block;
+  border-radius: 3px;
+}
+
+.payment-visual__method-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Fade transition classes */
+.payment-visual--fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.payment-visual--fade-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* Floating transaction pills */
+.payment-visual__pills {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.payment-visual__pill {
+  position: absolute;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green);
+  background: rgba(0, 18, 34, 0.85);
+  border: 1px solid rgba(0, 209, 106, 0.2);
+  border-radius: 999px;
+  padding: 5px 12px;
+  animation: pill-float 4s ease-in-out infinite;
+}
+
+.payment-visual__pill--1 {
+  top: 8%;
+  right: -10px;
+  animation-delay: 0s;
+}
+
+.payment-visual__pill--2 {
+  bottom: 18%;
+  left: -14px;
+  animation-delay: 1.4s;
+}
+
+.payment-visual__pill--3 {
+  top: 50%;
+  right: -18px;
+  animation-delay: 2.6s;
+}
+
+@keyframes pill-float {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50%      { opacity: 1;   transform: translateY(-8px); }
 }
 
 /* ---------------------------------------------------------------- Sections */
@@ -658,6 +841,13 @@ a:focus-visible,
 /* ----------------------------------------------------------- Responsive */
 @media (max-width: 900px) {
   .navbar__links {
+    display: none;
+  }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .payment-visual {
     display: none;
   }
   .footer__top {

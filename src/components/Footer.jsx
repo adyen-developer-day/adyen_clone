@@ -22,7 +22,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#">{link}</a>
+                      <a href={col.href}>{link}</a>
                     </li>
                   ))}
                 </ul>
@@ -34,7 +34,7 @@ export default function Footer() {
           <span className="footer__copy">© 2026 Adyen</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
-              <a key={item} href="#">
+              <a key={item} href="#contact">
                 {item}
               </a>
             ))}

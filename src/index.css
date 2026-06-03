@@ -37,6 +37,50 @@
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Semantic theme tokens (light defaults). Overridden for dark mode below. */
+  --bg-page: #fff;
+  --bg-section: #fff;
+  --bg-sand: var(--sand);
+  --surface: #fff;
+  --border: var(--line);
+  --text: var(--ink);
+  --text-muted: var(--muted);
+  --text-trail: rgba(0, 18, 34, 0.42);
+  --navbar-bg: rgba(255, 255, 255, 0.86);
+  --navbar-border: var(--line);
+  --shadow-card: rgba(0, 18, 34, 0.08);
+}
+
+/* Dark theme tokens. Applied when the OS prefers dark (unless the user has
+   explicitly chosen light) or when data-theme="dark" is set on <html>. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-page: #02101d;
+    --bg-section: #02101d;
+    --bg-sand: #0a1b29;
+    --surface: var(--ink-2);
+    --border: rgba(255, 255, 255, 0.12);
+    --text: #eef2f5;
+    --text-muted: #9aa6b1;
+    --text-trail: rgba(255, 255, 255, 0.42);
+    --navbar-bg: rgba(2, 16, 29, 0.86);
+    --navbar-border: rgba(255, 255, 255, 0.12);
+    --shadow-card: rgba(0, 0, 0, 0.5);
+  }
+}
+:root[data-theme="dark"] {
+  --bg-page: #02101d;
+  --bg-section: #02101d;
+  --bg-sand: #0a1b29;
+  --surface: var(--ink-2);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #eef2f5;
+  --text-muted: #9aa6b1;
+  --text-trail: rgba(255, 255, 255, 0.42);
+  --navbar-bg: rgba(2, 16, 29, 0.86);
+  --navbar-border: rgba(255, 255, 255, 0.12);
+  --shadow-card: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -50,15 +94,15 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--bg-page);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  background: #fff;
+  background: var(--bg-page);
 }
 
 a {
@@ -172,9 +216,9 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--navbar-bg);
   backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--navbar-border);
 }
 .navbar__inner {
   width: 100%;
@@ -187,7 +231,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +244,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +257,27 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.navbar__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+}
+.navbar__theme-toggle:hover {
+  border-color: var(--text);
+}
+.navbar__theme-toggle svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -248,10 +313,10 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--bg-section);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--bg-sand);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +329,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--text-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,15 +345,15 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 26px 24px 30px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .valueprop:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--shadow-card);
 }
 .valueprop__index {
   font-family: var(--mono);
@@ -305,7 +370,7 @@ svg {
 }
 .valueprop__body {
   margin: 0;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 0.96rem;
 }
 
@@ -379,7 +444,7 @@ svg {
 /* -------------------------------------------------------------- Industries */
 .industries__note {
   margin: -24px 0 36px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 .industries__grid {
@@ -393,8 +458,8 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 32px 30px;
   display: flex;
@@ -403,7 +468,7 @@ svg {
 }
 .industry:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 18, 34, 0.08);
+  box-shadow: 0 20px 50px var(--shadow-card);
 }
 .industry__title {
   margin: 0 0 12px;
@@ -413,7 +478,7 @@ svg {
 }
 .industry__body {
   margin: 0 0 26px;
-  color: var(--muted);
+  color: var(--text-muted);
   font-size: 1rem;
   line-height: 1.45;
 }
@@ -424,7 +489,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;

@@ -1,9 +1,29 @@
+import { useState, useEffect } from "react";
 import { navLinks } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
+const THEMES = { WIN95: "win95", WIN10: "win10" };
+
+function getInitialTheme() {
+  const stored = localStorage.getItem("theme");
+  return stored === THEMES.WIN10 ? THEMES.WIN10 : THEMES.WIN95;
+}
+
 export default function Navbar() {
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggle = () =>
+    setTheme((prev) => (prev === THEMES.WIN95 ? THEMES.WIN10 : THEMES.WIN95));
+
+  const isWin95 = theme === THEMES.WIN95;
+
   return (
-    <header className="navbar">
+    <header className="navbar win95-navbar">
       <div className="navbar__inner">
         <a className="navbar__brand" href="#top" aria-label="Adyen home">
           <AdyenLogo className="navbar__logo" height={24} />
@@ -32,7 +52,16 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
-          <a className="btn btn--primary" href="#contact">
+          <button
+            className="theme-toggle win95-btn"
+            onClick={toggle}
+            aria-label={`Switch to ${isWin95 ? "Windows 10" : "Windows 95"} theme`}
+            aria-pressed={!isWin95}
+            title={`Switch to ${isWin95 ? "Windows 10" : "Windows 95"} theme`}
+          >
+            {isWin95 ? "🖥️ Win 95" : "🪟 Win 10"}
+          </button>
+          <a className="btn win95-btn" href="#contact">
             Contact sales
           </a>
         </div>

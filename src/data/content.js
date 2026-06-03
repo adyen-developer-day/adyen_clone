@@ -12,7 +12,7 @@ export const navLinks = [
   { label: "Businesses we serve", href: "#industries" },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "#contact" },
 ];
 
 export const hero = {

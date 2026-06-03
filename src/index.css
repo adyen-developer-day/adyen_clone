@@ -701,13 +701,4 @@ label, button, .btn,
   display: inline-block;
 }
 
-@keyframes bgCycle {
-  0%   { background-color: #ffff00; }
-  25%  { background-color: #ff69b4; }
-  50%  { background-color: #ffffff; }
-  75%  { background-color: #ff0000; }
-}
 
-.page {
-  animation: bgCycle 4s step-end infinite;
-}

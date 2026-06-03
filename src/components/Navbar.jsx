@@ -34,7 +34,7 @@ export default function Navbar() {
         </a>
         <nav className="navbar__links" aria-label="Primary">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href}>
+            <a key={link.label} href={link.href}>
               {link.label}
               <svg
                 className="navbar__caret"

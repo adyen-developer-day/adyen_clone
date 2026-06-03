@@ -3,7 +3,7 @@ import AdyenLogo from "./AdyenLogo.jsx";
 
 export default function Navbar() {
   return (
-    <header className="navbar">
+    <header className="navbar win95-navbar">
       <div className="navbar__inner">
         <a className="navbar__brand" href="#top" aria-label="Adyen home">
           <AdyenLogo className="navbar__logo" height={24} />
@@ -32,7 +32,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="navbar__actions">
-          <a className="btn btn--primary" href="#contact">
+          <a className="btn win95-btn" href="#contact">
             Contact sales
           </a>
         </div>

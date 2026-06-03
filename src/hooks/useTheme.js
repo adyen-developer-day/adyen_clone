@@ -5,8 +5,12 @@ const STORAGE_KEY = "theme";
 // Read the saved preference, falling back to the OS-level color scheme.
 function getInitialTheme() {
   if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (stored === "light" || stored === "dark") return stored;
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch {
+    // localStorage may be unavailable (privacy mode, sandboxed iframe).
+  }
   const prefersDark =
     typeof window.matchMedia === "function" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -18,7 +22,11 @@ export function useTheme() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    window.localStorage.setItem(STORAGE_KEY, theme);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, theme);
+    } catch {
+      // Ignore persistence failures when storage is restricted.
+    }
   }, [theme]);
 
   const toggleTheme = () =>

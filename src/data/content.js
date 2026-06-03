@@ -23,29 +23,29 @@ export const hero = {
 };
 
 export const valueProps = {
-  lead: "Run your business with confidence.",
+  lead: "Run your biz like a main character.",
   trail:
-    "Adyen delivers the control, reliability, and expertise global enterprises depend on.",
+    "Adyen brings the control, reliability, and big-brain energy global enterprises actually vibe with.",
   items: [
     {
-      title: "Compliance you can trust",
-      body: "Backed by US, UK, and EU banking licenses.",
+      title: "Compliance that hits different",
+      body: "Backed by US, UK, and EU banking licenses — no cap.",
     },
     {
-      title: "Enterprise-grade reliability",
-      body: "99.999% historical platform uptime.",
+      title: "Uptime? It's giving unbreakable",
+      body: "99.999% historical platform uptime, fr fr.",
     },
     {
-      title: "One platform",
-      body: "Payments, data insights, and financial products in one place.",
+      title: "One platform to rule them all",
+      body: "Payments, data insights, and financial products in one place. Zero drama.",
     },
     {
-      title: "Built-in optimizations",
-      body: "Improve conversion, reduce fraud, and lower payment costs.",
+      title: "Optimizations that slap",
+      body: "Better conversion, less fraud, lower costs — this stack is bussin.",
     },
     {
-      title: "Easy to integrate",
-      body: "One API that supports multiple use cases and channels.",
+      title: "Integration? Lowkey effortless",
+      body: "One API for multiple use cases and channels. The rizz is built in.",
     },
   ],
 };

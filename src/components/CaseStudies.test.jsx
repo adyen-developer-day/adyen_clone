@@ -29,9 +29,9 @@ describe("CaseStudies", () => {
     expect(items).toHaveLength(caseStudies.stories.length);
   });
 
-  it("renders a 'Read story' link for each case study", () => {
+  it("renders a 'Get the tea' link for each case study", () => {
     render(<CaseStudies />);
-    const links = screen.getAllByRole("link", { name: /read story/i });
+    const links = screen.getAllByRole("link", { name: /get the tea/i });
     expect(links).toHaveLength(caseStudies.stories.length);
   });
 });

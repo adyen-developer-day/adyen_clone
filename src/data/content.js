@@ -164,31 +164,46 @@ export const footerColumns = [
   {
     heading: "About",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      { label: "Press & media", href: "#about" },
+      { label: "Careers", href: "#about" },
+      { label: "Investor Relations", href: "#about" },
+      { label: "Partner with us", href: "#contact" },
+      { label: "Contact", href: "#contact" },
     ],
   },
   {
     heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    links: [
+      { label: "Payments", href: "#products" },
+      { label: "Risk management", href: "#products" },
+      { label: "Authentication", href: "#products" },
+      { label: "Issuing", href: "#products" },
+      { label: "Pricing", href: "#products" },
+    ],
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    links: [
+      { label: "Documentation", href: "#resources" },
+      { label: "Academy", href: "#resources" },
+      { label: "Knowledge Hub", href: "#resources" },
+      { label: "Newsletter", href: "#contact" },
+    ],
   },
   {
     heading: "Platform",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      { label: "Infrastructure", href: "#products" },
+      { label: "Licenses", href: "#about" },
+      { label: "Legal", href: "#about" },
+      { label: "Terms & Conditions", href: "#about" },
+      { label: "Service Status", href: "#about" },
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = [
+  { label: "Privacy", href: "#about" },
+  { label: "Cookies", href: "#about" },
+  { label: "Disclaimer", href: "#about" },
+];

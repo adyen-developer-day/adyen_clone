@@ -9,11 +9,11 @@ export default function CaseStudies() {
       <div className="cases__rail" role="list">
         {caseStudies.stories.map((story) => (
           <article key={story.brand} className="storycard" role="listitem">
-            <span className="storycard__tag">Tea ☕</span>
+            <span className="storycard__tag">War Story</span>
             <span className="storycard__brand">{story.brand}</span>
             <p className="storycard__body">{story.body}</p>
             <a className="storycard__link" href="#resources">
-              Get the tea
+              Read the kill log
               <span aria-hidden="true">→</span>
             </a>
           </article>

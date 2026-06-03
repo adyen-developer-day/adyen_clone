@@ -1,194 +1,194 @@
 // Central content for the homepage replica.
-// Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
+// Mirrors the structure of the live Adyen homepage (localhost demo only).
 
 export const announcement = {
-  tag: "Just dropped 🔥",
-  text: "Fraud got a glow-up — peep the 2026 report, no cap",
+  tag: "New Carnage 🔥",
+  text: "Fraud crawled out of Hell — read the 2026 carnage report",
   href: "#fraud-report",
 };
 
 export const navLinks = [
-  { label: "The Goods", href: "#products" },
-  { label: "Our Fam", href: "#industries" },
-  { label: "The Lore", href: "#about" },
-  { label: "The Tea", href: "#resources" },
-  { label: "The Bag", href: "#contact" },
+  { label: "Arsenal", href: "#products" },
+  { label: "Battlegrounds", href: "#industries" },
+  { label: "The Mission", href: "#about" },
+  { label: "Intel", href: "#resources" },
+  { label: "Deploy", href: "#contact" },
 ];
 
 export const hero = {
-  title: "Payments that lowkey slap",
+  title: "Payments that rip and tear",
   subtitle:
-    "One platform for payments, data, and financial products — no cap. It's giving main character energy for the world's leading businesses, fr fr.",
-  cta: "Let's vibe",
+    "One platform for payments, data, and financial products — forged for war. Built to dominate for the world's most relentless enterprises.",
+  cta: "Deploy now",
 };
 
 export const valueProps = {
-  lead: "Run your biz like a main character.",
+  lead: "Run your business like a war machine.",
   trail:
-    "Adyen brings the control, reliability, and big-brain energy global enterprises actually vibe with.",
+    "Adyen brings the control, firepower, and ironclad reliability the biggest enterprises take into battle.",
   items: [
     {
-      title: "Compliance that hits different",
-      body: "Backed by US, UK, and EU banking licenses — no cap.",
+      title: "Compliance forged in steel",
+      body: "Backed by US, UK, and EU banking licenses. Locked and loaded.",
     },
     {
-      title: "Uptime? It's giving unbreakable",
-      body: "99.999% historical platform uptime, fr fr.",
+      title: "Uptime that never dies",
+      body: "99.999% historical platform uptime. It does not flinch.",
     },
     {
-      title: "One platform to rule them all",
-      body: "Payments, data insights, and financial products in one place. Zero drama.",
+      title: "One platform to crush them all",
+      body: "Payments, data insights, and financial products in a single arsenal.",
     },
     {
-      title: "Optimizations that slap",
-      body: "Better conversion, less fraud, lower costs — this stack is bussin.",
+      title: "Optimizations that hit like a super shotgun",
+      body: "Higher conversion, less fraud, lower costs — maximum damage.",
     },
     {
-      title: "Integration? Lowkey effortless",
-      body: "One API for multiple use cases and channels. The rizz is built in.",
+      title: "Integration with zero mercy",
+      body: "One API for every channel and use case. Plug in and dominate.",
     },
   ],
 };
 
 export const moneyMovement = {
-  lead: "Your money has main character energy, no cap.",
+  lead: "Your money moves like a juggernaut.",
   trail:
-    "Serve your customers bussin financial products — all from the same centralized stack, fr fr.",
+    "Arm your customers with battle-tested financial products — all from one centralized command center.",
   cards: [
     {
-      eyebrow: "It's Giving… Intelligent Money Movement",
-      title: "Move that bag across your entire business",
-      body: "Lowkey drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform — this slaps.",
-      cta: "Peep the payments",
+      eyebrow: "Intelligent Money Movement",
+      title: "Move the spoils across your entire empire",
+      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform — no quarter given.",
+      cta: "Breach the payments",
       theme: "dark",
     },
     {
-      eyebrow: "Adyen for Platforms — We Vibing",
-      title: "Launch payments and financial products with big rizz energy",
-      body: "Unlock new revenue streams, highkey. Embed payments, accounts, card issuing, and capital with a single integration — zero drama.",
-      cta: "Peep the platforms",
+      eyebrow: "Adyen for Platforms",
+      title: "Launch payments and financial products with overwhelming force",
+      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration — total domination.",
+      cta: "Breach the platforms",
       theme: "green",
     },
   ],
 };
 
 export const industries = {
-  lead: "Every industry. Main character energy.",
-  trail: "No cap — businesses everywhere trust Adyen to keep the bag moving.",
+  lead: "Every industry. Total domination.",
+  trail: "Businesses across every battlefield trust Adyen to keep the war machine running.",
   items: [
     {
       title: "Retail",
-      body: "Checkout so fast it lowkey feels illegal. Top-tier security and vibes across every channel.",
+      body: "Checkout fast enough to outrun a charging demon. Ironclad security across every channel.",
       image: "retail",
     },
     {
       title: "Travel and hospitality",
-      body: "Trips that hit different — seamless, secure payments with that personal touch fr fr.",
+      body: "Journeys that conquer borders — seamless, secure payments with zero drag.",
       image: "travel",
     },
     {
       title: "Digital media and content",
-      body: "Subscriptions that slap and churn that dips. Recurring payments? Bussin.",
+      body: "Subscriptions that never die and churn that gets fragged. Recurring payments locked in.",
       image: "digital",
     },
     {
       title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products straight into your platform — it's giving rizz.",
+      body: "Embed payments and financial products straight into your platform — weaponized.",
       image: "saas",
     },
     {
       title: "Food and beverage",
-      body: "Online orders and in-store payments on one platform? We vibing, bestie.",
+      body: "Online orders and in-store payments on one platform. Feed the horde.",
       image: "food",
     },
     {
       title: "Financial services",
-      body: "Scale globally with elite reliability and compliance — highkey the standard for regulated businesses.",
+      body: "Scale globally with ruthless reliability and compliance — the standard for regulated battlefields.",
       image: "financial",
     },
   ],
 };
 
 export const stats = {
-  lead: "It's giving worldwide main character energy.",
-  trail: "No cap — powered by trillions in transaction data, fr fr.",
+  lead: "Worldwide firepower.",
+  trail: "Powered by trillions in transaction data forged on the front line.",
   items: [
-    { value: "€1.4T", label: "Processed yearly (bussin)" },
-    { value: "99.999%", label: "Uptime — this slaps" },
-    { value: "150+", label: "Currencies we vibing with" },
-    { value: "200+", label: "Local pay methods (lowkey fire)" },
-    { value: "29", label: "Offices — global rizz" },
+    { value: "€1.4T", label: "Processed yearly in tribute" },
+    { value: "99.999%", label: "Uptime that never dies" },
+    { value: "150+", label: "Currencies conquered" },
+    { value: "200+", label: "Local payment methods armed" },
+    { value: "29", label: "Strongholds worldwide" },
   ],
 };
 
 export const caseStudies = {
-  lead: "No cap — these brands chose Adyen and it lowkey changed the game",
+  lead: "These titans chose Adyen and crushed the competition",
   stories: [
     {
       brand: "Adobe",
-      body: "Adobe said 'bet' on global payments and their subscription revenue went absolutely bussin.",
+      body: "Adobe went all-in on global payments and their subscription revenue detonated.",
     },
     {
       brand: "Prada Group",
-      body: "Prada Group brought main character energy to luxury payments — it's giving innovation with a human touch, fr fr.",
+      body: "Prada Group brought elite firepower to luxury payments — innovation with a human edge.",
     },
     {
       brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty businesses and honestly? That rizz is unmatched.",
+      body: "Vagaro unlocked instant payouts for 80,000+ beauty businesses. Devastating efficiency.",
     },
     {
       brand: "Nord Security",
-      body: "Nord Security highkey optimized their payments flow — conversion went up 10% and we are vibing.",
+      body: "Nord Security optimized their payments flow and fragged friction — conversion up 10%.",
     },
     {
       brand: "L'Occitane",
-      body: "L'Occitane said goodbye to 40 systems, consolidated into one, and reconciliation dropped 20%. This slaps.",
+      body: "L'Occitane razed 40 systems into one and cut reconciliation 20%. Scorched earth.",
     },
     {
       brand: "Meta",
-      body: "Meta runs secure payments at global scale. No cap, the platform just hits different.",
+      body: "Meta runs secure payments at global scale. The platform simply does not break.",
     },
     {
       brand: "Rectangle Health",
-      body: "Rectangle Health embedded payments to automate insurance reimbursements — lowkey a whole slay.",
+      body: "Rectangle Health embedded payments to automate insurance reimbursements. Flawless execution.",
     },
   ],
 };
 
 export const finalCta = {
-  title: "No cap — if you're building for scale, nothing else slaps like this",
-  cta: "Slide into our DMs",
+  title: "If you're building for scale, nothing else brings this much firepower",
+  cta: "Enter the fight",
 };
 
 export const footerColumns = [
   {
-    heading: "The Lore",
+    heading: "The Mission",
     links: [
-      "Press & media tea",
-      "Join the squad",
-      "Investor vibes",
-      "Collab with us",
-      "Slide into our DMs",
+      "Press & dispatches",
+      "Join the legion",
+      "Investor intel",
+      "Form an alliance",
+      "Make contact",
     ],
   },
   {
-    heading: "The Goods",
-    links: ["Payments that slap", "Risk gatekeeping", "Auth no cap", "Card issuing fr", "Pricing (lowkey fair)"],
+    heading: "Arsenal",
+    links: ["Payments engine", "Risk defense", "Auth firepower", "Card issuing", "Pricing"],
   },
   {
-    heading: "Brain Fuel",
-    links: ["Docs (bussin)", "Academy arc", "Knowledge drops", "Newsletter vibes"],
+    heading: "Intel",
+    links: ["Docs", "Academy", "Field guides", "Dispatches"],
   },
   {
     heading: "The Stack",
     links: [
-      "Infra that eats",
-      "Licenses (we legit)",
-      "Legal stuff",
-      "T&Cs (read em fr)",
-      "Status check bestie",
+      "Infrastructure",
+      "Licenses",
+      "Legal",
+      "Terms",
+      "System status",
     ],
   },
 ];
 
-export const footerLegal = ["Privacy vibes", "Cookies (not the snack)", "Disclaimer fr"];
+export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];

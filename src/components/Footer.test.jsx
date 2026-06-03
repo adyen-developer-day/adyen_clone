@@ -16,7 +16,7 @@ describe("Footer", () => {
   it("displays the newsletter subscription link", () => {
     render(<Footer />);
     expect(
-      screen.getByRole("link", { name: /subscribe bestie/i }),
+      screen.getByRole("link", { name: /enlist for dispatches/i }),
     ).toBeInTheDocument();
   });
 

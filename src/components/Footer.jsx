@@ -16,10 +16,10 @@ export default function Footer() {
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
             <p className="footer__tagline">
-              One platform for payments, data, and financial products — it's giving everything.
+              One platform for payments, data, and financial products — built for total war.
             </p>
             <a className="btn btn--ghost-light" href="#newsletter">
-              Subscribe bestie, no cap
+              Enlist for dispatches
             </a>
           </div>
           <div className="footer__cols">

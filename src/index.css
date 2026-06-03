@@ -18,21 +18,21 @@
 }
 
 :root {
-  /* Brand palette (from Adyen's design tokens) */
-  --green: #00d16a;
-  --green-strong: #00b85c;
-  --ink: #001222;
-  --ink-2: #0d1e2e;
-  --sand: #f6f5f4;
-  --sand-300: #e6e4e2;
-  --grey: #f4f5f6;
-  --muted: #6c7782;
-  --muted-2: #8c959d;
+  /* Magnum palette — chocolate, gold, cream */
+  --green: #D4A84B;
+  --green-strong: #B8922F;
+  --ink: #1A0A0C;
+  --ink-2: #2C1518;
+  --sand: #FFF8E7;
+  --sand-300: #F5E6C8;
+  --grey: #FFF8E7;
+  --muted: #8B6914;
+  --muted-2: #A67C20;
 
-  --line: rgba(0, 18, 34, 0.1);
-  --line-strong: rgba(0, 18, 34, 0.16);
-  --on-dark-muted: rgba(255, 255, 255, 0.62);
-  --on-green-muted: rgba(0, 18, 34, 0.66);
+  --line: rgba(26, 10, 12, 0.1);
+  --line-strong: rgba(26, 10, 12, 0.16);
+  --on-dark-muted: rgba(255, 248, 231, 0.62);
+  --on-green-muted: rgba(26, 10, 12, 0.66);
 
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
@@ -141,7 +141,7 @@ svg {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  background: var(--ink);
+  background: linear-gradient(90deg, var(--ink) 0%, #3C1518 100%);
   color: #fff;
   padding: 11px 20px;
   font-size: 14px;
@@ -157,6 +157,7 @@ svg {
   padding: 4px 10px;
   border-radius: 999px;
 }
+
 .topbanner__text {
   color: rgba(255, 255, 255, 0.92);
 }
@@ -436,7 +437,7 @@ svg {
 
 /* ------------------------------------------------------------------- Stats */
 .stats {
-  background: var(--ink);
+  background: linear-gradient(135deg, var(--ink) 0%, #2C1518 50%, var(--ink) 100%);
   color: #fff;
 }
 .stats__statement {
@@ -511,6 +512,7 @@ svg {
   min-height: 300px;
   display: flex;
   flex-direction: column;
+  border-left: 4px solid var(--green);
 }
 .storycard__tag {
   font-family: var(--mono);
@@ -690,4 +692,251 @@ a:focus-visible,
     transition: none !important;
     scroll-behavior: auto;
   }
+}
+
+/* ============================================================ MGNUM HYPE ANIMATIONS */
+
+/* Pulsing glow for CTA buttons */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(212, 168, 75, 0.4); }
+  50% { box-shadow: 0 0 25px rgba(212, 168, 75, 0.8), 0 0 50px rgba(212, 168, 75, 0.3); }
+}
+
+/* Rainbow border shimmer */
+@keyframes rainbow-border {
+  0% { border-color: #D4A84B; }
+  25% { border-color: #E74C3C; }
+  50% { border-color: #3498DB; }
+  75% { border-color: #2ECC71; }
+  100% { border-color: #D4A84B; }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Shimmer effect for cards */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Number counting glow */
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 5px rgba(212, 168, 75, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(212, 168, 75, 1), 0 0 40px rgba(212, 168, 75, 0.5); }
+}
+
+/* Bouncing arrow */
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Apply animations */
+.btn--primary,
+.btn--dark {
+  background: linear-gradient(135deg, var(--ink) 0%, #3C1518 100%);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.btn--lg {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--green) 0%, #B8922F 30%, #D4A84B 60%, #E8C66A 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dripping chocolate effect at bottom of hero */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,0 C150,0 150,40 300,40 C350,40 350,55 400,55 C450,55 450,30 500,30 C550,30 550,50 600,50 C650,50 650,20 700,20 C750,20 750,45 800,45 C850,45 850,35 900,35 C950,35 950,55 1000,55 C1050,55 1050,25 1100,25 C1150,25 1150,40 1200,40 L1200,60 L0,60 Z' fill='%23FFF8E7'/%3E%3C/svg%3E") no-repeat bottom center;
+  background-size: 100% 60px;
+}
+
+.stat__value {
+  color: var(--green);
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.valueprop {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueprop::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -200%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 75, 0.08), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.valueprop:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(212, 168, 75, 0.15);
+  border-color: var(--green);
+}
+
+.bigcard--dark {
+  background: linear-gradient(135deg, var(--ink) 0%, #3C1518 100%);
+}
+
+.bigcard--green {
+  background: linear-gradient(135deg, var(--green) 0%, #E8C66A 100%);
+}
+
+.finalcta {
+  background: linear-gradient(135deg, var(--green) 0%, #B8922F 50%, var(--ink) 100%);
+  position: relative;
+}
+
+.finalcta .btn {
+  animation: pulse-glow 1s ease-in-out infinite, rainbow-border 3s linear infinite;
+  border: 3px solid var(--green);
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.topbanner__arrow {
+  animation: bounce-arrow 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+.storycard:hover {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: 0 20px 60px rgba(212, 168, 75, 0.2);
+}
+
+.industry:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--green);
+  box-shadow: 0 20px 60px rgba(212, 168, 75, 0.15);
+}
+
+/* Make the hero title extra dramatic */
+.hero__title {
+  text-shadow: 2px 2px 4px rgba(26, 10, 12, 0.1);
+}
+
+/* Gold accent on mono text */
+.valueprop__index {
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ============================================================ Stock Ticker */
+.stock-ticker {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 8px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 13px;
+  border-bottom: 1px solid rgba(212, 168, 75, 0.3);
+}
+
+.stock-ticker__track {
+  display: inline-flex;
+  animation: ticker-scroll 30s linear infinite;
+}
+
+.stock-ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 24px;
+}
+
+.stock-ticker__symbol {
+  font-weight: 700;
+  color: #D4A84B;
+}
+
+.stock-ticker__price {
+  color: #ccc;
+}
+
+.stock-ticker__change--up {
+  color: #00d16a;
+}
+
+.stock-ticker__change--down {
+  color: #ff4444;
+}
+
+.stock-ticker__arrow {
+  font-size: 10px;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================ Countdown Timer */
+.countdown {
+  background: linear-gradient(135deg, #1A0A0C 0%, #3C1518 100%);
+  color: #fff;
+  padding: clamp(48px, 7vw, 80px) 0;
+  text-align: center;
+}
+
+.countdown__label {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: rgba(255, 248, 231, 0.7);
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+
+.countdown__time {
+  font-family: var(--mono);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  color: #D4A84B;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(212, 168, 75, 0.5), 0 0 40px rgba(212, 168, 75, 0.2);
+  margin: 0 0 16px;
+}
+
+.countdown__subtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 248, 231, 0.4);
+  margin: 0 auto;
+  max-width: 500px;
+  font-style: italic;
+}
+
+/* ============================================================ Disclaimer */
+.disclaimer {
+  background: #0a0a0a;
+  padding: 20px 28px;
+  text-align: center;
+}
+
+.disclaimer__text {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.25);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
 }

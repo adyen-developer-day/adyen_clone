@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
             <p className="footer__tagline">
-              One platform for payments, data, and financial products.
+              One ice cream bar to rule them all. Not financial advice.
             </p>
             <a className="btn btn--ghost-light" href="#newsletter">
               Subscribe to our newsletter
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer__bottom">
-          <span className="footer__copy">© 2026 Adyen</span>
+          <span className="footer__copy">© 2026 MGNUM Holdings Inc.</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
               <a key={item} href="#">
@@ -39,10 +39,10 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <span className="footer__region">Global (English)</span>
+          <span className="footer__region">Global (Delicious)</span>
         </div>
         <p className="footer__disclaimer">
-          Workshop replica for localhost demo only. Not affiliated with Adyen.
+          Comedy contest entry. MGNUM is ice cream, not a stock. Please invest responsibly (in actual ice cream).
         </p>
       </div>
     </footer>

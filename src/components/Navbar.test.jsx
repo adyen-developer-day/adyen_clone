@@ -5,8 +5,8 @@ import Navbar from "./Navbar.jsx";
 // Workshop note: this is the ONLY test in the project on purpose.
 // The "add test coverage" task (Devin Cloud) is meant to expand from here.
 describe("Navbar", () => {
-  it("renders the contact sales call to action", () => {
+  it("renders the MGNUM logo", () => {
     render(<Navbar />);
-    expect(screen.getByText(/contact sales/i)).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /MGNUM/i })).toBeInTheDocument();
   });
 });

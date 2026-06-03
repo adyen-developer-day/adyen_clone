@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
             <p className="footer__tagline">{footer.tagline}</p>
-            <a className="btn btn--ghost-light" href="#newsletter">
+            <a className="btn btn--ghost-light" href="#contact">
               {footer.newsletter}
             </a>
           </div>

@@ -4,14 +4,14 @@ const content = {
   announcement: {
     tag: "Out now",
     text: "Discover the new face of fraud in our 2026 report",
-    href: "#fraud-report",
+    href: "#resources",
   },
   navLinks: [
     { label: "Products", href: "#products" },
     { label: "Businesses we serve", href: "#industries" },
     { label: "About", href: "#about" },
     { label: "Resources", href: "#resources" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Pricing", href: "#contact" },
   ],
   navbarCta: "Contact sales",
   hero: {

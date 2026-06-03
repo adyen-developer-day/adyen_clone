@@ -4,14 +4,14 @@ const content = {
   announcement: {
     tag: "Fresh drop",
     text: "the 2026 fraud report just dropped & it's lowkey terrifying",
-    href: "#fraud-report",
+    href: "#resources",
   },
   navLinks: [
     { label: "The goods", href: "#products" },
     { label: "Who we vibe with", href: "#industries" },
     { label: "The lore", href: "#about" },
     { label: "Big brain stuff", href: "#resources" },
-    { label: "The damage", href: "#pricing" },
+    { label: "The damage", href: "#contact" },
   ],
   navbarCta: "Hit us up",
   hero: {

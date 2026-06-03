@@ -51,22 +51,22 @@ export const valueProps = {
 };
 
 export const moneyMovement = {
-  lead: "Control every aspect of your money.",
+  lead: "Your money has main character energy, no cap.",
   trail:
-    "Offer financial products to your customers. All from the same, centralized stack.",
+    "Serve your customers bussin financial products — all from the same centralized stack, fr fr.",
   cards: [
     {
-      eyebrow: "Intelligent Money Movement",
-      title: "Move money across your entire business",
-      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform.",
-      cta: "Explore payments",
+      eyebrow: "It's Giving… Intelligent Money Movement",
+      title: "Move that bag across your entire business",
+      body: "Lowkey drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform — this slaps.",
+      cta: "Peep the payments",
       theme: "dark",
     },
     {
-      eyebrow: "Adyen for Platforms",
-      title: "Launch payments and financial products under your brand",
-      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration.",
-      cta: "Explore platforms",
+      eyebrow: "Adyen for Platforms — We Vibing",
+      title: "Launch payments and financial products with big rizz energy",
+      body: "Unlock new revenue streams, highkey. Embed payments, accounts, card issuing, and capital with a single integration — zero drama.",
+      cta: "Peep the platforms",
       theme: "green",
     },
   ],

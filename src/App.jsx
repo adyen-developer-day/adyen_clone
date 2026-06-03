@@ -8,6 +8,8 @@ import Stats from "./components/Stats.jsx";
 import CaseStudies from "./components/CaseStudies.jsx";
 import FinalCTA from "./components/FinalCTA.jsx";
 import Footer from "./components/Footer.jsx";
+import DoomHud from "./components/DoomHud.jsx";
+import CursorTrail from "./components/CursorTrail.jsx";
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <DoomHud />
+      <CursorTrail />
     </div>
   );
 }

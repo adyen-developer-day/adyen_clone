@@ -1,192 +1,192 @@
 // Central content for the homepage replica.
-// Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
+// Mirrors the structure of the live Adyen homepage (localhost demo only).
 
 export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
+  tag: "New Carnage 🔥",
+  text: "Fraud crawled out of Hell — read the 2026 carnage report",
   href: "#fraud-report",
 };
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Arsenal", href: "#products" },
+  { label: "Battlegrounds", href: "#industries" },
+  { label: "The Mission", href: "#about" },
+  { label: "Intel", href: "#resources" },
+  { label: "Deploy", href: "#contact" },
 ];
 
 export const hero = {
-  title: "Fintech you can bank on",
+  title: "Payments that rip and tear",
   subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
+    "One platform for payments, data, and financial products — forged for war. Built to dominate for the world's most relentless enterprises.",
+  cta: "Deploy now",
 };
 
 export const valueProps = {
-  lead: "Run your business with confidence.",
+  lead: "Run your business like a war machine.",
   trail:
-    "Adyen delivers the control, reliability, and expertise global enterprises depend on.",
+    "Adyen brings the control, firepower, and ironclad reliability the biggest enterprises take into battle.",
   items: [
     {
-      title: "Compliance you can trust",
-      body: "Backed by US, UK, and EU banking licenses.",
+      title: "Compliance forged in steel",
+      body: "Backed by US, UK, and EU banking licenses. Locked and loaded.",
     },
     {
-      title: "Enterprise-grade reliability",
-      body: "99.999% historical platform uptime.",
+      title: "Uptime that never dies",
+      body: "99.999% historical platform uptime. It does not flinch.",
     },
     {
-      title: "One platform",
-      body: "Payments, data insights, and financial products in one place.",
+      title: "One platform to crush them all",
+      body: "Payments, data insights, and financial products in a single arsenal.",
     },
     {
-      title: "Built-in optimizations",
-      body: "Improve conversion, reduce fraud, and lower payment costs.",
+      title: "Optimizations that hit like a super shotgun",
+      body: "Higher conversion, less fraud, lower costs — maximum damage.",
     },
     {
-      title: "Easy to integrate",
-      body: "One API that supports multiple use cases and channels.",
+      title: "Integration with zero mercy",
+      body: "One API for every channel and use case. Plug in and dominate.",
     },
   ],
 };
 
 export const moneyMovement = {
-  lead: "Control every aspect of your money.",
+  lead: "Your money moves like a juggernaut.",
   trail:
-    "Offer financial products to your customers. All from the same, centralized stack.",
+    "Arm your customers with battle-tested financial products — all from one centralized command center.",
   cards: [
     {
       eyebrow: "Intelligent Money Movement",
-      title: "Move money across your entire business",
-      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform.",
-      cta: "Explore payments",
+      title: "Move the spoils across your entire empire",
+      body: "Drive revenue with optimized payments and automated payouts. Accept, settle, and move funds on one platform — no quarter given.",
+      cta: "Breach the payments",
       theme: "dark",
     },
     {
       eyebrow: "Adyen for Platforms",
-      title: "Launch payments and financial products under your brand",
-      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration.",
-      cta: "Explore platforms",
+      title: "Launch payments and financial products with overwhelming force",
+      body: "Unlock new revenue streams. Embed payments, accounts, card issuing, and capital with a single integration — total domination.",
+      cta: "Breach the platforms",
       theme: "green",
     },
   ],
 };
 
 export const industries = {
-  lead: "Different industries. One standard.",
-  trail: "Businesses across sectors trust Adyen to keep money moving.",
+  lead: "Every industry. Total domination.",
+  trail: "Businesses across every battlefield trust Adyen to keep the war machine running.",
   items: [
     {
       title: "Retail",
-      body: "Offer faster checkouts, stronger security, and better customer experiences across channels.",
+      body: "Checkout fast enough to outrun a charging demon. Ironclad security across every channel.",
       image: "retail",
     },
     {
       title: "Travel and hospitality",
-      body: "Turn every trip into a seamless, secure, and personal payment experience.",
+      body: "Journeys that conquer borders — seamless, secure payments with zero drag.",
       image: "travel",
     },
     {
       title: "Digital media and content",
-      body: "Boost subscriptions and reduce churn with optimized recurring payments.",
+      body: "Subscriptions that never die and churn that gets fragged. Recurring payments locked in.",
       image: "digital",
     },
     {
       title: "SaaS platforms and marketplaces",
-      body: "Embed payments and financial products into the products your users love.",
+      body: "Embed payments and financial products straight into your platform — weaponized.",
       image: "saas",
     },
     {
       title: "Food and beverage",
-      body: "Connect online ordering and in-store payments on a single platform.",
+      body: "Online orders and in-store payments on one platform. Feed the horde.",
       image: "food",
     },
     {
       title: "Financial services",
-      body: "Scale globally with the reliability and compliance regulated businesses need.",
+      body: "Scale globally with ruthless reliability and compliance — the standard for regulated battlefields.",
       image: "financial",
     },
   ],
 };
 
 export const stats = {
-  lead: "Global scale. Local expertise.",
-  trail: "Powered by trillions of euros in transaction data.",
+  lead: "Worldwide firepower.",
+  trail: "Powered by trillions in transaction data forged on the front line.",
   items: [
-    { value: "€1.4T", label: "Processed annually" },
-    { value: "99.999%", label: "Uptime" },
-    { value: "150+", label: "Currencies" },
-    { value: "200+", label: "Local payment methods" },
-    { value: "29", label: "Global offices" },
+    { value: "€1.4T", label: "Processed yearly in tribute" },
+    { value: "99.999%", label: "Uptime that never dies" },
+    { value: "150+", label: "Currencies conquered" },
+    { value: "200+", label: "Local payment methods armed" },
+    { value: "29", label: "Strongholds worldwide" },
   ],
 };
 
 export const caseStudies = {
-  lead: "When certainty matters, Adyen's the platform of choice",
+  lead: "These titans chose Adyen and crushed the competition",
   stories: [
     {
       brand: "Adobe",
-      body: "Adobe maximized subscription revenue with global payments.",
+      body: "Adobe went all-in on global payments and their subscription revenue detonated.",
     },
     {
       brand: "Prada Group",
-      body: "Prada Group brings luxury style with a human touch through payments innovation.",
+      body: "Prada Group brought elite firepower to luxury payments — innovation with a human edge.",
     },
     {
       brand: "Vagaro",
-      body: "Vagaro unlocked instant payouts for 80,000+ beauty and wellness businesses.",
+      body: "Vagaro unlocked instant payouts for 80,000+ beauty businesses. Devastating efficiency.",
     },
     {
       brand: "Nord Security",
-      body: "Nord Security optimized payments and increased conversion by 10%.",
+      body: "Nord Security optimized their payments flow and fragged friction — conversion up 10%.",
     },
     {
       brand: "L'Occitane",
-      body: "L'Occitane consolidated 40 systems into one. Reconciliation dropped 20%.",
+      body: "L'Occitane razed 40 systems into one and cut reconciliation 20%. Scorched earth.",
     },
     {
       brand: "Meta",
-      body: "Meta delivers secure payments at global scale.",
+      body: "Meta runs secure payments at global scale. The platform simply does not break.",
     },
     {
       brand: "Rectangle Health",
-      body: "Rectangle Health automates insurance reimbursements with embedded payments.",
+      body: "Rectangle Health embedded payments to automate insurance reimbursements. Flawless execution.",
     },
   ],
 };
 
 export const finalCta = {
-  title: "If you're building for scale, there's no alternative",
-  cta: "Contact us",
+  title: "If you're building for scale, nothing else brings this much firepower",
+  cta: "Enter the fight",
 };
 
 export const footerColumns = [
   {
-    heading: "About",
+    heading: "The Mission",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      "Press & dispatches",
+      "Join the legion",
+      "Investor intel",
+      "Form an alliance",
+      "Make contact",
     ],
   },
   {
-    heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    heading: "Arsenal",
+    links: ["Payments engine", "Risk defense", "Auth firepower", "Card issuing", "Pricing"],
   },
   {
-    heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    heading: "Intel",
+    links: ["Docs", "Academy", "Field guides", "Dispatches"],
   },
   {
-    heading: "Platform",
+    heading: "The Stack",
     links: [
       "Infrastructure",
       "Licenses",
       "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      "Terms",
+      "System status",
     ],
   },
 ];

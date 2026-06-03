@@ -1,6 +1,13 @@
 import { footerColumns, footerLegal } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
+const columnAnchors = {
+  About: "#about",
+  Products: "#products",
+  Resources: "#resources",
+  Platform: "#about",
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -9,10 +16,10 @@ export default function Footer() {
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
             <p className="footer__tagline">
-              One platform for payments, data, and financial products.
+              One platform for payments, data, and financial products — built for total war.
             </p>
             <a className="btn btn--ghost-light" href="#newsletter">
-              Subscribe to our newsletter
+              Enlist for dispatches
             </a>
           </div>
           <div className="footer__cols">
@@ -22,7 +29,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#">{link}</a>
+                      <a href={columnAnchors[col.heading] || "#about"}>{link}</a>
                     </li>
                   ))}
                 </ul>
@@ -34,7 +41,7 @@ export default function Footer() {
           <span className="footer__copy">© 2026 Adyen</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
-              <a key={item} href="#">
+              <a key={item} href="#contact">
                 {item}
               </a>
             ))}

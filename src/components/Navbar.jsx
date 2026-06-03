@@ -2,30 +2,30 @@ import { useState, useEffect } from "react";
 import { navLinks } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
-function getInitialA11y() {
-  return localStorage.getItem("a11y-colorblind") === "true";
+function getInitialContrast() {
+  return localStorage.getItem("high-contrast") === "true";
 }
 
-const EyeIcon = () => (
+const ContrastIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
-    <circle cx="12" cy="12" r="3" />
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor" />
   </svg>
 );
 
 export default function Navbar() {
-  const [colorblind, setColorblind] = useState(getInitialA11y);
+  const [highContrast, setHighContrast] = useState(getInitialContrast);
 
   useEffect(() => {
-    if (colorblind) {
-      document.documentElement.setAttribute("data-a11y", "colorblind");
+    if (highContrast) {
+      document.documentElement.setAttribute("data-contrast", "high");
     } else {
-      document.documentElement.removeAttribute("data-a11y");
+      document.documentElement.removeAttribute("data-contrast");
     }
-    localStorage.setItem("a11y-colorblind", String(colorblind));
-  }, [colorblind]);
+    localStorage.setItem("high-contrast", String(highContrast));
+  }, [highContrast]);
 
-  const toggle = () => setColorblind((prev) => !prev);
+  const toggle = () => setHighContrast((prev) => !prev);
 
   return (
     <header className="navbar">
@@ -58,12 +58,12 @@ export default function Navbar() {
         </nav>
         <div className="navbar__actions">
           <button
-            className="a11y-toggle"
+            className="contrast-toggle"
             onClick={toggle}
-            aria-label="Toggle color-blind friendly palette"
-            aria-pressed={colorblind}
+            aria-label="Toggle high-contrast mode"
+            aria-pressed={highContrast}
           >
-            <EyeIcon />
+            <ContrastIcon />
           </button>
           <a className="btn btn--primary" href="#contact">
             Contact sales

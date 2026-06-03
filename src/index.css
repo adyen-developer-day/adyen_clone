@@ -39,26 +39,98 @@
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-/* ---------- Color-blind friendly overrides (deuteranopia / protanopia safe) */
-[data-a11y="colorblind"] {
-  --green: #0077b6;
-  --green-strong: #005f8a;
-  --on-green-muted: rgba(255, 255, 255, 0.78);
+/* ---------- High-contrast dark-blue mode ---------- */
+[data-contrast="high"] {
+  --green: #ffffff;
+  --green-strong: #e0e0e0;
+  --ink: #ffffff;
+  --ink-2: #f0f0f0;
+  --sand: #0a1628;
+  --sand-300: #0d1e2e;
+  --grey: #0a1628;
+  --muted: #a0b0c0;
+  --muted-2: #8899aa;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+  --on-dark-muted: rgba(255, 255, 255, 0.62);
+  --on-green-muted: rgba(255, 255, 255, 0.7);
 }
-[data-a11y="colorblind"] .hero,
-[data-a11y="colorblind"] .bigcard--green,
-[data-a11y="colorblind"] .finalcta {
+[data-contrast="high"] body {
+  background: #060e1a;
+}
+[data-contrast="high"] .page {
+  background: #0a1628;
+}
+[data-contrast="high"] .navbar {
+  background: rgba(10, 22, 40, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+[data-contrast="high"] .hero {
+  background: #0a1628;
   color: #fff;
 }
-[data-a11y="colorblind"] .hero .btn--dark {
+[data-contrast="high"] .hero .btn--dark {
   background: #fff;
-  color: var(--green);
+  color: #0a1628;
 }
-[data-a11y="colorblind"] .hero .btn--dark:hover {
-  background: #e8eaed;
+[data-contrast="high"] .hero .btn--dark:hover {
+  background: #e0e0e0;
 }
-[data-a11y="colorblind"] .topbanner__tag {
+[data-contrast="high"] .section {
+  background: #0a1628;
   color: #fff;
+}
+[data-contrast="high"] .valueprop {
+  background: #0f1f35;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+[data-contrast="high"] .industry {
+  background: #0f1f35;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+[data-contrast="high"] .bigcard {
+  color: #fff;
+}
+[data-contrast="high"] .bigcard--green {
+  background: #0f1f35;
+  color: #fff;
+}
+[data-contrast="high"] .bigcard--dark {
+  background: #060e1a;
+}
+[data-contrast="high"] .stats {
+  background: #0a1628;
+}
+[data-contrast="high"] .stories {
+  background: #0a1628;
+}
+[data-contrast="high"] .storycard {
+  background: #0f1f35;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+[data-contrast="high"] .finalcta {
+  background: #0f1f35;
+  color: #fff;
+}
+[data-contrast="high"] .footer {
+  background: #060e1a;
+}
+[data-contrast="high"] .topbanner {
+  background: #060e1a;
+}
+[data-contrast="high"] .topbanner__tag {
+  background: #fff;
+  color: #0a1628;
+}
+[data-contrast="high"] .btn--primary {
+  background: #fff;
+  color: #0a1628;
+}
+[data-contrast="high"] .btn--primary:hover {
+  background: #e0e0e0;
 }
 
 * {
@@ -663,8 +735,8 @@ svg {
   font-size: 0.8rem;
 }
 
-/* -------------------------------------------------------- A11y toggle btn */
-.a11y-toggle {
+/* ------------------------------------------------------ Contrast toggle btn */
+.contrast-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -678,22 +750,22 @@ svg {
   transition: border-color 0.16s ease, background 0.16s ease;
   padding: 0;
 }
-.a11y-toggle:hover {
+.contrast-toggle:hover {
   border-color: var(--ink);
   background: var(--sand);
 }
-.a11y-toggle svg {
+.contrast-toggle svg {
   width: 18px;
   height: 18px;
 }
-.a11y-toggle[aria-pressed="true"] {
-  background: var(--green);
-  border-color: var(--green);
-  color: #fff;
+.contrast-toggle[aria-pressed="true"] {
+  background: #fff;
+  border-color: #fff;
+  color: #0a1628;
 }
-.a11y-toggle[aria-pressed="true"]:hover {
-  background: var(--green-strong);
-  border-color: var(--green-strong);
+.contrast-toggle[aria-pressed="true"]:hover {
+  background: #e0e0e0;
+  border-color: #e0e0e0;
 }
 
 /* ------------------------------------------------------------ Focus states */

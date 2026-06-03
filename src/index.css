@@ -141,27 +141,45 @@ svg {
   align-items: center;
   justify-content: center;
   gap: 14px;
-  background: var(--ink);
+  background: #0d1117;
   color: #fff;
   padding: 11px 20px;
   font-size: 14px;
   flex-wrap: wrap;
+  border-top: 3px solid #de9b35;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.topbanner__pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #de9b35;
+  flex-shrink: 0;
+  animation: cs2-pulse 1.6s ease-in-out infinite;
+}
+@keyframes cs2-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
 }
 .topbanner__tag {
-  background: var(--green);
-  color: var(--ink);
+  background: #de9b35;
+  color: #0d1117;
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: 3px;
 }
 .topbanner__text {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 13px;
 }
 .topbanner__arrow {
   transition: transform 0.16s ease;
+  color: #de9b35;
 }
 .topbanner:hover .topbanner__arrow {
   transform: translateX(4px);
@@ -172,9 +190,8 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
-  backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
+  background: #111927;
+  border-bottom: 1px solid rgba(222, 155, 53, 0.18);
 }
 .navbar__inner {
   width: 100%;
@@ -184,35 +201,47 @@ svg {
   display: flex;
   align-items: center;
   gap: 36px;
-  height: 72px;
+  height: 56px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: #fff;
+}
+.navbar__logo-text {
+  font-family: var(--font);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #de9b35;
+  white-space: nowrap;
 }
 .navbar__links {
   display: flex;
-  gap: 28px;
+  gap: 0;
   margin-right: auto;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
-.navbar__links a {
+.navbar__tab {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  color: var(--ink);
-  opacity: 0.9;
+  padding: 0 18px;
+  height: 56px;
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom: 3px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease, text-shadow 0.18s ease;
+  position: relative;
 }
-.navbar__links a:hover {
-  opacity: 1;
+.navbar__tab:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 12px rgba(222, 155, 53, 0.35);
 }
-.navbar__caret {
-  opacity: 0.55;
-}
-.navbar__actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.navbar__tab--active {
+  color: #fff;
+  border-bottom-color: #de9b35;
+  text-shadow: 0 0 16px rgba(222, 155, 53, 0.45);
 }
 
 /* -------------------------------------------------------------------- Hero */

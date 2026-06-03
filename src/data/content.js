@@ -2,17 +2,17 @@
 // Mirrors the structure and copy of the live Adyen homepage (localhost demo only).
 
 export const announcement = {
-  tag: "Out now",
-  text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  tag: "NEW",
+  text: "Operation Payday — Loot Crates now live with exclusive discount codes",
+  href: "#lootboxes",
 };
 
 export const navLinks = [
-  { label: "Products", href: "#products" },
-  { label: "Businesses we serve", href: "#industries" },
-  { label: "About", href: "#about" },
-  { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "PLAY", href: "#hero" },
+  { label: "INVENTORY", href: "#inventory" },
+  { label: "LOOT CRATES", href: "#lootboxes" },
+  { label: "STORE", href: "#store" },
+  { label: "STATS", href: "#stats" },
 ];
 
 export const hero = {

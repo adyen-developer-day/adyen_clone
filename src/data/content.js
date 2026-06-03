@@ -16,10 +16,10 @@ export const navLinks = [
 ];
 
 export const hero = {
-  title: "Fintech you can bank on",
-  subtitle:
-    "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
-  cta: "Talk to our team",
+  title: "OPERATION PAYDAY",
+  subtitle: "Unlock exclusive discount codes. Open loot crates. Get rewarded.",
+  cta: "OPEN LOOT CRATE",
+  ctaSecondary: "VIEW INVENTORY",
 };
 
 export const valueProps = {

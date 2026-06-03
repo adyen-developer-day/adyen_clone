@@ -9,9 +9,12 @@ describe("AdyenLogo", () => {
   });
 
   it("scales width proportionally to the height prop", () => {
-    const { container } = render(<AdyenLogo height={52} />);
+    // Avoid string-equality on a derived float — compare numerically so the
+    // test isn't load-bearing on stringification of (80/26) * height.
+    const height = 40;
+    const { container } = render(<AdyenLogo height={height} />);
     const svg = container.querySelector("svg");
-    expect(svg).toHaveAttribute("height", "52");
-    expect(svg).toHaveAttribute("width", String((80 / 26) * 52));
+    expect(svg).toHaveAttribute("height", String(height));
+    expect(Number(svg.getAttribute("width"))).toBeCloseTo((80 / 26) * height, 6);
   });
 });

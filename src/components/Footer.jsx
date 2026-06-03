@@ -21,8 +21,8 @@ export default function Footer() {
                 <h4 className="footer__heading">{col.heading}</h4>
                 <ul>
                   {col.links.map((link) => (
-                    <li key={link}>
-                      <a href="#">{link}</a>
+                    <li key={link.href}>
+                      <a href={link.href}>{link.label}</a>
                     </li>
                   ))}
                 </ul>
@@ -34,8 +34,8 @@ export default function Footer() {
           <span className="footer__copy">© 2026 Adyen</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
-              <a key={item} href="#">
-                {item}
+              <a key={item.href} href={item.href}>
+                {item.label}
               </a>
             ))}
           </div>

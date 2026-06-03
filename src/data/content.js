@@ -184,7 +184,7 @@ export const footerColumns = [
   },
   {
     heading: "Platform",
-    href: "#about",
+    href: "#platform",
     links: [
       "Infrastructure",
       "Licenses",

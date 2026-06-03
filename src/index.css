@@ -56,43 +56,48 @@
   --btn-solid-bg-hover: #0a2237;
 }
 
-/* Dark theme tokens. Applied on explicit opt-in ([data-theme="dark"]) and as the
-   default when the OS prefers dark and no explicit choice has been made. */
+/* Cyberpunk dark palette — neon pink accents over near-black, with Adyen green
+   kept as the secondary neon. Applied on explicit opt-in ([data-theme="dark"])
+   and as the default when the OS prefers dark and no explicit choice was made. */
 [data-theme="dark"] {
-  --bg-body: #050d16;
-  --bg-page: #0a1521;
-  --bg-surface: #0f1d2b;
-  --bg-surface-alt: #0c1825;
-  --text: #e8eef3;
-  --text-muted: #9aa7b2;
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --card-shadow: rgba(0, 0, 0, 0.5);
-  --statement-trail: rgba(232, 238, 243, 0.45);
-  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
-  --navbar-bg: rgba(10, 21, 33, 0.86);
-  --btn-solid-bg: #e8eef3;
-  --btn-solid-fg: var(--ink);
-  --btn-solid-bg-hover: #ffffff;
+  --bg-body: #060410;
+  --bg-page: #0a0714;
+  --bg-surface: #150b22;
+  --bg-surface-alt: #0f0819;
+  --text: #f2ecff;
+  --text-muted: #b49ad4;
+  --border: rgba(255, 45, 149, 0.26);
+  --border-strong: rgba(255, 45, 149, 0.5);
+  --card-shadow: rgba(255, 45, 149, 0.28);
+  --statement-trail: rgba(0, 209, 106, 0.55);
+  --scrollbar-thumb: #ff2d95;
+  --navbar-bg: rgba(10, 7, 20, 0.82);
+  --neon-pink: #ff2d95;
+  --neon-green: #00d16a;
+  --btn-solid-bg: var(--neon-pink);
+  --btn-solid-fg: #0a0714;
+  --btn-solid-bg-hover: #ff5cae;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]):not([data-theme="dark"]) {
-    --bg-body: #050d16;
-    --bg-page: #0a1521;
-    --bg-surface: #0f1d2b;
-    --bg-surface-alt: #0c1825;
-    --text: #e8eef3;
-    --text-muted: #9aa7b2;
-    --border: rgba(255, 255, 255, 0.12);
-    --border-strong: rgba(255, 255, 255, 0.2);
-    --card-shadow: rgba(0, 0, 0, 0.5);
-    --statement-trail: rgba(232, 238, 243, 0.45);
-    --scrollbar-thumb: rgba(255, 255, 255, 0.2);
-    --navbar-bg: rgba(10, 21, 33, 0.86);
-    --btn-solid-bg: #e8eef3;
-    --btn-solid-fg: var(--ink);
-    --btn-solid-bg-hover: #ffffff;
+    --bg-body: #060410;
+    --bg-page: #0a0714;
+    --bg-surface: #150b22;
+    --bg-surface-alt: #0f0819;
+    --text: #f2ecff;
+    --text-muted: #b49ad4;
+    --border: rgba(255, 45, 149, 0.26);
+    --border-strong: rgba(255, 45, 149, 0.5);
+    --card-shadow: rgba(255, 45, 149, 0.28);
+    --statement-trail: rgba(0, 209, 106, 0.55);
+    --scrollbar-thumb: #ff2d95;
+    --navbar-bg: rgba(10, 7, 20, 0.82);
+    --neon-pink: #ff2d95;
+    --neon-green: #00d16a;
+    --btn-solid-bg: var(--neon-pink);
+    --btn-solid-fg: #0a0714;
+    --btn-solid-bg-hover: #ff5cae;
   }
 }
 
@@ -726,12 +731,88 @@ svg {
   font-size: 0.8rem;
 }
 
+/* ----------------------------------------------- Cyberpunk dark-mode accents */
+[data-theme="dark"] .page {
+  background: radial-gradient(
+      1200px 600px at 12% -5%,
+      rgba(255, 45, 149, 0.1),
+      transparent 60%
+    ),
+    radial-gradient(1000px 600px at 90% 18%, rgba(0, 209, 106, 0.08), transparent 55%),
+    var(--bg-page);
+}
+[data-theme="dark"] .navbar {
+  border-bottom-color: rgba(255, 45, 149, 0.38);
+  box-shadow: 0 1px 24px rgba(255, 45, 149, 0.16);
+}
+[data-theme="dark"] .navbar__toggle {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  box-shadow: 0 0 12px rgba(255, 45, 149, 0.45);
+}
+[data-theme="dark"] .navbar__toggle:hover {
+  background: rgba(255, 45, 149, 0.12);
+  box-shadow: 0 0 18px rgba(255, 45, 149, 0.7);
+}
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  box-shadow: 0 0 18px rgba(255, 45, 149, 0.5);
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  box-shadow: 0 0 30px rgba(255, 45, 149, 0.85);
+}
+[data-theme="dark"] .statement__lead {
+  text-shadow: 0 0 22px rgba(255, 45, 149, 0.4);
+}
+[data-theme="dark"] .statement__trail {
+  text-shadow: 0 0 22px rgba(0, 209, 106, 0.4);
+}
+[data-theme="dark"] .valueprop,
+[data-theme="dark"] .industry {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+    linear-gradient(135deg, rgba(255, 45, 149, 0.55), rgba(0, 209, 106, 0.55))
+      border-box;
+}
+[data-theme="dark"] .valueprop:hover,
+[data-theme="dark"] .industry:hover {
+  box-shadow: 0 0 26px rgba(255, 45, 149, 0.4), 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+[data-theme="dark"] .valueprop__index {
+  color: var(--neon-pink);
+  text-shadow: 0 0 12px rgba(255, 45, 149, 0.6);
+}
+[data-theme="dark"] .industry__link span {
+  text-shadow: 0 0 10px rgba(0, 209, 106, 0.7);
+}
+[data-theme="dark"] .stat__value {
+  text-shadow: 0 0 16px rgba(0, 209, 106, 0.6);
+}
+[data-theme="dark"] .storycard {
+  border: 1px solid rgba(255, 45, 149, 0.32);
+  box-shadow: 0 0 22px rgba(255, 45, 149, 0.12);
+}
+[data-theme="dark"] .storycard__tag {
+  text-shadow: 0 0 12px rgba(0, 209, 106, 0.6);
+}
+[data-theme="dark"] .footer__col a:hover,
+[data-theme="dark"] .navbar__links a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px rgba(255, 45, 149, 0.6);
+}
+
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 6px;
+}
+[data-theme="dark"] a:focus-visible,
+[data-theme="dark"] .btn:focus-visible,
+[data-theme="dark"] .navbar__toggle:focus-visible {
+  outline-color: var(--neon-pink);
 }
 .hero a:focus-visible,
 .finalcta a:focus-visible,

@@ -1,6 +1,13 @@
 import { footerColumns, footerLegal } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
+const columnAnchors = {
+  About: "#about",
+  Products: "#products",
+  Resources: "#resources",
+  Platform: "#about",
+};
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -22,7 +29,7 @@ export default function Footer() {
                 <ul>
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#">{link}</a>
+                      <a href={columnAnchors[col.heading] || "#about"}>{link}</a>
                     </li>
                   ))}
                 </ul>
@@ -34,7 +41,7 @@ export default function Footer() {
           <span className="footer__copy">© 2026 Adyen</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
-              <a key={item} href="#">
+              <a key={item} href="#contact">
                 {item}
               </a>
             ))}

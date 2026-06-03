@@ -34,9 +34,33 @@
   --on-dark-muted: rgba(255, 255, 255, 0.62);
   --on-green-muted: rgba(0, 18, 34, 0.66);
 
+  /* Semantic theme tokens (light) — overridden under [data-theme="dark"] */
+  --page-bg: #fff;
+  --surface: #fff;
+  --surface-sand: var(--sand);
+  --text: var(--ink);
+  --text-trail: rgba(0, 18, 34, 0.42);
+  --nav-bg: rgba(255, 255, 255, 0.86);
+
   --maxw: 1200px;
   --font: "Adyen", Helvetica, Arial, sans-serif;
   --mono: "AdyenMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+[data-theme="dark"] {
+  --page-bg: #04101b;
+  --surface: #0d1e2e;
+  --surface-sand: #0a1825;
+  --text: #eaf0f4;
+  --text-trail: rgba(234, 240, 244, 0.42);
+  --nav-bg: rgba(4, 16, 27, 0.85);
+
+  --muted: #9aa7b2;
+  --muted-2: #7c8893;
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+
+  color-scheme: dark;
 }
 
 * {
@@ -50,15 +74,15 @@ html {
 body {
   margin: 0;
   font-family: var(--font);
-  color: var(--ink);
-  background: var(--ink);
+  color: var(--text);
+  background: var(--page-bg);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 .page {
-  background: #fff;
+  background: var(--page-bg);
 }
 
 a {
@@ -119,6 +143,15 @@ svg {
 .btn--ghost-light:hover {
   border-color: #fff;
 }
+[data-theme="dark"] .btn--primary,
+[data-theme="dark"] .btn--dark {
+  background: #eaf0f4;
+  color: #04101b;
+}
+[data-theme="dark"] .btn--primary:hover,
+[data-theme="dark"] .btn--dark:hover {
+  background: #fff;
+}
 
 /* arrow links */
 .arrowlink {
@@ -172,7 +205,7 @@ svg {
   position: sticky;
   top: 0;
   z-index: 60;
-  background: rgba(255, 255, 255, 0.86);
+  background: var(--nav-bg);
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -187,7 +220,7 @@ svg {
   height: 72px;
 }
 .navbar__brand {
-  color: var(--ink);
+  color: var(--text);
 }
 .navbar__links {
   display: flex;
@@ -200,7 +233,7 @@ svg {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  color: var(--ink);
+  color: var(--text);
   opacity: 0.9;
 }
 .navbar__links a:hover {
@@ -213,6 +246,29 @@ svg {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+.navbar__theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--line-strong);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.14s ease, background 0.16s ease,
+    border-color 0.16s ease, color 0.16s ease;
+}
+.navbar__theme:hover {
+  transform: translateY(-1px);
+  border-color: var(--text);
+}
+.navbar__theme:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
 }
 
 /* -------------------------------------------------------------------- Hero */
@@ -248,10 +304,10 @@ svg {
 /* ---------------------------------------------------------------- Sections */
 .section {
   padding: clamp(64px, 9vw, 120px) 0;
-  background: #fff;
+  background: var(--page-bg);
 }
 .section--sand {
-  background: var(--sand);
+  background: var(--surface-sand);
 }
 
 /* Two-tone statement headline */
@@ -264,10 +320,10 @@ svg {
   max-width: 20ch;
 }
 .statement__lead {
-  color: var(--ink);
+  color: var(--text);
 }
 .statement__trail {
-  color: rgba(0, 18, 34, 0.42);
+  color: var(--text-trail);
 }
 
 /* -------------------------------------------------------------- ValueProps */
@@ -280,7 +336,7 @@ svg {
   gap: 18px;
 }
 .valueprop {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 26px 24px 30px;
@@ -393,7 +449,7 @@ svg {
   margin-bottom: 22px;
 }
 .industry {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 32px 30px;
@@ -424,7 +480,7 @@ svg {
   margin-top: auto;
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--ink);
+  color: var(--text);
 }
 .industry__link span {
   transition: transform 0.16s ease;
@@ -644,7 +700,7 @@ svg {
 /* ------------------------------------------------------------ Focus states */
 a:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--text);
   outline-offset: 3px;
   border-radius: 6px;
 }

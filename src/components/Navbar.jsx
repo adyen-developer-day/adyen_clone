@@ -1,7 +1,8 @@
-import { navLinks } from "../data/content.js";
+import { useContent } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
 export default function Navbar() {
+  const { navLinks, navbarCta } = useContent();
   return (
     <header className="navbar">
       <div className="navbar__inner">
@@ -33,7 +34,7 @@ export default function Navbar() {
         </nav>
         <div className="navbar__actions">
           <a className="btn btn--primary" href="#contact">
-            Contact sales
+            {navbarCta}
           </a>
         </div>
       </div>

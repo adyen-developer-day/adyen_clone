@@ -1,18 +1,17 @@
-import { footerColumns, footerLegal } from "../data/content.js";
+import { useContent } from "../data/content.js";
 import AdyenLogo from "./AdyenLogo.jsx";
 
 export default function Footer() {
+  const { footer, footerColumns, footerLegal } = useContent();
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
             <AdyenLogo className="footer__logo" height={30} />
-            <p className="footer__tagline">
-              One platform for payments, data, and financial products.
-            </p>
+            <p className="footer__tagline">{footer.tagline}</p>
             <a className="btn btn--ghost-light" href="#newsletter">
-              Subscribe to our newsletter
+              {footer.newsletter}
             </a>
           </div>
           <div className="footer__cols">
@@ -31,7 +30,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="footer__bottom">
-          <span className="footer__copy">© 2026 Adyen</span>
+          <span className="footer__copy">{footer.copy}</span>
           <div className="footer__legal">
             {footerLegal.map((item) => (
               <a key={item} href="#">
@@ -39,11 +38,9 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <span className="footer__region">Global (English)</span>
+          <span className="footer__region">{footer.region}</span>
         </div>
-        <p className="footer__disclaimer">
-          Workshop replica for localhost demo only. Not affiliated with Adyen.
-        </p>
+        <p className="footer__disclaimer">{footer.disclaimer}</p>
       </div>
     </footer>
   );

@@ -1,6 +1,7 @@
-import { caseStudies } from "../data/content.js";
+import { useContent } from "../data/content.js";
 
 export default function CaseStudies() {
+  const { caseStudies } = useContent();
   return (
     <section className="section section--sand cases" id="resources">
       <div className="container">
@@ -9,11 +10,11 @@ export default function CaseStudies() {
       <div className="cases__rail" role="list">
         {caseStudies.stories.map((story) => (
           <article key={story.brand} className="storycard" role="listitem">
-            <span className="storycard__tag">Story</span>
+            <span className="storycard__tag">{caseStudies.storyTag}</span>
             <span className="storycard__brand">{story.brand}</span>
             <p className="storycard__body">{story.body}</p>
             <a className="storycard__link" href="#resources">
-              Read story
+              {caseStudies.readLabel}
               <span aria-hidden="true">→</span>
             </a>
           </article>

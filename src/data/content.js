@@ -4,7 +4,7 @@
 export const announcement = {
   tag: "Out now",
   text: "Discover the new face of fraud in our 2026 report",
-  href: "#fraud-report",
+  href: "#resources",
 };
 
 export const navLinks = [
@@ -12,14 +12,24 @@ export const navLinks = [
   { label: "Businesses we serve", href: "#industries" },
   { label: "About", href: "#about" },
   { label: "Resources", href: "#resources" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Pricing", href: "#products" },
 ];
 
 export const hero = {
+  eyebrow: "One platform. Every payment.",
   title: "Fintech you can bank on",
   subtitle:
     "One platform for payments, data, and financial products. Built to scale with the world's leading businesses.",
   cta: "Talk to our team",
+  secondaryCta: "Explore the platform",
+  // Drives the animated checkout visual in the hero.
+  payments: [
+    { method: "Card", amount: "€128.00" },
+    { method: "Apple Pay", amount: "€64.50" },
+    { method: "iDEAL", amount: "€212.00" },
+    { method: "PayPal", amount: "€99.99" },
+    { method: "Klarna", amount: "€340.00" },
+  ],
 };
 
 export const valueProps = {
@@ -164,31 +174,46 @@ export const footerColumns = [
   {
     heading: "About",
     links: [
-      "Press & media",
-      "Careers",
-      "Investor Relations",
-      "Partner with us",
-      "Contact",
+      { label: "Press & media", href: "#about" },
+      { label: "Careers", href: "#about" },
+      { label: "Investor Relations", href: "#about" },
+      { label: "Partner with us", href: "#industries" },
+      { label: "Contact", href: "#contact" },
     ],
   },
   {
     heading: "Products",
-    links: ["Payments", "Risk management", "Authentication", "Issuing", "Pricing"],
+    links: [
+      { label: "Payments", href: "#products" },
+      { label: "Risk management", href: "#products" },
+      { label: "Authentication", href: "#products" },
+      { label: "Issuing", href: "#products" },
+      { label: "Pricing", href: "#products" },
+    ],
   },
   {
     heading: "Resources",
-    links: ["Documentation", "Academy", "Knowledge Hub", "Newsletter"],
+    links: [
+      { label: "Documentation", href: "#resources" },
+      { label: "Academy", href: "#resources" },
+      { label: "Knowledge Hub", href: "#resources" },
+      { label: "Newsletter", href: "#resources" },
+    ],
   },
   {
     heading: "Platform",
     links: [
-      "Infrastructure",
-      "Licenses",
-      "Legal",
-      "Terms & Conditions",
-      "Service Status",
+      { label: "Infrastructure", href: "#products" },
+      { label: "Licenses", href: "#about" },
+      { label: "Legal", href: "#about" },
+      { label: "Terms & Conditions", href: "#about" },
+      { label: "Service Status", href: "#about" },
     ],
   },
 ];
 
-export const footerLegal = ["Privacy", "Cookies", "Disclaimer"];
+export const footerLegal = [
+  { label: "Privacy", href: "#about" },
+  { label: "Cookies", href: "#about" },
+  { label: "Disclaimer", href: "#about" },
+];
